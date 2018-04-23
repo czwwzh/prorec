@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compute/log/log.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/compute/run.sh" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dataetl/log/log.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dataetl/run.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute/computeconfiguration.py" afterPath="$PROJECT_DIR$/compute/computeconfiguration.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute/read.py" afterPath="$PROJECT_DIR$/compute/read.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute/run.sh" afterPath="$PROJECT_DIR$/compute/run.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataetl/run.sh" afterPath="$PROJECT_DIR$/dataetl/run.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,10 +18,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="readClass.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="readClass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compute/readClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
+            <state relative-caret-position="3474">
               <caret line="193" column="98" lean-forward="false" selection-start-line="193" selection-start-column="98" selection-end-line="193" selection-end-column="98" />
               <folding>
                 <element signature="e#45#56#0" expanded="true" />
@@ -30,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="54">
-              <caret line="3" column="72" lean-forward="false" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
+              <caret line="3" column="121" lean-forward="false" selection-start-line="3" selection-start-column="121" selection-end-line="3" selection-end-column="121" />
               <folding />
             </state>
           </provider>
@@ -64,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/compute/run.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
-              <caret line="9" column="130" lean-forward="false" selection-start-line="9" selection-start-column="130" selection-end-line="9" selection-end-column="130" />
+              <caret line="9" column="117" lean-forward="false" selection-start-line="9" selection-start-column="117" selection-end-line="9" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -158,9 +158,9 @@
         <option value="$PROJECT_DIR$/dataetl/preprocessetlfunc.py" />
         <option value="$PROJECT_DIR$/compute/read.py" />
         <option value="$PROJECT_DIR$/dataetl/log/log.log" />
-        <option value="$PROJECT_DIR$/dataetl/run.sh" />
-        <option value="$PROJECT_DIR$/compute/run.sh" />
         <option value="$PROJECT_DIR$/compute/readClass.py" />
+        <option value="$PROJECT_DIR$/compute/run.sh" />
+        <option value="$PROJECT_DIR$/dataetl/run.sh" />
       </list>
     </option>
   </component>
@@ -483,29 +483,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
+    <entry file="file://$PROJECT_DIR$/compute/readClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="72" lean-forward="false" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
-          <folding />
+        <state relative-caret-position="3474">
+          <caret line="193" column="98" lean-forward="false" selection-start-line="193" selection-start-column="98" selection-end-line="193" selection-end-column="98" />
+          <folding>
+            <element signature="e#45#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compute/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
-          <caret line="9" column="130" lean-forward="false" selection-start-line="9" selection-start-column="130" selection-end-line="9" selection-end-column="130" />
+          <caret line="9" column="117" lean-forward="false" selection-start-line="9" selection-start-column="117" selection-end-line="9" selection-end-column="117" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compute/readClass.py">
+    <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="193" column="98" lean-forward="false" selection-start-line="193" selection-start-column="98" selection-end-line="193" selection-end-column="98" />
-          <folding>
-            <element signature="e#45#56#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="3" column="121" lean-forward="false" selection-start-line="3" selection-start-column="121" selection-end-line="3" selection-end-column="121" />
+          <folding />
         </state>
       </provider>
     </entry>
