@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-import os,sys,time,json
+import os,sys,time,json,requests
 from redisutil import Redis_db as rds
 import pp.pp as pp
 import pandas
@@ -208,7 +208,7 @@ def rundata(uuid):
                 # return compute status
                 returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
                 print(returndata)
-                a = requests.post(RETURN_PORT_URL, data=returndata)
+                a = requests.post(computeconfiguration.RETURN_PORT_URL, data=returndata)
                 print(a)
                 print('8.result send time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                             time.localtime()))
