@@ -13,6 +13,7 @@ from computeetlfunc import *
 class readClass:
     def __init__(self):
         pass
+
     def StartRun(self,uuid):
         return_shop_no = None
         return_sex = None
