@@ -14,6 +14,8 @@ class readClass:
     def __init__(self):
         pass
 
+    def StartRun1(self, uuid):
+        print(uuid)
     def StartRun(self,uuid):
         return_shop_no = None
         return_sex = None
