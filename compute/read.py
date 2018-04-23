@@ -6,6 +6,9 @@ from redisutil import Redis_db as rds
 import pp.pp as pp
 import pandas
 
+import computeconfiguration
+import computeetlfunc
+
 ppservers = ()
 if len(sys.argv) > 1:
     print('Close Server')
@@ -213,7 +216,7 @@ def rundata(uuid):
 
 def AnaData(inputs,start_time):
     print(len(inputs))
-    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,), ('pandas','computeetlfunc',))) for input in inputs]
+    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,), ('pandas','computeetlfunc','time','json','requests','computeconfiguration',))) for input in inputs]
     for input, job in jobs:
         print('StartRun--->', input)
         res = job()
