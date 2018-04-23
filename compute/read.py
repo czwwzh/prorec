@@ -15,7 +15,7 @@ else:
 def rundata(n):
     from readClass import readClass
     my_to = readClass()
-    return my_to.StartRun1(n)
+    return my_to.StartRun(n)
 
 def AnaData(inputs,start_time):
     print(len(inputs))

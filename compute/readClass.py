@@ -10,17 +10,8 @@ from multiprocessing import Pool
 from computeetlfunc import *
 # from model.local.compute.redisutil import Redis_db as rds
 
-class readClass:
-    def __init__(self):
-        pass
 
-    def StartRun1(self, uuid):
-        print(uuid)
-    def StartRun(self,uuid):
-        return_shop_no = None
-        return_sex = None
-        if uuid:
-            # =============================================================================
+# =============================================================================
             # load model and function
             # suit
             # model
@@ -84,6 +75,18 @@ class readClass:
                 size_predict3 = sizemodel3.predict_proba(sizepreprocessdata3)[0][1]
                 predictresult = sizemodel.predict_proba([[size_predict0, size_predict1, size_predict2, size_predict3]])
                 return json.dumps({'size': predictresult[0][1]})
+
+class readClass:
+    def __init__(self):
+        pass
+
+    def StartRunTest(self, uuid):
+        print(uuid)
+
+    def StartRun(self,uuid):
+        return_shop_no = None
+        return_sex = None
+        if uuid:
 
             print('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             status = statusexist(uuid)
