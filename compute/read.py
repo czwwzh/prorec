@@ -215,7 +215,7 @@ def rundata(uuid):
 
 def AnaData(inputs,start_time):
     print(len(inputs))
-    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,statusexist,getetldata,getetldataleftrightalone,getetldataleftrighttogether,resultdataprocess,resultsave,), ('pandas','time','json','requests',))) for input in inputs]
+    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,statusexist,getetldata,getetldataleftrightalone,getetldataleftrighttogether,resultdataprocess,resultsave,), ('pandas','time','json','requests','computeconfiguration',))) for input in inputs]
     for input, job in jobs:
         print('StartRun--->', input)
         res = job()
