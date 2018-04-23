@@ -6,8 +6,8 @@ from redisutil import Redis_db as rds
 import pp.pp as pp
 import pandas
 
-from computeetlfunc import *
-from computeconfiguration import *
+import computeetlfunc
+import computeconfiguration
 
 ppservers = ()
 if len(sys.argv) > 1:
@@ -109,15 +109,15 @@ def rundata(uuid):
     return_sex = None
     if uuid:
         print('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-        status = statusexist(uuid)
+        status = computeetlfunc.statusexist(uuid)
         print("status:" + str(status))
         if status and status != 0:
-            footlastlist = getetldata(uuid)
+            footlastlist = computeetlfunc.getetldata(uuid)
             print('2.get foot last dataetl data by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if footlastlist != None:
                 # get data for model compute size and suit
-                leftrightdatasalones = getetldataleftrightalone(footlastlist)
-                leftrightdatastogethers = getetldataleftrighttogether(footlastlist)
+                leftrightdatasalones = computeetlfunc.getetldataleftrightalone(footlastlist)
+                leftrightdatastogethers = computeetlfunc.getetldataleftrighttogether(footlastlist)
 
                 print('3.get  data in demand for model compute by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                                                 time.localtime()))
@@ -185,10 +185,10 @@ def rundata(uuid):
                                                                      time.localtime()))
 
                 # result process dict(key:list(dict)})
-                suit2resultprocess = resultdataprocess(suit2resultlist)
-                suit6resultprocess = resultdataprocess(suit6resultlist)
-                suit12resultprocess = resultdataprocess(suit12resultlist)
-                sizeresultprocess = resultdataprocess(sizeresultlist)
+                suit2resultprocess = computeetlfunc.resultdataprocess(suit2resultlist)
+                suit6resultprocess = computeetlfunc.resultdataprocess(suit6resultlist)
+                suit12resultprocess = computeetlfunc.resultdataprocess(suit12resultlist)
+                sizeresultprocess = computeetlfunc.resultdataprocess(sizeresultlist)
                 print('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                                time.localtime()))
                 # # result save
@@ -198,10 +198,10 @@ def rundata(uuid):
                 # with Pool(processes=agents) as pool:
                 #     pool.map(resultsave, dataset)
                 # result save
-                resultsave(suit2resultprocess,'suit_length_v1.0')
-                resultsave(suit6resultprocess, 'suit_metatarsalegirth_v1.0')
-                resultsave(suit12resultprocess, 'suit_global_v1.0')
-                resultsave(sizeresultprocess, 'size_v1.0')
+                computeetlfunc.resultsave(suit2resultprocess,'suit_length_v1.0')
+                computeetlfunc.resultsave(suit6resultprocess, 'suit_metatarsalegirth_v1.0')
+                computeetlfunc.resultsave(suit12resultprocess, 'suit_global_v1.0')
+                computeetlfunc.resultsave(sizeresultprocess, 'size_v1.0')
 
                 print('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                             time.localtime()))
@@ -215,7 +215,7 @@ def rundata(uuid):
 
 def AnaData(inputs,start_time):
     print(len(inputs))
-    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,statusexist,getetldata,getetldataleftrightalone,getetldataleftrighttogether,resultdataprocess,resultsave,), ('pandas','time','json','requests','computeconfiguration',))) for input in inputs]
+    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,), ('pandas','time','json','requests','computeetlfunc','computeconfiguration',))) for input in inputs]
     for input, job in jobs:
         print('StartRun--->', input)
         res = job()
