@@ -79,7 +79,7 @@ else:
     job_server = pp.Server(ppservers=ppservers)
 
 def rundata(uuid):
-    from computeetlfunc import *
+    import computeetlfunc
     return_shop_no = None
     return_sex = None
     if uuid:
