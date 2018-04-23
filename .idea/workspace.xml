@@ -27,26 +27,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redisutil.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="redisutil.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compute/redisutil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="69" column="22" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
+            <state relative-caret-position="72">
+              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readClass.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/compute/readClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
-                <element signature="e#47#79#0" expanded="true" />
+                <element signature="e#45#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="redisutil.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="redisutil.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataetl/redisutil.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="22" />
-              <folding>
-                <element signature="e#47#79#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="72">
+              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataetlconfiguration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataetl/dataetlconfiguration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="77" column="33" lean-forward="true" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -64,13 +82,13 @@
         <option value="$PROJECT_DIR$/compute/read.py" />
         <option value="$PROJECT_DIR$/compute/readClass.py" />
         <option value="$PROJECT_DIR$/compute/transfer.py" />
-        <option value="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" />
         <option value="$PROJECT_DIR$/dataetl/preprocessetlfunc.py" />
         <option value="$PROJECT_DIR$/dataetl/read.py" />
         <option value="$PROJECT_DIR$/dataetl/readClass.py" />
         <option value="$PROJECT_DIR$/dataetl/transfer.py" />
-        <option value="$PROJECT_DIR$/dataetl/redisutil.py" />
         <option value="$PROJECT_DIR$/compute/redisutil.py" />
+        <option value="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" />
+        <option value="$PROJECT_DIR$/dataetl/redisutil.py" />
       </list>
     </option>
   </component>
@@ -234,16 +252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compute/readClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compute/variables.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-54">
@@ -259,14 +267,6 @@
           <folding>
             <element signature="e#46#77#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/dataetlconfiguration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="77" column="33" lean-forward="true" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -322,23 +322,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/redisutil.py">
+    <entry file="file://$PROJECT_DIR$/compute/readClass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="22" />
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="e#47#79#0" expanded="true" />
+            <element signature="e#45#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/compute/redisutil.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="69" column="22" lean-forward="false" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-          <folding>
-            <element signature="e#47#79#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="72">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/dataetlconfiguration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="77" column="33" lean-forward="true" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/redisutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

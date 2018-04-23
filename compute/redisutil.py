@@ -2,7 +2,7 @@
 # _*_ coding:utf-8 _*_
 
 
-from configurationlocal import *
+from computeconfiguration import *
 import redis
 
 class Redis_db:
