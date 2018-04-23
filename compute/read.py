@@ -6,7 +6,8 @@ from redisutil import Redis_db as rds
 import pp.pp as pp
 import pandas
 
-import computeconfiguration
+from computeetlfunc import *
+from computeconfiguration import *
 
 ppservers = ()
 if len(sys.argv) > 1:
@@ -103,12 +104,10 @@ def sizepredict(data):
     return json.dumps({'size': predictresult[0][1]})
 
 
-
 def rundata(uuid):
     return_shop_no = None
     return_sex = None
     if uuid:
-        import computeetlfunc
         print('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         status = statusexist(uuid)
         print("status:" + str(status))
@@ -216,7 +215,7 @@ def rundata(uuid):
 
 def AnaData(inputs,start_time):
     print(len(inputs))
-    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,), ('pandas','computeetlfunc','time','json','requests','computeconfiguration',))) for input in inputs]
+    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,statusexist,getetldata,getetldataleftrightalone,getetldataleftrighttogether,resultdataprocess,resultsave,), ('pandas','time','json','requests',))) for input in inputs]
     for input, job in jobs:
         print('StartRun--->', input)
         res = job()
