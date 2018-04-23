@@ -26,8 +26,8 @@ RECOMMEND_DB_HOST = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
 RECOMMEND_DB_PORT = 60916
 RECOMMEND_DB_USER = "haozhShopRecom"
 RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
-# RECOMMEND_DB_NAME = 'shop_sku_recommend'
-RECOMMEND_DB_NAME = 'bdp_products'
+RECOMMEND_DB_NAME = 'shop_sku_recommend'
+# RECOMMEND_DB_NAME = 'bdp_products'
 RECOMMEND_DB_CHARSET = 'utf8mb4'
 
 FOOT_LAST_ETL_TABLE = 'foot_last_etl'

@@ -40,10 +40,10 @@ HBASE_TIMEOUT = 10000
 HBASE_PORT = 9090
 HBASE_PROTOCOL = 'binary'
 HBASE_TRANSPORT = 'buffered'
-# HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawException'
-# HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
-HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawExceptionTest'
-HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest'
+HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawException'
+HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
+# HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawExceptionTest'
+# HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest'
 
 # scannerlist
 SCANNERLIST_HOST = "epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
