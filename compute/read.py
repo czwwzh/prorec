@@ -14,7 +14,7 @@ else:
 
 def rundata(n):
     from readClass import readClass
-    print('StartRun')
+    print('StartRun--->',n)
     my_to = readClass()
     return my_to.StartRun(n)
 
