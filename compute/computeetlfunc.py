@@ -175,9 +175,9 @@ def resultdataprocess(data):
 #     connection.close()
 
 # result save
-def resultsave(result):
-    data = result[0]
-    modelversion = result[1]
+def resultsave(data,modelversion):
+    # data = result[0]
+    # modelversion = result[1]
     import happybase
     import time
     ip = HBASE_HOST

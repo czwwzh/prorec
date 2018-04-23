@@ -171,15 +171,15 @@ if __name__ == "__main__":
                     print('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                          time.localtime()))
                     # result save
-                    dataset = [(suit2resultprocess,'suit_length_v1.0'),(suit6resultprocess,'suit_metatarsalegirth_v1.0'),(suit12resultprocess, 'suit_global_v1.0'),(sizeresultprocess, 'size_v1.0')]
-                    agents = 4
-                    with Pool(processes=agents) as pool:
-                        pool.map(resultsave,dataset)
+                    # dataset = [(suit2resultprocess,'suit_length_v1.0'),(suit6resultprocess,'suit_metatarsalegirth_v1.0'),(suit12resultprocess, 'suit_global_v1.0'),(sizeresultprocess, 'size_v1.0')]
+                    # agents = 4
+                    # with Pool(processes=agents) as pool:
+                    #     pool.map(resultsave,dataset)
                     #result save
-                    # resultsave(suit2resultprocess,'suit_length_v1.0')
-                    # resultsave(suit6resultprocess, 'suit_metatarsalegirth_v1.0')
-                    # resultsave(suit12resultprocess, 'suit_global_v1.0')
-                    # resultsave(sizeresultprocess, 'size_v1.0')
+                    resultsave(suit2resultprocess,'suit_length_v1.0')
+                    resultsave(suit6resultprocess, 'suit_metatarsalegirth_v1.0')
+                    resultsave(suit12resultprocess, 'suit_global_v1.0')
+                    resultsave(sizeresultprocess, 'size_v1.0')
 
                     print('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                                    time.localtime()))

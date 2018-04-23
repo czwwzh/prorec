@@ -28,12 +28,12 @@ def AnaData(inputs,start_time):
     return  0
 
 if __name__ == '__main__':
+    cpu_count = int(job_server.get_ncpus())
+    print("avaiable cpus ", cpu_count, "workers")
     my_rds = rds('recommend_data_msg')
-    print("avaiable cpus ", job_server.get_ncpus(), "workers")
     start_time = time.time()
 
     rds_list = []
-    cpu_count = int(job_server.get_ncpus())
     while(True):
         res_tmp = my_rds.GetList()
         start_time = time.time()

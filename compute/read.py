@@ -14,7 +14,6 @@ else:
 
 def rundata(n):
     from readClass import readClass
-    print('StartRun--->',n)
     my_to = readClass()
     return my_to.StartRun(n)
 
@@ -22,19 +21,18 @@ def AnaData(inputs,start_time):
     print(len(inputs))
     jobs = [(input, job_server.submit(rundata, (input,), (), ())) for input in inputs]
     for input, job in jobs:
-        print(input)
+        print('StartRun--->', input)
         res = job()
         print("------------------------------>",res )
         print('time:', time.time() - start_time)
     return  0
 
 if __name__ == '__main__':
-    my_rds = rds('recommend_data')
-    print("avaiable cpus ", job_server.get_ncpus(), "workers")
-    start_time = time.time()
-
-    rds_list = []
     cpu_count = int(job_server.get_ncpus())
+    print("avaiable cpus ", cpu_count, "workers")
+    my_rds = rds('recommend_data')
+    start_time = time.time()
+    rds_list = []
     while(True):
         res_tmp = my_rds.GetList()
         start_time = time.time()
