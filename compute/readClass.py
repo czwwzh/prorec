@@ -186,7 +186,9 @@ class readClass:
                     print('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                                 time.localtime()))
                     # return compute status
-                    # returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
-                    # print(returndata)
-                    # a = requests.post(RETURN_PORT_URL, data=returndata)
-                    # print(a)
+                    returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
+                    print(returndata)
+                    a = requests.post(RETURN_PORT_URL, data=returndata)
+                    print(a)
+                    print('8.result send time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                time.localtime()))
