@@ -6,36 +6,46 @@ from redisutil import Redis_db as rds
 import pp.pp as pp
 import pandas
 
+ppservers = ()
+if len(sys.argv) > 1:
+    print('Close Server')
+    os._exit(0)
+else:
+    job_server = pp.Server(ppservers=ppservers)
 # =============================================================================
 # load model and function
 # suit
 # model
-model2 = pandas.read_pickle(SUIT2MODELPATH)
-model6 = pandas.read_pickle(SUIT6MODELPATH)
-model12 = pandas.read_pickle(SUIT12MODELPATH)
-# data preprocess function
-StandardScaler2 = pandas.read_pickle(SUIT2PREPROCESSPATH)
-StandardScaler6 = pandas.read_pickle(SUIT6PREPROCESSPATH)
-StandardScaler12 = pandas.read_pickle(SUIT12PREPROCESSPATH)
-
-# size
-# model
-sizemodel0 = pandas.read_pickle(SIZEMODEL0PATH)
-sizemodel1 = pandas.read_pickle(SIZEMODEL1PATH)
-sizemodel2 = pandas.read_pickle(SIZEMODEL2PATH)
-sizemodel3 = pandas.read_pickle(SIZEMODEL3PATH)
-sizemodel = pandas.read_pickle(SIZEMODEL4PATH)
-# data preprocess function
-sizeStandardScaler0 = pandas.read_pickle(SIZESTANDARDSCALER0PATH)
-sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
-sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
-sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
+# model2 = pandas.read_pickle(SUIT2MODELPATH)
+# model6 = pandas.read_pickle(SUIT6MODELPATH)
+# model12 = pandas.read_pickle(SUIT12MODELPATH)
+# # data preprocess function
+# StandardScaler2 = pandas.read_pickle(SUIT2PREPROCESSPATH)
+# StandardScaler6 = pandas.read_pickle(SUIT6PREPROCESSPATH)
+# StandardScaler12 = pandas.read_pickle(SUIT12PREPROCESSPATH)
+#
+# # size
+# # model
+# sizemodel0 = pandas.read_pickle(SIZEMODEL0PATH)
+# sizemodel1 = pandas.read_pickle(SIZEMODEL1PATH)
+# sizemodel2 = pandas.read_pickle(SIZEMODEL2PATH)
+# sizemodel3 = pandas.read_pickle(SIZEMODEL3PATH)
+# sizemodel = pandas.read_pickle(SIZEMODEL4PATH)
+# # data preprocess function
+# sizeStandardScaler0 = pandas.read_pickle(SIZESTANDARDSCALER0PATH)
+# sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
+# sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
+# sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
 
 # compute
 # suit compute
 
 # suit2
 def suit2(dataleft, dataright):
+    model2 = pandas.read_pickle(SUIT2MODELPATH)
+    # data preprocess function
+    StandardScaler2 = pandas.read_pickle(SUIT2PREPROCESSPATH)
+
     left_data_preprocess2 = StandardScaler2.transform([dataleft])
     right_data_preprocess2 = StandardScaler2.transform([dataright])
     predict_left = model2.predict_proba(left_data_preprocess2)
@@ -44,6 +54,10 @@ def suit2(dataleft, dataright):
 
 # suit6
 def suit6(dataleft, dataright):
+    model6 = pandas.read_pickle(SUIT6MODELPATH)
+    # data preprocess function
+    StandardScaler6 = pandas.read_pickle(SUIT6PREPROCESSPATH)
+
     left_data_preprocess6 = StandardScaler6.transform([dataleft])
     right_data_preprocess6 = StandardScaler6.transform([dataright])
     predict_left = model6.predict_proba(left_data_preprocess6)
@@ -52,6 +66,9 @@ def suit6(dataleft, dataright):
 
 # suit12
 def suit12(dataleft, dataright):
+    model12 = pandas.read_pickle(SUIT12MODELPATH)
+    # data preprocess function
+    StandardScaler12 = pandas.read_pickle(SUIT12PREPROCESSPATH)
     left_data_preprocess12 = StandardScaler12.transform([dataleft])
     right_data_preprocess12 = StandardScaler12.transform([dataright])
     predict_left = model12.predict_proba(left_data_preprocess12)
@@ -60,6 +77,18 @@ def suit12(dataleft, dataright):
 
 # size
 def sizepredict(data):
+    sizemodel0 = pandas.read_pickle(SIZEMODEL0PATH)
+    sizemodel1 = pandas.read_pickle(SIZEMODEL1PATH)
+    sizemodel2 = pandas.read_pickle(SIZEMODEL2PATH)
+    sizemodel3 = pandas.read_pickle(SIZEMODEL3PATH)
+    sizemodel = pandas.read_pickle(SIZEMODEL4PATH)
+    # data preprocess function
+    sizeStandardScaler0 = pandas.read_pickle(SIZESTANDARDSCALER0PATH)
+    sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
+    sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
+    sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
+
+
     sizepreprocessdata0 = sizeStandardScaler0.transform([data])
     sizepreprocessdata1 = sizeStandardScaler1.transform([data])
     sizepreprocessdata2 = sizeStandardScaler2.transform([data])
@@ -71,15 +100,9 @@ def sizepredict(data):
     predictresult = sizemodel.predict_proba([[size_predict0, size_predict1, size_predict2, size_predict3]])
     return json.dumps({'size': predictresult[0][1]})
 
-ppservers = ()
-if len(sys.argv) > 1:
-    print('Close Server')
-    os._exit(0)
-else:
-    job_server = pp.Server(ppservers=ppservers)
+
 
 def rundata(uuid):
-    import computeetlfunc
     return_shop_no = None
     return_sex = None
     if uuid:
@@ -190,7 +213,7 @@ def rundata(uuid):
 
 def AnaData(inputs,start_time):
     print(len(inputs))
-    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,), ())) for input in inputs]
+    jobs = [(input, job_server.submit(rundata, (input,), (suit2,suit6,suit12,sizepredict,), ('pandas','computeetlfunc',))) for input in inputs]
     for input, job in jobs:
         print('StartRun--->', input)
         res = job()
