@@ -152,7 +152,7 @@ class PipeTransport(Transport):
         
 
     def send(self, msg):
-       #l = len(ppc.b_(msg)) if (self.has_wb or self.w.mode == 'wb') else len(ppc.str_(msg))
+       #l = len(pp.b_(msg)) if (self.has_wb or self.w.mode == 'wb') else len(pp.str_(msg))
        #open('/tmp/pp.debug', 'a+').write(repr(('s', l, self.w, msg))+'\n')
         if self.has_wb or self.w.mode == 'wb':
             msg = ppc.b_(msg)
@@ -215,7 +215,7 @@ class SocketTransport(Transport):
         self.scache = {}
 
     def send(self, data):
-       #l = len(ppc.b_(data))
+       #l = len(pp.b_(data))
        #open('/tmp/pp.debug', 'a+').write(repr(('ss', l, self.socket, data))+'\n')
         data = ppc.b_(data)
         size = struct.pack("!Q", len(data))

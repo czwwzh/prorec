@@ -2,8 +2,9 @@
 # _*_ coding:utf-8 _*_
 
 import os,sys,time
-import pp.pp as pp
 from redisutil import Redis_db as rds
+import pp.pp as pp
+
 ppservers = ()
 if len(sys.argv) > 1:
     print('Close Server')
