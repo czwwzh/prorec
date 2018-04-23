@@ -6,75 +6,75 @@ import time,json
 
 import pandas
 import requests
-from multiprocessing import Pool
+# from multiprocessing import Pool
 from computeetlfunc import *
 # from model.local.compute.redisutil import Redis_db as rds
-
+from computeconfiguration import *
 
 # =============================================================================
-            # load model and function
-            # suit
-            # model
-            model2 = pandas.read_pickle(SUIT2MODELPATH)
-            model6 = pandas.read_pickle(SUIT6MODELPATH)
-            model12 = pandas.read_pickle(SUIT12MODELPATH)
-            # data preprocess function
-            StandardScaler2 = pandas.read_pickle(SUIT2PREPROCESSPATH)
-            StandardScaler6 = pandas.read_pickle(SUIT6PREPROCESSPATH)
-            StandardScaler12 = pandas.read_pickle(SUIT12PREPROCESSPATH)
+# load model and function
+# suit
+# model
+model2 = pandas.read_pickle(SUIT2MODELPATH)
+model6 = pandas.read_pickle(SUIT6MODELPATH)
+model12 = pandas.read_pickle(SUIT12MODELPATH)
+# data preprocess function
+StandardScaler2 = pandas.read_pickle(SUIT2PREPROCESSPATH)
+StandardScaler6 = pandas.read_pickle(SUIT6PREPROCESSPATH)
+StandardScaler12 = pandas.read_pickle(SUIT12PREPROCESSPATH)
 
-            # size
-            # model
-            sizemodel0 = pandas.read_pickle(SIZEMODEL0PATH)
-            sizemodel1 = pandas.read_pickle(SIZEMODEL1PATH)
-            sizemodel2 = pandas.read_pickle(SIZEMODEL2PATH)
-            sizemodel3 = pandas.read_pickle(SIZEMODEL3PATH)
-            sizemodel = pandas.read_pickle(SIZEMODEL4PATH)
-            # data preprocess function
-            sizeStandardScaler0 = pandas.read_pickle(SIZESTANDARDSCALER0PATH)
-            sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
-            sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
-            sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
+# size
+# model
+sizemodel0 = pandas.read_pickle(SIZEMODEL0PATH)
+sizemodel1 = pandas.read_pickle(SIZEMODEL1PATH)
+sizemodel2 = pandas.read_pickle(SIZEMODEL2PATH)
+sizemodel3 = pandas.read_pickle(SIZEMODEL3PATH)
+sizemodel = pandas.read_pickle(SIZEMODEL4PATH)
+# data preprocess function
+sizeStandardScaler0 = pandas.read_pickle(SIZESTANDARDSCALER0PATH)
+sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
+sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
+sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
 
-            # compute
-            # suit compute
+# compute
+# suit compute
 
-            # suit2
-            def suit2(dataleft, dataright):
-                left_data_preprocess2 = StandardScaler2.transform([dataleft])
-                right_data_preprocess2 = StandardScaler2.transform([dataright])
-                predict_left = model2.predict_proba(left_data_preprocess2)
-                predict_right = model2.predict_proba(right_data_preprocess2)
-                return json.dumps({'left': predict_left[0].tolist(), 'right': predict_right[0].tolist()})
+# suit2
+def suit2(dataleft, dataright):
+    left_data_preprocess2 = StandardScaler2.transform([dataleft])
+    right_data_preprocess2 = StandardScaler2.transform([dataright])
+    predict_left = model2.predict_proba(left_data_preprocess2)
+    predict_right = model2.predict_proba(right_data_preprocess2)
+    return json.dumps({'left': predict_left[0].tolist(), 'right': predict_right[0].tolist()})
 
-            # suit6
-            def suit6(dataleft, dataright):
-                left_data_preprocess6 = StandardScaler6.transform([dataleft])
-                right_data_preprocess6 = StandardScaler6.transform([dataright])
-                predict_left = model6.predict_proba(left_data_preprocess6)
-                predict_right = model6.predict_proba(right_data_preprocess6)
-                return json.dumps({'left': predict_left[0].tolist(), 'right': predict_right[0].tolist()})
+# suit6
+def suit6(dataleft, dataright):
+    left_data_preprocess6 = StandardScaler6.transform([dataleft])
+    right_data_preprocess6 = StandardScaler6.transform([dataright])
+    predict_left = model6.predict_proba(left_data_preprocess6)
+    predict_right = model6.predict_proba(right_data_preprocess6)
+    return json.dumps({'left': predict_left[0].tolist(), 'right': predict_right[0].tolist()})
 
-            # suit12
-            def suit12(dataleft, dataright):
-                left_data_preprocess12 = StandardScaler12.transform([dataleft])
-                right_data_preprocess12 = StandardScaler12.transform([dataright])
-                predict_left = model12.predict_proba(left_data_preprocess12)
-                predict_right = model12.predict_proba(right_data_preprocess12)
-                return json.dumps({'left': predict_left[0].tolist(), 'right': predict_right[0].tolist()})
+# suit12
+def suit12(dataleft, dataright):
+    left_data_preprocess12 = StandardScaler12.transform([dataleft])
+    right_data_preprocess12 = StandardScaler12.transform([dataright])
+    predict_left = model12.predict_proba(left_data_preprocess12)
+    predict_right = model12.predict_proba(right_data_preprocess12)
+    return json.dumps({'left': predict_left[0].tolist(), 'right': predict_right[0].tolist()})
 
-            # size
-            def sizepredict(data):
-                sizepreprocessdata0 = sizeStandardScaler0.transform([data])
-                sizepreprocessdata1 = sizeStandardScaler1.transform([data])
-                sizepreprocessdata2 = sizeStandardScaler2.transform([data])
-                sizepreprocessdata3 = sizeStandardScaler3.transform([data])
-                size_predict0 = sizemodel0.predict_proba(sizepreprocessdata0)[0][1]
-                size_predict1 = sizemodel1.predict_proba(sizepreprocessdata1)[0][1]
-                size_predict2 = sizemodel2.predict_proba(sizepreprocessdata2)[0][1]
-                size_predict3 = sizemodel3.predict_proba(sizepreprocessdata3)[0][1]
-                predictresult = sizemodel.predict_proba([[size_predict0, size_predict1, size_predict2, size_predict3]])
-                return json.dumps({'size': predictresult[0][1]})
+# size
+def sizepredict(data):
+    sizepreprocessdata0 = sizeStandardScaler0.transform([data])
+    sizepreprocessdata1 = sizeStandardScaler1.transform([data])
+    sizepreprocessdata2 = sizeStandardScaler2.transform([data])
+    sizepreprocessdata3 = sizeStandardScaler3.transform([data])
+    size_predict0 = sizemodel0.predict_proba(sizepreprocessdata0)[0][1]
+    size_predict1 = sizemodel1.predict_proba(sizepreprocessdata1)[0][1]
+    size_predict2 = sizemodel2.predict_proba(sizepreprocessdata2)[0][1]
+    size_predict3 = sizemodel3.predict_proba(sizepreprocessdata3)[0][1]
+    predictresult = sizemodel.predict_proba([[size_predict0, size_predict1, size_predict2, size_predict3]])
+    return json.dumps({'size': predictresult[0][1]})
 
 class readClass:
     def __init__(self):
