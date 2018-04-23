@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+# _*_ coding:utf-8 _*_
+import time
+
+from redisutil import Redis_db as rds
+from preprocessetlfunc import *
+
+class readClass:
+
+    def __init__(self):
+        pass
+
+    def StartRun(self,uuid):
+        my_rds = rds('recommend_data_msg')
+        json_str = my_rds.SetData(uuid)
+        json_str = json_str.decode()
+        print('1.data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+        # get data one by one
+        try:
+            key = uuid
+            print(key),
+            sourcedata = json_str
+            #print(type(sourcedata))
+            #print(sourcedata)
+        except:
+            return
+
+        # sourcedata save
+        res = footdatasavemysql(key, sourcedata)
+        # data dataetl
+        if res > 0:
+            print('2.data save to mysql time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+            # filter data which is not str type
+            res1 = streamstr(key, sourcedata)
+            print('3.filter data which is not str type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            if res1 == False:
+                return
+
+            # filter data which is not json type
+            res2 = streamjson(key, sourcedata)
+            print(res2)
+            print('4.filter data which is not json type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            if res2 == False:
+                return
+
+            # transform data to json
+            data = json.loads(sourcedata)
+            print('5.transform data to json time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+            # filter abnormal foot data
+            res3 = footfilter(key, data)
+            print('6.filter abnormal foot data time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            if res3 == False:
+                return
+
+            # get foot data in demend
+            data = getFootData(data)
+            uuid = data[1]['UUID']
+            print('7.get foot data in demend time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+            # get last data by shopno_sex and foot connect last
+            data = footconnectlast(data)
+            print('8.get last data by shopno_sex and foot connect last time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                                time.localtime()))
+
+            # foot and last data dataetl save and send to redis
+            res = footlastetlsave(data)
+            if res > 0:
+                # send uuid
+                new_my_rds = rds()
+                new_my_rds.RpushData(uuid)
+            else:
+                repetitivedatasave(uuid, sourcedata)
+            print(
+                '9.foot and last data dataetl save to mysql and send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                                   time.localtime()))
+        else:
+            repetitivedatasave(key, sourcedata)
+
