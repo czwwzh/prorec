@@ -19,9 +19,10 @@ def rundata(n):
     return my_to.StartRun(n)
 
 def AnaData(inputs,start_time):
-    print(len(inputs),)
+    print(len(inputs))
     jobs = [(input, job_server.submit(rundata, (input,), (), ())) for input in inputs]
     for input, job in jobs:
+        print(input)
         res = job()
         print("------------------------------>",res )
         print('time:', time.time() - start_time)
