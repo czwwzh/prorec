@@ -35,8 +35,8 @@ if __name__ == '__main__':
     rds_list = []
     cpu_count = int(job_server.get_ncpus())
     while(True):
-        start_time = time.time()
         res_tmp = my_rds.GetList()
+        start_time = time.time()
         if len(res_tmp)==32:
             res_tmp = res_tmp.decode()
         else:

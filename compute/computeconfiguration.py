@@ -66,27 +66,27 @@ APPNAMESUIT12 = "suit12predictlocal"
 APPNAMESIZESUIT2612 = "sizesuit2612predictlocal"
 
 # model
-SUIT2MODELPATH = '/root/models/lgbm_2'
-SUIT6MODELPATH = '/root/models/lgbm_6'
-SUIT12MODELPATH = '/root/models/lgbm_12'
+SUIT2MODELPATH = '/suitmodel/lgbm_2'
+SUIT6MODELPATH = '/suitmodel/lgbm_6'
+SUIT12MODELPATH = '/suitmodel/lgbm_12'
 
 # preprocess data
-SUIT2PREPROCESSPATH = '/root/models/StandardScaler_lgbm_2'
-SUIT6PREPROCESSPATH = '/root/models/StandardScaler_lgbm_6'
-SUIT12PREPROCESSPATH = '/root/models/StandardScaler_lgbm_12'
+SUIT2PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_2'
+SUIT6PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_6'
+SUIT12PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_12'
 
 # size model
 # model
-SIZEMODEL0PATH = '/root/models/lgbm_shoe_0'
-SIZEMODEL1PATH = '/root/models/lgbm_shoe_1'
-SIZEMODEL2PATH = '/root/models/lgbm_shoe_2'
-SIZEMODEL3PATH = '/root/models/lgbm_shoe_3'
-SIZEMODEL4PATH = '/root/models/stack_lgbm_shoe'
+SIZEMODEL0PATH = '/sizemodel-2/lgbm_shoe_0'
+SIZEMODEL1PATH = '/sizemodel-2/lgbm_shoe_1'
+SIZEMODEL2PATH = '/sizemodel-2/lgbm_shoe_2'
+SIZEMODEL3PATH = '/sizemodel-2/lgbm_shoe_3'
+SIZEMODEL4PATH = '/sizemodel-2/stack_lgbm_shoe'
 # data preprocess function
-SIZESTANDARDSCALER0PATH = '/root/models/StandardScaler_lgbm_shoe_0'
-SIZESTANDARDSCALER1PATH = '/root/models/StandardScaler_lgbm_shoe_1'
-SIZESTANDARDSCALER2PATH = '/root/models/StandardScaler_lgbm_shoe_2'
-SIZESTANDARDSCALER3PATH = '/root/models/StandardScaler_lgbm_shoe_3'
+SIZESTANDARDSCALER0PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_0'
+SIZESTANDARDSCALER1PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_1'
+SIZESTANDARDSCALER2PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_2'
+SIZESTANDARDSCALER3PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_3'
 
 # hbase local
 HBASE_HOST = '52.80.170.199'
