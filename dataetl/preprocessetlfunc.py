@@ -307,7 +307,7 @@ def footfilter(uuid,data):
         exceptiondataupdate(comment,UUID,exceptiontype)
         return False
     customerInfo = data['customerInfo']
-    print(type(customerInfo))
+    # print(type(customerInfo))
     if type(customerInfo) == str:
         customerInfo = json.loads(customerInfo)
     for customerfield in ['customer_sex', 'algoVersion']:
@@ -332,9 +332,12 @@ def footfilter(uuid,data):
             comment = customerfield + " is none."
             exceptiondataupdate( comment, UUID,exceptiontype)
             return False
-    if customerInfo['customer_sex'] != 1 and customerInfo['customer_sex']!=2:
+    if customerInfo['customer_sex'] != 2:
         exceptiontype = "3"
-        comment = "customer_sex is abnormal."
+        if customerInfo['customer_sex'] == 1:
+            comment = "customer_sex is man,cannot compute."
+        else:
+            comment = "customer_sex is abnormal."
         exceptiondataupdate( comment, UUID,exceptiontype)
         return False
     if existsexslast(shop_no,customerInfo['customer_sex']) == False:
@@ -343,7 +346,7 @@ def footfilter(uuid,data):
         exceptiondataupdate(comment, UUID, exceptiontype)
         return False
     mesurementItemInfos = data['mesurementItemInfos']
-    print(type(mesurementItemInfos))
+    # print(type(mesurementItemInfos))
     if type(mesurementItemInfos) == str:
         mesurementItemInfos = json.loads(mesurementItemInfos)
 
