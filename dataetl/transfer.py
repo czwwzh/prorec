@@ -3,6 +3,8 @@
 
 from kafka import KafkaConsumer
 from redisutil import Redis_db as rds
+
+from dataetlconfiguration import *
 consumer = KafkaConsumer(KAFKA_PROD_FOOTTOPIC,
                          group_id=KAFKA_GROUP_ID,
                          bootstrap_servers=KAFKA_PROD_BROKERS)
