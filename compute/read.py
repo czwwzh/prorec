@@ -7,7 +7,6 @@ import pp.pp as pp
 import pandas
 
 import computeconfiguration
-import computeetlfunc
 
 ppservers = ()
 if len(sys.argv) > 1:
@@ -109,6 +108,7 @@ def rundata(uuid):
     return_shop_no = None
     return_sex = None
     if uuid:
+        import computeetlfunc
         print('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         status = statusexist(uuid)
         print("status:" + str(status))
