@@ -45,9 +45,9 @@ else:
 
 # suit2
 def suit2(dataleft, dataright):
-    model2 = pandas.read_pickle(SUIT2MODELPATH)
+    model2 = pandas.read_pickle(computeconfiguration.SUIT2MODELPATH)
     # data preprocess function
-    StandardScaler2 = pandas.read_pickle(SUIT2PREPROCESSPATH)
+    StandardScaler2 = pandas.read_pickle(computeconfiguration.SUIT2PREPROCESSPATH)
 
     left_data_preprocess2 = StandardScaler2.transform([dataleft])
     right_data_preprocess2 = StandardScaler2.transform([dataright])
@@ -57,9 +57,9 @@ def suit2(dataleft, dataright):
 
 # suit6
 def suit6(dataleft, dataright):
-    model6 = pandas.read_pickle(SUIT6MODELPATH)
+    model6 = pandas.read_pickle(computeconfiguration.SUIT6MODELPATH)
     # data preprocess function
-    StandardScaler6 = pandas.read_pickle(SUIT6PREPROCESSPATH)
+    StandardScaler6 = pandas.read_pickle(computeconfiguration.SUIT6PREPROCESSPATH)
 
     left_data_preprocess6 = StandardScaler6.transform([dataleft])
     right_data_preprocess6 = StandardScaler6.transform([dataright])
@@ -69,9 +69,9 @@ def suit6(dataleft, dataright):
 
 # suit12
 def suit12(dataleft, dataright):
-    model12 = pandas.read_pickle(SUIT12MODELPATH)
+    model12 = pandas.read_pickle(computeconfiguration.SUIT12MODELPATH)
     # data preprocess function
-    StandardScaler12 = pandas.read_pickle(SUIT12PREPROCESSPATH)
+    StandardScaler12 = pandas.read_pickle(computeconfiguration.SUIT12PREPROCESSPATH)
     left_data_preprocess12 = StandardScaler12.transform([dataleft])
     right_data_preprocess12 = StandardScaler12.transform([dataright])
     predict_left = model12.predict_proba(left_data_preprocess12)
@@ -80,16 +80,16 @@ def suit12(dataleft, dataright):
 
 # size
 def sizepredict(data):
-    sizemodel0 = pandas.read_pickle(SIZEMODEL0PATH)
-    sizemodel1 = pandas.read_pickle(SIZEMODEL1PATH)
-    sizemodel2 = pandas.read_pickle(SIZEMODEL2PATH)
-    sizemodel3 = pandas.read_pickle(SIZEMODEL3PATH)
-    sizemodel = pandas.read_pickle(SIZEMODEL4PATH)
+    sizemodel0 = pandas.read_pickle(computeconfiguration.SIZEMODEL0PATH)
+    sizemodel1 = pandas.read_pickle(computeconfiguration.SIZEMODEL1PATH)
+    sizemodel2 = pandas.read_pickle(computeconfiguration.SIZEMODEL2PATH)
+    sizemodel3 = pandas.read_pickle(computeconfiguration.SIZEMODEL3PATH)
+    sizemodel = pandas.read_pickle(computeconfiguration.SIZEMODEL4PATH)
     # data preprocess function
-    sizeStandardScaler0 = pandas.read_pickle(SIZESTANDARDSCALER0PATH)
-    sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
-    sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
-    sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
+    sizeStandardScaler0 = pandas.read_pickle(computeconfiguration.SIZESTANDARDSCALER0PATH)
+    sizeStandardScaler1 = pandas.read_pickle(computeconfiguration.SIZESTANDARDSCALER1PATH)
+    sizeStandardScaler2 = pandas.read_pickle(computeconfiguration.SIZESTANDARDSCALER2PATH)
+    sizeStandardScaler3 = pandas.read_pickle(computeconfiguration.SIZESTANDARDSCALER3PATH)
 
 
     sizepreprocessdata0 = sizeStandardScaler0.transform([data])
