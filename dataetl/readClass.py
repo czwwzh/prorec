@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 import time
-
+from computeconfiguration import *
 from redisutil import Redis_db as rds
 from preprocessetlfunc import *
 import requests
