@@ -80,6 +80,7 @@ class readClass:
                 # send uuid
                 new_my_rds = rds()
                 new_my_rds.RpushData(uuid)
+                print('uuid','--->success,send to redis')
             else:
                 repetitivedatasave(uuid, sourcedata)
                 self.sendtowx(uuid)

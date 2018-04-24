@@ -5,7 +5,7 @@ import time
 
 import pandas
 import requests
-from multiprocessing import Pool
+#from multiprocessing import Pool
 from computeetlfunc import *
 from redisutil import Redis_db as rds
 
