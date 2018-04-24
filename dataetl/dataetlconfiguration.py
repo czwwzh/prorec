@@ -102,3 +102,5 @@ KAFKA_GROUP_ID_SIZE_SUIT2612 = "sizesuit2612local"
 
 # last sql
 LAST_DBTABLE = "(SELECT " + LASTATTRIBUTESSTR + " FROM shop_last_inventory) shop_last_tmp"
+
+RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
