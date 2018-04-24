@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-import os,sys,time
+import os,sys,time,requests
 from redisutil import Redis_db as rds
 import pp.pp as pp
 
@@ -16,7 +16,7 @@ else:
 def rundata(n):
     from readClass import readClass
     my_to = readClass()
-    return my_to.StartRun(n)
+    res = my_to.StartRun(n)
 
 def AnaData(inputs,start_time):
     print(len(inputs),)

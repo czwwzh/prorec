@@ -4,6 +4,7 @@ import time
 
 from redisutil import Redis_db as rds
 from preprocessetlfunc import *
+import requests
 
 class readClass:
 
@@ -17,6 +18,7 @@ class readClass:
         print('1.data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
         # get data one by one
+        ist = True
         try:
             key = uuid
             print(key),
@@ -24,6 +26,10 @@ class readClass:
             #print(type(sourcedata))
             #print(sourcedata)
         except:
+            ist = False
+
+        if ist == False:
+            self.sendtowx(uuid)
             return
 
         # sourcedata save
@@ -36,6 +42,7 @@ class readClass:
             res1 = streamstr(key, sourcedata)
             print('3.filter data which is not str type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if res1 == False:
+                self.sendtowx(uuid)
                 return
 
             # filter data which is not json type
@@ -43,6 +50,7 @@ class readClass:
             print(res2)
             print('4.filter data which is not json type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if res2 == False:
+                self.sendtowx(uuid)
                 return
 
             # transform data to json
@@ -53,9 +61,10 @@ class readClass:
             res3 = footfilter(key, data)
             print('6.filter abnormal foot data time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if res3 == False:
+                self.sendtowx(uuid)
                 return
 
-            # get foot data in demend
+                # get foot data in demend
             data = getFootData(data)
             uuid = data[1]['UUID']
             print('7.get foot data in demend time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
@@ -73,9 +82,17 @@ class readClass:
                 new_my_rds.RpushData(uuid)
             else:
                 repetitivedatasave(uuid, sourcedata)
+                self.sendtowx(uuid)
             print(
                 '9.foot and last data dataetl save to mysql and send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                                                    time.localtime()))
         else:
             repetitivedatasave(key, sourcedata)
+            self.sendtowx(uuid)
+
+    def sendtowx(self,uuid):
+        returndata = {'uuid': uuid,'res': -1}
+        print(returndata)
+        a = requests.post(RETURN_PORT_URL, data=returndata)
+        print(a)
 
