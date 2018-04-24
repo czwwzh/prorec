@@ -9,17 +9,28 @@ from variables import *
 # last data common configuration for sparksql and pymysql
 SPARKSQL_DRIVER = "com.mysql.jdbc.Driver"
 SPARKSQL_LAST_URL = "jdbc:mysql://epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn:60916/bdp_products"
-SKU_LAST_URL = "epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-SKU_LAST_USER = "haozhShopRecom"
-SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
-SKU_LAST_PORT = 60916
-SKU_LAST_DB = "bdp_products"
+# SKU_LAST_URL = "epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
+# SKU_LAST_USER = "haozhShopRecom"
+# SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+# SKU_LAST_PORT = 60916
+# SKU_LAST_DB = "bdp_products"
+# SKU_LAST_CHARSET='utf8mb4'
+# LAST_TABLE = 'shop_last_inventory'
+# LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
+# FOOT_LAST_ETL_TABLE = "footlastetl"
+# FOOT_DATA_TABLE = 'foot_scan'
+# FOOT_REPEATDATA_TABLE = 'foot_repeat'
+
+
+# sku last data
+SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
+SKU_LAST_USER = "haozhFattypeRecom"
+SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
+SKU_LAST_PORT = 61539
+SKU_LAST_DB = "fattype_recommend"
 SKU_LAST_CHARSET='utf8mb4'
 LAST_TABLE = 'shop_last_inventory'
 LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
-# FOOT_LAST_ETL_TABLE = "footlastetl"
-FOOT_DATA_TABLE = 'foot_scan'
-FOOT_REPEATDATA_TABLE = 'foot_repeat'
 
 # sku recommend dataetl and compute table
 RECOMMEND_DB_HOST = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
@@ -95,7 +106,8 @@ HBASE_HOST = '52.80.170.199'
 # redis local
 # REDIS_HOST = '192.168.17.110'
 # REDIS_HOST = '54.222.142.37'
-REDIS_HOST = '52.80.200.237'
+# REDIS_HOST = '52.80.200.237'
+REDIS_HOST = '52.80.150.89'
 REDIS_PORT = 6379
 CHAN_SUB = 'uuidtransfernew0'
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':1}
