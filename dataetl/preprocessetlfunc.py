@@ -4,6 +4,7 @@
 import json
 
 import pymysql
+import time
 
 from dataetlconfiguration import *
 
@@ -201,10 +202,34 @@ def existslast(shop_no):
         return False
     return True
 
+# # judge shop last exist
+# def existsexslast(shop_no,sex):
+#     result = False
+#     sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + str(sex) + " limit 1"
+#     db = None
+#     try:
+#         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
+#                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
+#                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
+#         cursor = db.cursor()
+#         ist = cursor.execute(sql)
+#         if ist != None and ist > 0:
+#             result = True
+#     except:
+#         print("no avaiable last and sku in the shop")
+#     finally:
+#         if db:
+#             db.close()
+#     return result
+
 # judge shop last exist
-def existsexslast(shop_no,sex):
+def existavailablelast(shop_no,sex,sizes):
     result = False
-    sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + str(sex) + " limit 1"
+    yearquarter = getyearseason()
+
+    sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + str(sex) + " and year = '" + str(
+        yearquarter[0]) + "' and season in " + str(yearquarter[1]) + " and  basicsize in " + str(sizes) + " limit 1"
+
     db = None
     try:
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
@@ -215,11 +240,12 @@ def existsexslast(shop_no,sex):
         if ist != None and ist > 0:
             result = True
     except:
-        print("no avaiable last and sku in the shop")
+        print("no avaiable last and sku in the shop because of gender or year or season or basicsize ")
     finally:
         if db:
             db.close()
     return result
+
 
 
 # filter: whether the foot  attribute exist and num and in the normal range
@@ -340,11 +366,11 @@ def footfilter(uuid,data):
             comment = "customer_sex is abnormal."
         exceptiondataupdate( comment, UUID,exceptiontype)
         return False
-    if existsexslast(shop_no,customerInfo['customer_sex']) == False:
-        exceptiontype = "6"
-        comment = "no avalilable gender last in the shop."
-        exceptiondataupdate(comment, UUID, exceptiontype)
-        return False
+    # if existsexslast(shop_no,customerInfo['customer_sex']) == False:
+    #     exceptiontype = "6"
+    #     comment = "no avalilable gender last in the shop."
+    #     exceptiondataupdate(comment, UUID, exceptiontype)
+    #     return False
     mesurementItemInfos = data['mesurementItemInfos']
     # print(type(mesurementItemInfos))
     if type(mesurementItemInfos) == str:
@@ -359,6 +385,23 @@ def footfilter(uuid,data):
     for key, value in mesurementItemInfos.items():
         footdata[key + "_" + "left"] = value['left']
         footdata[key + "_" + "right"] = value['right']
+    sizes = []
+    foot_length_left = footdata['foot_length_left']
+    foot_length_right = footdata['foot_length_right']
+    if foot_length_left > foot_length_right:
+        foot_length = foot_length_left
+    else:
+        foot_length = foot_length_right
+    sizes = sizes + [foot_length - 10, foot_length - 5, foot_length, foot_length + 5, foot_length + 10]
+    for size in sizes:
+        if size < 200 or size > 300:
+            sizes.remove(size)
+
+    if existavailablelast(shop_no, customerInfo['customer_sex'], tuple(sizes)) == False:
+        exceptiontype = "6"
+        comment = "no avalilable gender last in the shop."
+        exceptiondataupdate(comment, UUID, exceptiontype)
+        return False
 
     if  normal_data_rules(footdata,data,UUID) == False:
        return False
@@ -394,11 +437,47 @@ def getFootData(data):
 
 # last data dataetl ============================================
 # get last data
-def getlastdata(shop_no_sex):
+# def getlastdata(shop_no_sex):
+#     shop_no = shop_no_sex.split('_')[0]
+#     sex = shop_no_sex.split('_')[1]
+#     lastlist = []
+#     sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex
+#     db = None
+#     try:
+#         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
+#                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
+#                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
+#         cursor = db.cursor()
+#         cursor.execute(sql)
+#         result = cursor.fetchall()
+#         for last in result:
+#             lasts = getLastDataValue(last)
+#             lastlist.append(lasts)
+#     except:
+#         print("no last data to fecth ")
+#     finally:
+#         if  db:
+#             db.close()
+#     return lastlist
+
+# Get the current year season.
+def getyearseason():
+    yearmonth = time.strftime('%Y%m', time.localtime(time.time()))
+    year = yearmonth[3]
+    month = int(yearmonth[4:])
+    if month >= 3 and month <= 9:
+        season = ('A', 'B')
+    else:
+        season = ('C', 'D')
+    return (year,season)
+# get last data
+def getlastdata(shop_no_sex,sizes):
     shop_no = shop_no_sex.split('_')[0]
     sex = shop_no_sex.split('_')[1]
     lastlist = []
-    sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex
+    yearquarter = getyearseason()
+    sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex + " and year = '" + str(
+        yearquarter[0]) + "' and season in " + str(yearquarter[1]) + " and  basicsize in " + str(sizes)
     db = None
     try:
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
@@ -417,6 +496,7 @@ def getlastdata(shop_no_sex):
             db.close()
     return lastlist
 
+
 def getLastDataValue(data):
     last_dimensions = LASTATTRIBUTES
     lastdata = dict()
@@ -429,9 +509,26 @@ def getLastDataValue(data):
 
 # foot and last data dataetl =================================
 # get last data by shopno and foot join last
+# def footconnectlast(data):
+#     footlasts = list()
+#     for shoplast in getlastdata(data[0]):
+#         footlasts.append(dict(data[1],**shoplast))
+#     return footlasts
+
 def footconnectlast(data):
+    sizes = []
+    foot_length_left  = data[1]['foot_length_left']
+    foot_length_right = data[1]['foot_length_right']
+    if foot_length_left > foot_length_right:
+        foot_length = foot_length_left
+    else:
+        foot_length = foot_length_right
+    sizes = sizes + [foot_length-10,foot_length-5,foot_length,foot_length+5,foot_length+10]
+    for size in sizes:
+        if size <200 or size > 300:
+            sizes.remove(size)
     footlasts = list()
-    for shoplast in getlastdata(data[0]):
+    for shoplast in getlastdata(data[0],tuple(sizes)):
         footlasts.append(dict(data[1],**shoplast))
     return footlasts
 
