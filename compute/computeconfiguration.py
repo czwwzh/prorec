@@ -54,7 +54,7 @@ SIZESTANDARDSCALER3PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_3'
 # local
 # REDIS_HOST = '192.168.17.110'
 # prod
-REDIS_HOST = '52.80.150.89'
+REDIS_HOST = '52.80.12.121'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':1}
 
