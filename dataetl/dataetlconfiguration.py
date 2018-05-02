@@ -69,3 +69,13 @@ REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':1}
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
 KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 KAFKA_GROUP_ID = 'footInfoProdprod1'
+
+
+# return url
+# test
+# RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
+# prod
+RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
+# RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
+# compute completed return host
+# RETURN_PORT_URL = 'http://54.222.142.37:9998/shopRecommendController/test'
