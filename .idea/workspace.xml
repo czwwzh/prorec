@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/compute/computeconfiguration.py" beforeDir="false" afterPath="$PROJECT_DIR$/compute/computeconfiguration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataetl/readClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/readClass.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +31,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="computeconfiguration.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="computeconfiguration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compute/computeconfiguration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="501">
+              <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readClass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataetl/readClass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+              <folding>
+                <element signature="e#45#56#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,9 +88,9 @@
         <option value="$PROJECT_DIR$/compute/modelcompute.py" />
         <option value="$PROJECT_DIR$/dataetl/preprocessetlfunc.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/dataetl/readClass.py" />
         <option value="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" />
         <option value="$PROJECT_DIR$/compute/computeconfiguration.py" />
+        <option value="$PROJECT_DIR$/dataetl/readClass.py" />
       </list>
     </option>
   </component>
@@ -462,16 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/readClass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#45#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compute/variables.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -515,8 +516,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/compute/computeconfiguration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="501">
+          <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/readClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+          <folding>
+            <element signature="e#45#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
