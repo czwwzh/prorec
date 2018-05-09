@@ -57,7 +57,7 @@ SIZESTANDARDSCALER3PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_3'
 # REDIS_HOST = '52.80.12.121'
 REDIS_HOST = 'prod-sku-recommend.rawr9u.clustercfg.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
-REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':1}
+REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 
 
 
