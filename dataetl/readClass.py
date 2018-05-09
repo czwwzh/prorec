@@ -22,7 +22,8 @@ class readClass:
         ist = True
         try:
             key = uuid
-            print(key),
+            print(key)
+            print('data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             sourcedata = json_str
             #print(type(sourcedata))
             #print(sourcedata)
@@ -81,7 +82,7 @@ class readClass:
                 # send uuid
                 new_my_rds = rds()
                 new_my_rds.RpushData(uuid)
-                print('uuid','--->success,send to redis')
+                print(uuid,'--->success,send to redis')
             else:
                 repetitivedatasave(uuid, sourcedata)
                 self.sendtowx(uuid)
