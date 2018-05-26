@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataetl/readClass.py" afterPath="$PROJECT_DIR$/dataetl/readClass.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute/run.sh" afterPath="$PROJECT_DIR$/compute/run.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="readClass.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="readClass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/readClass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="2200">
+              <caret line="88" column="18" lean-forward="true" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
               <folding>
                 <element signature="e#45#56#0" expanded="true" />
               </folding>
@@ -39,9 +39,11 @@
       <file leaf-file-name="read.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/read.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-81">
-              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="200">
+              <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+              <folding>
+                <element signature="e#46#73#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,12 +51,32 @@
       <file leaf-file-name="preprocessetlfunc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/preprocessetlfunc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4270">
-              <caret line="396" column="22" lean-forward="false" selection-start-line="396" selection-start-column="22" selection-end-line="396" selection-end-column="22" />
+            <state relative-caret-position="201">
+              <caret line="572" column="19" lean-forward="true" selection-start-line="572" selection-start-column="19" selection-end-line="572" selection-end-column="19" />
               <folding>
                 <marker date="1525940835515" expanded="true" signature="5186:5264" ph="SELECT shop_... scannerlist" />
                 <marker date="1525940835515" expanded="true" signature="5933:6146" ph="SELECT a.sho... shop_last_inventory" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/compute/run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,7 +143,6 @@
         <option value="$PROJECT_DIR$/dataetl/log/log.log" />
         <option value="$PROJECT_DIR$/compute/readClass.py" />
         <option value="$PROJECT_DIR$/dataetl/run.sh" />
-        <option value="$PROJECT_DIR$/compute/run.sh" />
         <option value="$PROJECT_DIR$/compute/run2.sh" />
         <option value="$PROJECT_DIR$/dataetl/read.py" />
         <option value="$PROJECT_DIR$/compute/modelcompute.py" />
@@ -130,6 +151,7 @@
         <option value="$PROJECT_DIR$/compute/computeconfiguration.py" />
         <option value="$PROJECT_DIR$/dataetl/preprocessetlfunc.py" />
         <option value="$PROJECT_DIR$/dataetl/readClass.py" />
+        <option value="$PROJECT_DIR$/compute/run.sh" />
       </list>
     </option>
   </component>
@@ -503,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compute/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/software426/Python/Python36/Lib/site-packages/redis/client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
@@ -528,13 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -600,10 +608,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/readClass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2200">
+          <caret line="88" column="18" lean-forward="true" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+          <folding>
+            <element signature="e#45#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+          <folding>
+            <element signature="e#46#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/preprocessetlfunc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4270">
-          <caret line="396" column="22" lean-forward="false" selection-start-line="396" selection-start-column="22" selection-end-line="396" selection-end-column="22" />
+        <state relative-caret-position="201">
+          <caret line="572" column="19" lean-forward="true" selection-start-line="572" selection-start-column="19" selection-end-line="572" selection-end-column="19" />
           <folding>
             <marker date="1525940835515" expanded="true" signature="5186:5264" ph="SELECT shop_... scannerlist" />
             <marker date="1525940835515" expanded="true" signature="5933:6146" ph="SELECT a.sho... shop_last_inventory" />
@@ -611,21 +639,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/read.py">
+    <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="3" column="39" lean-forward="true" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/readClass.py">
+    <entry file="file://$PROJECT_DIR$/compute/run.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#56#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
