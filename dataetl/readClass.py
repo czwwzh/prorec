@@ -25,8 +25,8 @@ class readClass:
             print(key)
             print('data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             sourcedata = json_str
-            print(type(sourcedata))
-            print(sourcedata)
+            # print(type(sourcedata))
+            # print(sourcedata)
         except:
             ist = False
 
