@@ -59,7 +59,7 @@ LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 # local
 # REDIS_HOST = '192.168.17.110'
 # prod
-REDIS_HOST = '52.80.12.121'
+REDIS_HOST = '54.222.236.85'
 # REDIS_HOST = 'prod-sku-recommend.rawr9u.clustercfg.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
