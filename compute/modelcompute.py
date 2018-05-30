@@ -187,6 +187,8 @@ if __name__ == "__main__":
                     returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
                     try:
                         requests.post(RETURN_PORT_URL, data=returndata, timeout=1)
-                    except Exception as e:
-                        print("Send Normal result to WX failed.")
+                    except requests.ConnectionError as e:
+                        print("Send normal Connection Timeout.")
+                    except requests.ReadTimeout as e:
+                        print("Send normal Read Timeout")
 

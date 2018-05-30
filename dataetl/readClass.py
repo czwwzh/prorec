@@ -99,7 +99,9 @@ class readClass:
         print(returndata)
         try:
             requests.post(RETURN_PORT_URL, data=returndata,timeout=1)
-        except Exception as e:
-            print("Send abnormal result to WX failed.")
+        except requests.ConnectionError as e:
+            print("Send abnormal Connection Timeout.")
+        except requests.ReadTimeout as e:
+            print("Send abnormal Read Timeout")
         print('11.end port return time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
