@@ -97,7 +97,7 @@ class readClass:
         print('10.start send to port time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
         returndata = {'uuid': uuid,'res': -1}
         print(returndata)
-        a = requests.post(RETURN_PORT_URL, data=returndata)
-        print(a)
+        requests.post(RETURN_PORT_URL, data=returndata,timeout=3)
+        # print(a)
         print('11.end port return time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
