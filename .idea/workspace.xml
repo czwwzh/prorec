@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute/computeconfiguration.py" afterPath="$PROJECT_DIR$/compute/computeconfiguration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" afterPath="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compute/modelcompute.py" afterPath="$PROJECT_DIR$/compute/modelcompute.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="dataetlconfiguration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/dataetlconfiguration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="27" />
+            <state relative-caret-position="415">
+              <caret line="89" column="18" lean-forward="false" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -40,8 +39,8 @@
       <file leaf-file-name="read.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/read.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            <state relative-caret-position="365">
+              <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
               <folding>
                 <element signature="e#46#73#0" expanded="true" />
               </folding>
@@ -73,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/compute/run.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modelcompute.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="modelcompute.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compute/modelcompute.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2625">
-              <caret line="105" column="45" lean-forward="true" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="45" />
+            <state relative-caret-position="401">
+              <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
               </folding>
@@ -111,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="computeconfiguration.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="computeconfiguration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compute/computeconfiguration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="175">
+              <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -153,13 +152,13 @@
         <option value="$PROJECT_DIR$/dataetl/run.sh" />
         <option value="$PROJECT_DIR$/compute/run2.sh" />
         <option value="$PROJECT_DIR$/dataetl/read.py" />
-        <option value="$PROJECT_DIR$/compute/modelcompute.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/dataetl/preprocessetlfunc.py" />
         <option value="$PROJECT_DIR$/dataetl/readClass.py" />
         <option value="$PROJECT_DIR$/compute/run.sh" />
         <option value="$PROJECT_DIR$/dataetl/dataetlconfiguration.py" />
         <option value="$PROJECT_DIR$/compute/computeconfiguration.py" />
+        <option value="$PROJECT_DIR$/compute/modelcompute.py" />
       </list>
     </option>
   </component>
@@ -203,6 +202,12 @@
               <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
               <item name="prodrec" type="462c0819:PsiDirectoryNode" />
               <item name="compute" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodrec" type="462c0819:PsiDirectoryNode" />
+              <item name="compute" type="462c0819:PsiDirectoryNode" />
+              <item name="pp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
@@ -593,16 +598,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/read.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-          <folding>
-            <element signature="e#46#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/preprocessetlfunc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14175">
@@ -611,20 +606,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compute/modelcompute.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="105" column="45" lean-forward="true" selection-start-line="105" selection-start-column="45" selection-end-line="105" selection-end-column="45" />
-          <folding>
-            <element signature="e#46#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compute/read.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="32" lean-forward="false" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compute/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compute/computeconfiguration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="49" lean-forward="false" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -637,27 +638,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compute/run.sh">
+    <entry file="file://$PROJECT_DIR$/dataetl/read.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="365">
+          <caret line="58" column="55" lean-forward="false" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+          <folding>
+            <element signature="e#46#73#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/dataetlconfiguration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="27" />
+        <state relative-caret-position="415">
+          <caret line="89" column="18" lean-forward="false" selection-start-line="89" selection-start-column="18" selection-end-line="89" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/compute/computeconfiguration.py">
+    <entry file="file://$PROJECT_DIR$/compute/modelcompute.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="401">
+          <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
