@@ -185,7 +185,8 @@ if __name__ == "__main__":
                                                                                    time.localtime()))
                     # return compute status
                     returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
-                    print(returndata)
-                    # a = requests.post(RETURN_PORT_URL, data=returndata)
-                    # print(a)
+                    try:
+                        requests.post(RETURN_PORT_URL, data=returndata, timeout=0.1)
+                    except requests.exceptions.ConnectTimeout:
+                        pass
 
