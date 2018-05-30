@@ -99,7 +99,7 @@ class readClass:
         print(returndata)
         try:
             requests.post(RETURN_PORT_URL, data=returndata,timeout=0.1)
-        except requests.exceptions.ConnectTimeout:
+        except requests.exceptions.ReadTimeout:
             pass
         print('11.end port return time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 

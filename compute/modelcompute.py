@@ -187,6 +187,6 @@ if __name__ == "__main__":
                     returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
                     try:
                         requests.post(RETURN_PORT_URL, data=returndata, timeout=0.1)
-                    except requests.exceptions.ConnectTimeout:
+                    except requests.exceptions.ReadTimeout:
                         pass
 
