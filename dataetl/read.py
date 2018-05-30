@@ -2,8 +2,15 @@
 # _*_ coding:utf-8 _*_
 
 import os,sys,time,requests
-from redisutil import Redis_db as rds
-import pp.pp as pp
+
+# local
+import dataetl.pp.pp as pp
+from dataetl.redisutil import Redis_db as rds
+
+# online
+# from redisutil import Redis_db as rds
+# import pp.pp as pp
+
 
 
 ppservers = ()
@@ -14,7 +21,10 @@ else:
     job_server = pp.Server(ppservers=ppservers)
 
 def rundata(n):
-    from readClass import readClass
+    # local
+    from dataetl.readClass import readClass
+    # online
+    # from readClass import readClass
     my_to = readClass()
     res = my_to.StartRun(n)
 
@@ -32,10 +42,10 @@ if __name__ == '__main__':
     print("avaiable cpus ", cpu_count, "workers")
     my_rds = rds('recommend_data_msg')
     start_time = time.time()
-
     rds_list = []
     while(True):
         res_tmp = my_rds.GetList()
+        print(res_tmp)
         start_time = time.time()
         if len(res_tmp)==32:
             res_tmp = res_tmp.decode()

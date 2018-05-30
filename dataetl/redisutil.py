@@ -2,8 +2,14 @@
 # _*_ coding:utf-8 _*_
 
 
-from dataetlconfiguration import *
+
 import redis
+
+# local
+from dataetl.dataetlconfiguration import *
+
+# online
+# from dataetlconfiguration import *
 
 class Redis_db:
 

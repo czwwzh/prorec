@@ -2,11 +2,18 @@
 # _*_ coding:utf-8 _*_
 
 import json
-
+import demjson
 import pymysql
 import time
 
-from dataetlconfiguration import *
+
+# local
+from dataetl.dataetlconfiguration import *
+from dataetl.variables import *
+
+# online
+# from dataetlconfiguration import *
+# from variables import *
 
 
 # import traceback
@@ -124,11 +131,19 @@ def streamstr(uuid,data):
 
 # filter : whether the source data is json format
 def streamjson(uuid,data):
+    data = data.replace('''"{''', "{").replace('''}"''', "}").replace('''\\''', '').replace("b'","").replace("n'","")
+    import traceback
     ist = True
-    print(type(data))
+    # print(type(data))
+    # print(uuid)
+    # print(type(data))
+    # print(data)
     try:
+        print(type(data))
+        print(data)
         data_tmp = json.loads(data, encoding='utf-8')
     except:
+        traceback.print_exc()
         exceptiontype = "2"
         comment = "The data  is not a Json format."
         exceptiondataupdate(comment, uuid,exceptiontype)
@@ -139,6 +154,7 @@ def streamjson(uuid,data):
         if type(mesurementItemInfos) == str:
 
             try:
+                # json.loads(mesurementItemInfos, encoding='utf-8')
                 json.loads(mesurementItemInfos, encoding='utf-8')
             except:
                 exceptiontype = "2"
@@ -182,10 +198,14 @@ def getShopNo(scan_id):
 
 # judge shop last exist
 def existslast(shop_no):
+    import traceback
     shopNo = None
-    sql = "SELECT a.shop_no FROM shop_last_inventory a JOIN shop_sku_inventory b  on a.shop_no = b.shop_no and a.styleno = b.styleno and a.basicsize = b.sizes where a.shop_no = '" + shop_no + "' and b.available_qty>0 limit 1"
+    sql = "SELECT a.shop_no FROM shop_last_inventory_test a JOIN shop_sku_inventory_test b  on a.shop_no = b.shop_no and a.styleno = b.styleno and a.basicsize = b.sizes where a.shop_no = '" + shop_no + "' and b.available_qty>0 limit 1"
+    print(sql)
     db = None
+
     try:
+
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
@@ -194,6 +214,7 @@ def existslast(shop_no):
         if ist != 0 and ist != None:
             shopNo = cursor.fetchone()[0]
     except:
+        traceback.print_exc()
         print("no avaiable last and sku in the shop")
     finally:
         if db:
@@ -229,7 +250,7 @@ def existavailablelast(shop_no,sex,sizes):
 
     sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + str(sex) + " and year = '" + str(
         yearquarter[0]) + "' and season in " + str(yearquarter[1]) + " and  basicsize in " + str(sizes) + " limit 1"
-
+    print(sql)
     db = None
     try:
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
