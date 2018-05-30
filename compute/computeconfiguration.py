@@ -22,7 +22,8 @@ HBASE_PROTOCOL = 'binary'
 HBASE_TRANSPORT = 'buffered'
 # prod
 HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawException'
-HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
+# HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
+HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
 # test
 # HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawExceptionTest'
 # HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest'
@@ -54,7 +55,8 @@ SIZESTANDARDSCALER3PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_3'
 # local
 # REDIS_HOST = '192.168.17.110'
 # prod
-REDIS_HOST = '54.222.236.85'
+# REDIS_HOST = '54.222.236.85'
+REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 # REDIS_HOST = 'prod-sku-recommend.rawr9u.clustercfg.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
