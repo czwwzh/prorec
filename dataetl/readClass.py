@@ -98,8 +98,8 @@ class readClass:
         returndata = {'uuid': uuid,'res': -1}
         print(returndata)
         try:
-            requests.post(RETURN_PORT_URL, data=returndata,timeout=0.1)
-        except requests.exceptions.ReadTimeout:
-            pass
+            requests.post(RETURN_PORT_URL, data=returndata,timeout=1)
+        except Exception as e:
+            print("Send abnormal result to WX failed.")
         print('11.end port return time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
