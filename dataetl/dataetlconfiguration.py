@@ -24,13 +24,17 @@ RECOMMEND_DB_USER = "haozhShopRecom"
 RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
 RECOMMEND_DB_CHARSET = 'utf8mb4'
 # prod db
-RECOMMEND_DB_NAME = 'shop_sku_recommend'
+# RECOMMEND_DB_NAME = 'shop_sku_recommend'
 # test db
-# RECOMMEND_DB_NAME = 'bdp_products'
+RECOMMEND_DB_NAME = 'bdp_products'
 
-FOOT_LAST_ETL_TABLE = 'foot_last_etl'
-FOOT_SCAN_TABLE = 'foot_scan'
-FOOT_REPEAT_TABLE = 'foot_repeat'
+# FOOT_LAST_ETL_TABLE = 'foot_last_etl'
+# FOOT_SCAN_TABLE = 'foot_scan'
+# FOOT_REPEAT_TABLE = 'foot_repeat'
+
+FOOT_LAST_ETL_TABLE = 'foot_last_etl_test'
+FOOT_SCAN_TABLE = 'foot_scan_test'
+FOOT_REPEAT_TABLE = 'foot_repeat_test'
 
 # sku and last
 # test
@@ -59,8 +63,9 @@ LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 # local
 # REDIS_HOST = '192.168.17.110'
 # prod
-REDIS_HOST = '54.222.236.85'
+# REDIS_HOST = '54.222.236.85'
 # REDIS_HOST = 'prod-sku-recommend.rawr9u.clustercfg.cnn1.cache.amazonaws.com.cn'
+REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 
@@ -68,7 +73,9 @@ REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # kafka configuration
 # prod
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
+# KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
+# test
+KAFKA_PROD_FOOTTOPIC = 'footInfoTest'
 KAFKA_GROUP_ID = 'footInfoProdprod1'
 
 
