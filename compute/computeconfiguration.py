@@ -12,7 +12,7 @@ RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
 RECOMMEND_DB_NAME = 'shop_sku_recommend'
 # RECOMMEND_DB_NAME = 'bdp_products'
 RECOMMEND_DB_CHARSET = 'utf8mb4'
-FOOT_LAST_ETL_TABLE = 'foot_last_etl_test'
+FOOT_LAST_ETL_TABLE = 'foot_last_etl'
 
 #hbase configuration
 HBASE_HOST = '52.80.170.199'
