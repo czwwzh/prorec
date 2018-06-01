@@ -88,3 +88,5 @@ RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
 # RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
 # compute completed return host
 # RETURN_PORT_URL = 'http://54.222.142.37:9998/shopRecommendController/test'
+
+logFilePath = '/home/ec2-user/zhanghao/log/dataetllog'

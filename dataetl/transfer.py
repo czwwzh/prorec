@@ -3,7 +3,7 @@
 
 from kafka import KafkaConsumer
 from redisutil import Redis_db as rds
-
+from logutil import logger
 from dataetlconfiguration import *
 consumer = KafkaConsumer(KAFKA_PROD_FOOTTOPIC,
                          group_id=KAFKA_GROUP_ID,
@@ -16,7 +16,8 @@ for message in consumer:
         # data = key + "_" + sourcedata
         my_rds.SetData(key,sourcedata)
         my_rds.RpushData(key)
-        print(key)
+        # print(key)
+        logger.info(key)
     except:
         pass
 

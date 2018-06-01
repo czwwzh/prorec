@@ -3,7 +3,9 @@
 
 
 from dataetlconfiguration import *
+from logutil import logger
 import redis
+
 
 class Redis_db:
 
@@ -17,13 +19,17 @@ class Redis_db:
     def link_redis(self):
         conf = self.RedisInfo
         ist = True
-        print('connect redis',)
+        # print('connect redis',)
+        logger.info('connect redis', )
         self.RedisConn = redis.Redis(**conf)
         try:
             self.RedisConn.ping()
-            print('--->Success')
+            # print('--->Success')
+            logger.info('--->Success')
         except redis.exceptions.ConnectionError as e:
             print('ERROR:'+str(e),'Redis')
+            logger.info('ERROR:' + str(e), 'Redis')
+
             ist = False
 
         return ist
@@ -42,7 +48,8 @@ class Redis_db:
             self.RedisConn.ping()
             self.RedisConn.rpush(self.__RedisData, string)
         except redis.exceptions.ResponseError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
 
     def LenData(self):
         llen = 0
@@ -50,7 +57,9 @@ class Redis_db:
             self.RedisConn.ping()
             llen = self.RedisConn.llen(self.__RedisData)
         except redis.exceptions.ResponseError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
+
 
         return llen
 
@@ -60,7 +69,8 @@ class Redis_db:
         try:
             self.RedisConn.ping()
         except redis.exceptions.ResponseError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
 
         if ist == False:
             self.RedisConn.set(uuid, data)

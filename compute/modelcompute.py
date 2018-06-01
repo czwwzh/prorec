@@ -8,6 +8,7 @@ import requests
 #from multiprocessing import Pool
 from computeetlfunc import *
 from redisutil import Redis_db as rds
+from logutil import logger
 
 # =============================================================================
 # load model and function
@@ -82,24 +83,32 @@ if __name__ == "__main__":
         res = my_rds.GetList()
         uuid = res.decode()
         count += 1
-        print(count)
-        print(uuid)
+        # print(count)
+        # print(uuid)
+        logger.info(count)
+        logger.info(uuid)
         return_shop_no = None
         return_sex = None
         if uuid:
-            print('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            # print('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            logger.info('1.data receive time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             status = statusexist(uuid)
-            print("status:" + str(status))
+            # print("status:" + str(status))
+            logger.info("status:" + str(status))
             if status and status != 0:
                 footlastlist = getetldata(uuid)
-                print('2.get foot last dataetl data by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                # print('2.get foot last dataetl data by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                logger.info('2.get foot last dataetl data by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                     time.localtime()))
                 if footlastlist != None:
                     # get data for model compute size and suit
                     leftrightdatasalones = getetldataleftrightalone(footlastlist)
                     leftrightdatastogethers = getetldataleftrighttogether(footlastlist)
 
-                    print('3.get  data in demand for model compute by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                                     time.localtime()))
+                    # print('3.get  data in demand for model compute by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    #                                                                  time.localtime()))
+                    logger.info('3.get  data in demand for model compute by uuid time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                                    time.localtime()))
                     # save one uuid all result
                     suit2resultlist = list()
                     suit6resultlist = list()
@@ -138,7 +147,9 @@ if __name__ == "__main__":
                         suit6resultlist.append([key, suit6resultdict])
                         suit12resultlist.append([key, suit12resultdict])
 
-                    print('4.suit model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    # print('4.suit model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    #                                                      time.localtime()))
+                    logger.info('4.suit model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                          time.localtime()))
 
                     # size model
@@ -160,7 +171,9 @@ if __name__ == "__main__":
                         resultdict["size"] = basicsize
                         resultdict["result"] = sizeresult
                         sizeresultlist.append([key, resultdict])
-                    print('5.size model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    # print('5.size model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    #                                                      time.localtime()))
+                    logger.info('5.size model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                          time.localtime()))
 
                     # result process dict(key:list(dict)})
@@ -168,8 +181,10 @@ if __name__ == "__main__":
                     suit6resultprocess = resultdataprocess(suit6resultlist)
                     suit12resultprocess = resultdataprocess(suit12resultlist)
                     sizeresultprocess  = resultdataprocess(sizeresultlist)
-                    print('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                         time.localtime()))
+                    # print('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    #                                                      time.localtime()))
+                    logger.info('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                   time.localtime()))
                     # result save
                     # dataset = [(suit2resultprocess,'suit_length_v1.0'),(suit6resultprocess,'suit_metatarsalegirth_v1.0'),(suit12resultprocess, 'suit_global_v1.0'),(sizeresultprocess, 'size_v1.0')]
                     # agents = 4
@@ -181,14 +196,17 @@ if __name__ == "__main__":
                     resultsave(suit12resultprocess, 'suit_global_v1.0')
                     resultsave(sizeresultprocess, 'size_v1.0')
 
-                    print('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                                   time.localtime()))
+                    # print('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                    #                                                                time.localtime()))
+                    logger.info('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                time.localtime()))
                     # return compute status
                     returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
                     try:
                         requests.post(RETURN_PORT_URL, data=returndata, timeout=1)
                     except requests.ConnectionError as e:
-                        print("Send normal Connection Timeout.")
+                        # print("Send normal Connection Timeout.")
+                        logger.info("Send normal Connection Timeout.")
                     except requests.ReadTimeout as e:
-                        print("Send normal Read Timeout")
+                        logger.info("Send normal Read Timeout")
 

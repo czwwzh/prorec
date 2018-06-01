@@ -6,6 +6,8 @@ import pymysql
 from computeconfiguration import *
 from variables import *
 
+from logutil import logger
+
 
 #import traceback
 
@@ -23,7 +25,8 @@ def statusexist(uuid):
         if ist is None:
             ist = 0
     except:
-        print("Error: unable to fecth status")
+        # print("Error: unable to fecth status")
+        logger.info("Error: unable to fecth status")
 
     finally:
             if db:
@@ -49,7 +52,8 @@ def getetldata(uuid):
             footlast = getFootLastData(result)
             footlastlist.append(footlast)
     except:
-        print("Error:fecth foot and last data exception by uuid")
+        # print("Error:fecth foot and last data exception by uuid")
+        logger.info("Error:fecth foot and last data exception by uuid")
     finally:
         if db:
             db.close()
@@ -222,7 +226,8 @@ def updateexceptioncode(uuid,exceptioncode):
         # 执行sql语句
         db.commit()
     except:
-        print("updateexceptioncode exception")
+        # print("updateexceptioncode exception")
+        logger.info("updateexceptioncode exception")
         # 如果发生错误则回滚
         db.rollback()
     # 关闭游标

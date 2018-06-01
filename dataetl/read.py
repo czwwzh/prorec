@@ -4,11 +4,13 @@
 import os,sys,time,requests
 from redisutil import Redis_db as rds
 import pp.pp as pp
+from logutil import logger
 
 
 ppservers = ()
 if len(sys.argv) > 1:
-    print('Close Server')
+    # print('Close Server')
+    logger.info('Close Server')
     os._exit(0)
 else:
     job_server = pp.Server(ppservers=ppservers)
@@ -19,18 +21,23 @@ def rundata(n):
     res = my_to.StartRun(n)
 
 def AnaData(inputs,start_time):
-    print(len(inputs),)
+    # print(len(inputs),)
+    logger.info(len(inputs), )
     jobs = [(input, job_server.submit(rundata, (input,), (), ())) for input in inputs]
     for input, job in jobs:
         res = job()
-        print("------------------------------>",res )
-        print('time:', time.time() - start_time)
+        # print("------------------------------>",res )
+        # print('time:', time.time() - start_time)
+        logger.info("------------------------------>", res)
+        logger.info('time:', time.time() - start_time)
     return  0
 
 if __name__ == '__main__':
     cpu_count = int(job_server.get_ncpus())
-    print("avaiable cpus ", cpu_count, "workers")
+    # print("avaiable cpus ", cpu_count, "workers")
+    logger.info("avaiable cpus ", cpu_count, "workers")
     my_rds = rds('recommend_data_msg')
+
     start_time = time.time()
 
     rds_list = []
@@ -47,10 +54,12 @@ if __name__ == '__main__':
         llen = my_rds.LenData()
         if list_count == cpu_count:
             print('********************************')
+            logger.info('********************************')
             list_count = AnaData(rds_list,start_time)
 
         if list_count > 0 and llen == 0:
-            print('********************************---->')
+            # print('********************************---->')
+            logger.info('********************************---->')
             list_count = AnaData(rds_list,start_time)
 
         if list_count == 0 :

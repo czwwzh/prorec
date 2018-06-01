@@ -7,7 +7,7 @@ import pymysql
 import time
 
 from dataetlconfiguration import *
-
+from logutil import logger
 
 # import traceback
 
@@ -34,7 +34,9 @@ def footdatasavemysql(uuid,footdata):
         db.commit()
     # except Exception as e:
     except:
-        print("save foot_scan exception")
+        # print("save foot_scan exception")
+        logger.info("save foot_scan exception")
+
         # traceback.print_exc()
         # 如果发生错误则回滚
         db.rollback()
@@ -75,14 +77,15 @@ def exceptiondataupdate(comment,uuid,exceptiontype):
                          db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)
     cursor = db.cursor()
     sql = "update " + FOOT_SCAN_TABLE +  " set exceptiontype = " + str(exceptiontype) + ", comment = '" + comment + "' where uuid = '" + uuid +"'"
-    print(sql)
+    # print(sql)
     try:
         # 执行sql语句
         cursor.execute(sql)
         # 执行sql语句
         db.commit()
     except:
-        print("updateexceptioncode exception")
+        # print("updateexceptioncode exception")
+        logger.info("updateexceptioncode exception")
         # 如果发生错误则回滚
         db.rollback()
     # 关闭游标
@@ -125,7 +128,7 @@ def streamstr(uuid,data):
 # filter : whether the source data is json format
 def streamjson(uuid,data):
     ist = True
-    print(type(data))
+    # print(type(data))
     try:
         data_tmp = json.loads(data, encoding='utf-8')
     except:
@@ -174,7 +177,8 @@ def getShopNo(scan_id):
         if ist != 0 and ist != None:
             shop_no = cursor.fetchone()[0]
     except:
-        print("no shopNo by scanid")
+        # print("no shopNo by scanid")
+        logger.info("no shopNo by scanid")
     finally:
         if db:
             db.close()
@@ -194,7 +198,8 @@ def existslast(shop_no):
         if ist != 0 and ist != None:
             shopNo = cursor.fetchone()[0]
     except:
-        print("no avaiable last and sku in the shop")
+        # print("no avaiable last and sku in the shop")
+        logger.info("no avaiable last and sku in the shop")
     finally:
         if db:
             db.close()
@@ -240,7 +245,8 @@ def existavailablelast(shop_no,sex,sizes):
         if ist != None and ist > 0:
             result = True
     except:
-        print("no avaiable last and sku in the shop because of gender or year or season or basicsize ")
+        # print("no avaiable last and sku in the shop because of gender or year or season or basicsize ")
+        logger.info("no avaiable last and sku in the shop because of gender or year or season or basicsize ")
     finally:
         if db:
             db.close()
@@ -490,7 +496,8 @@ def getlastdata(shop_no_sex,sizes):
             lasts = getLastDataValue(last)
             lastlist.append(lasts)
     except:
-        print("no last data to fecth ")
+        # print("no last data to fecth ")
+        logger.info("no last data to fecth ")
     finally:
         if  db:
             db.close()
@@ -600,6 +607,22 @@ def repetitivedatasave(uuid,footdata):
     cursor.close()
     # 关闭数据库连接
     db.close()
+#  return  result
+def sendtowx(self,uuid):
+    # print('10.start send to port time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
+    logger.info('10.start send to port time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    returndata = {'uuid': uuid,'res': -1}
+    print(returndata)
+    try:
+        requests.post(RETURN_PORT_URL, data=returndata,timeout=1)
+    except requests.ConnectionError as e:
+        # print("Send abnormal Connection Timeout.")
+        logger.info("Send abnormal Connection Timeout.")
+    except requests.ReadTimeout as e:
+        # print("Send abnormal Read Timeout")
+        logger.info("Send abnormal Read Timeout")
+    # print('11.end port return time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    logger.info('11.end port return time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
 
