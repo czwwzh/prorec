@@ -74,10 +74,10 @@ REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # kafka configuration
 # prod
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-# KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
+KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 # test
-KAFKA_PROD_FOOTTOPIC = 'footcom'
-KAFKA_GROUP_ID = 'footInfoProdprod1'
+# KAFKA_PROD_FOOTTOPIC = 'footcom'
+KAFKA_GROUP_ID = 'footInfoProdprod33'
 
 
 # return url
