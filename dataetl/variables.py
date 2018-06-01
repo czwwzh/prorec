@@ -202,6 +202,8 @@ LASTATTRIBUTES = ['shop_no',
                        'shoepadthicknessheel',
                        'addtime']
 
+# LASTATTRIBUTESSTR = ','.join(LASTATTRIBUTES)  # advice
+
 LASTATTRIBUTESSTR = "shop_no,styleno,basicsize,brand,shoetype,shoetype1,fattype,footaround,footbackarcdistance54mm,footbackarcdistancemouth,footbackbodylength,footbackfacedistance,footbackgirth,footbasicwidth,footbitfingeroutsidewidth,footboatcurveheight,footbottomheartconcavity,footdegreerejection,footfifthtoeoutsidewidth,footfirstplantarjointheight,footfirsttoeinsidewidth,footforepalmconvexity,footfrontcross,footheadthickness,footheelbulgeheight,footheelheartconvexity,footheelheartwidth,footheelheight,footlandspot,footmetatarsalgirth,footmouthbackheight,footmouthgirth,footmouthlength,footmouthwidth,footpalmwidth,footpocketheelgirth,footshoelastcalculatelength,footstruct,footstruct1,foottarsalboneheight,foottarsalgirth,footthumbinsidewidth,footwaistgirth,footwaistwidth,footwidth,gender,headform,headform1,shoelastbaseno,shoepadthicknessforefoot,shoepadthicknessheel,addtime"
 
 FOOTATTRIBUTES_RULES = {'base_width_left': [75, 115],
