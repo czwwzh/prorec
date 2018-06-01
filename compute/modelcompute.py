@@ -204,6 +204,7 @@ if __name__ == "__main__":
                     returndata = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
                     try:
                         requests.post(RETURN_PORT_URL, data=returndata, timeout=1)
+                        logger.info(returndata)
                     except requests.ConnectionError as e:
                         # print("Send normal Connection Timeout.")
                         logger.info("Send normal Connection Timeout.")
