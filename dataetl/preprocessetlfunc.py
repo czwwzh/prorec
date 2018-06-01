@@ -135,6 +135,7 @@ def streamjson(uuid,data):
         exceptiontype = "2"
         comment = "The data  is not a Json format."
         exceptiondataupdate(comment, uuid,exceptiontype)
+        # 这里出现异常后，后续不需要再判断measrementItemInfos，直接return。以此类推
         ist =  False
 
     if ist == True:
