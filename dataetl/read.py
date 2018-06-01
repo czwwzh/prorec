@@ -53,7 +53,7 @@ if __name__ == '__main__':
         list_count = len(rds_list)
         llen = my_rds.LenData()
         if list_count == cpu_count:
-            print('********************************')
+            # print('********************************')
             logger.info('********************************')
             list_count = AnaData(rds_list,start_time)
 

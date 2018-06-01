@@ -16,7 +16,7 @@ from dataetlconfiguration import *
 # from dataetlconfiguration import *
 
 logFilePath = logFilePath
-logger = logging.getLogger('mylogger')
+logger = logging.getLogger('dataetllogger')
 logger.setLevel(logging.DEBUG)
 
 ch = logging.StreamHandler()

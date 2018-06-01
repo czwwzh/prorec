@@ -27,7 +27,7 @@ class Redis_db:
             # print('--->Success')
             logger.info('--->Success')
         except redis.exceptions.ConnectionError as e:
-            print('ERROR:'+str(e),'Redis')
+            # print('ERROR:'+str(e),'Redis')
             logger.info('ERROR:' + str(e), 'Redis')
 
             ist = False
@@ -39,7 +39,8 @@ class Redis_db:
             self.RedisConn.ping()
             _,json = self.RedisConn.blpop(self.__RedisData)
         except TypeError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
             json = None
         return json
 

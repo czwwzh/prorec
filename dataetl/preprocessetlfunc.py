@@ -557,7 +557,8 @@ def footlastetlsave(data):
             datalist.append(footlastdict[field])
         footlasttuple = userinfo + tuple(datalist)
         footlasttupleslist.append(footlasttuple)
-    print(len(footlasttupleslist))
+    # print(len(footlasttupleslist))
+    logger.info(len(footlasttupleslist))
     res = batchdatasavemysql(footlasttupleslist)
     return res
 
@@ -612,7 +613,8 @@ def sendtowx(self,uuid):
     # print('10.start send to port time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
     logger.info('10.start send to port time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     returndata = {'uuid': uuid,'res': -1}
-    print(returndata)
+    # print(returndata)
+    logger.info(returndata)
     try:
         requests.post(RETURN_PORT_URL, data=returndata,timeout=1)
     except requests.ConnectionError as e:

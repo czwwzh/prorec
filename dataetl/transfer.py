@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
+import time
+
 from kafka import KafkaConsumer
 from redisutil import Redis_db as rds
 from logutil import logger
@@ -11,12 +13,11 @@ consumer = KafkaConsumer(KAFKA_PROD_FOOTTOPIC,
 my_rds = rds('recommend_data_msg')
 for message in consumer:
     try:
+        logger.info('data from kafka to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         key = message.key.decode()
         sourcedata = message.value.decode()
-        # data = key + "_" + sourcedata
         my_rds.SetData(key,sourcedata)
         my_rds.RpushData(key)
-        # print(key)
         logger.info(key)
     except:
         pass

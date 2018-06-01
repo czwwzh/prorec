@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-
-from computeconfiguration import *
 import redis
-
+from computeconfiguration import *
+from logutil import logger
 class Redis_db:
 
     RedisInfo = REDIS_CONNECT_INFO
@@ -17,13 +16,16 @@ class Redis_db:
     def link_redis(self):
         conf = self.RedisInfo
         ist = True
-        print('connect redis',)
+        # print('connect redis',)
+        logger.info('connect redis', )
         self.RedisConn = redis.Redis(**conf)
         try:
             self.RedisConn.ping()
-            print('--->Success')
+            # print('--->Success')
+            logger.info('--->Success')
         except redis.exceptions.ConnectionError as e:
-            print('ERROR:'+str(e),'Redis')
+            # print('ERROR:'+str(e),'Redis')
+            logger.info('ERROR:' + str(e), 'Redis')
             ist = False
 
         return ist
@@ -33,7 +35,8 @@ class Redis_db:
             self.RedisConn.ping()
             _,json = self.RedisConn.blpop(self.__RedisData)
         except TypeError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
             json = None
         return json
 
@@ -42,7 +45,8 @@ class Redis_db:
             self.RedisConn.ping()
             self.RedisConn.rpush(self.__RedisData, string)
         except redis.exceptions.ResponseError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
 
     def LenData(self):
         llen = 0
@@ -50,7 +54,8 @@ class Redis_db:
             self.RedisConn.ping()
             llen = self.RedisConn.llen(self.__RedisData)
         except redis.exceptions.ResponseError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
 
         return llen
 
@@ -60,7 +65,8 @@ class Redis_db:
         try:
             self.RedisConn.ping()
         except redis.exceptions.ResponseError as e:
-            print('ERROR:' + str(e))
+            # print('ERROR:' + str(e))
+            logger.info('ERROR:' + str(e))
 
         if ist == False:
             self.RedisConn.set(uuid, data)
