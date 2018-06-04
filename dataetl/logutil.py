@@ -25,9 +25,9 @@ ch.setLevel(logging.INFO)
 
 fh = TimedRotatingFileHandler(
     logFilePath,
-    when="D",
+    when="MIDNIGHT",
     interval=1,
-    backupCount=5)
+    backupCount=10)
 # fh.suffix = "%Y-%m-%d_%H-%M-%S.log"
 fh.suffix = "%Y-%m-%d.log"
 fh.setLevel(logging.INFO)
