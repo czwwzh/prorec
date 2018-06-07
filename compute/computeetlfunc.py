@@ -183,38 +183,48 @@ def resultsave(data,modelversion):
     import happybase
     import time
     ip = HBASE_HOST
-    connection = happybase.Connection(host=ip, port=HBASE_PORT, timeout=HBASE_TIMEOUT, protocol=HBASE_PROTOCOL,
-                                      transport=HBASE_TRANSPORT)
-    table = connection.table(HBASE_RESULT_TABLE)
-    # model compute time
-    updatetime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    updatetimename = modelversion + '_' + "updatetime"
-    b = table.batch(timestamp=int(time.time()))
-    for result in data:
-        # result
-        datasave = json.dumps(data[result])
+    connection = None
+    try:
+        connection = happybase.Connection(host=ip, port=HBASE_PORT, timeout=HBASE_TIMEOUT, protocol=HBASE_PROTOCOL,
+                                          transport=HBASE_TRANSPORT)
+        table = connection.table(HBASE_RESULT_TABLE)
+        # model compute time
+        updatetime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        updatetimename = modelversion + '_' + "updatetime"
+        b = table.batch(timestamp=int(time.time()))
 
-        res = result.split("_")
-        # rowkey uuid_algoVersion
-        uuid_version = res[0] + '_' + res[1]
-        # styleno
-        styleno = res[2]
-        # sex
-        sex = res[3]
-        # column family : column
-        columns1 = "user_info:sex"
-        columns2 = "user_info:" + updatetimename
-        columns3 = modelversion + ':' + styleno
 
-        b.put(uuid_version, {columns1: sex,
-                           columns2: updatetime,
-                           columns3: datasave})
-    b.send()
-    connection.close()
+        for result in data:
+            # result
+            datasave = json.dumps(data[result])
+
+            res = result.split("_")
+            # rowkey uuid_algoVersion
+            uuid_version = res[0] + '_' + res[1]
+            # styleno
+            styleno = res[2]
+            # sex
+            sex = res[3]
+            # column family : column
+            columns1 = "user_info:sex"
+            columns2 = "user_info:" + updatetimename
+            columns3 = modelversion + ':' + styleno
+
+            b.put(uuid_version, {columns1: sex,
+                               columns2: updatetime,
+                               columns3: datasave})
+        b.send()
+    except Exception as e:
+        logger.info(e)
+    finally:
+        if connection != None:
+            connection.close()
 
 
 def updateexceptioncode(uuid,exceptioncode):
+
     import pymysql
+
     db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
                          user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
                          db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)

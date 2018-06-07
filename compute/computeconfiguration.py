@@ -15,11 +15,12 @@ RECOMMEND_DB_CHARSET = 'utf8mb4'
 FOOT_LAST_ETL_TABLE = 'foot_last_etl'
 
 #hbase configuration
-HBASE_HOST = '52.80.170.199'
+# HBASE_HOST = '52.80.170.199'
+HBASE_HOST = '54.222.249.145'
 HBASE_TIMEOUT = 10000
 HBASE_PORT = 9090
-HBASE_PROTOCOL = 'binary'
-HBASE_TRANSPORT = 'buffered'
+HBASE_PROTOCOL = 'compact'
+HBASE_TRANSPORT = 'framed'
 # prod
 HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawException'
 HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
