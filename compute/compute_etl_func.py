@@ -3,13 +3,17 @@
 
 import json
 import pymysql
-from computeconfiguration import *
-from variables import *
 
-from logutil import logger
+# local
+from compute.util_log import logger
+from compute.compute_configuration import *
+from compute.variables import *
 
+# online
+# from util_log import logger
+# from compute_configuration import *
+# from variables import *
 
-#import traceback
 
 # get status and judge it is not 0
 def statusexist(uuid):
@@ -93,12 +97,12 @@ def getFootLastData(data):
 def getetldataleftrightalone(data):
     leftrightdatas = list()
     for leftrightdata in data:
-        uuid = leftrightdata['uuid']
-        algoversion = leftrightdata['algoversion']
+        uuid = leftrightdata['UUID']
+        algoversion = leftrightdata['algoVersion']
         shop_no = leftrightdata['shop_no']
         styleno = leftrightdata['styleno']
         basicsize = leftrightdata['basicsize']
-        sex = leftrightdata['sex']
+        sex = leftrightdata['gender']
 
         left = list()
         right = list()
@@ -116,12 +120,12 @@ def getetldataleftrightalone(data):
 def getetldataleftrighttogether(data):
     leftrightdatas = list()
     for leftrightdata in data:
-        uuid = leftrightdata['uuid']
-        algoversion = leftrightdata['algoversion']
+        uuid = leftrightdata['UUID']
+        algoversion = leftrightdata['algoVersion']
         shop_no = leftrightdata['shop_no']
         styleno = leftrightdata['styleno']
         basicsize = leftrightdata['basicsize']
-        sex = leftrightdata['sex']
+        sex = leftrightdata['gender']
 
         leftright = list()
 
@@ -213,25 +217,25 @@ def resultsave(data,modelversion):
     connection.close()
 
 
-def updateexceptioncode(uuid,exceptioncode):
-    import pymysql
-    db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
-                         user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
-                         db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)
-    cursor = db.cursor()
-    sql = "update " + FOOT_SCAN_TABLE +  " set exceptioncode = " + str(exceptioncode) + " where uuid = '" + uuid +"'"
-    try:
-        # 执行sql语句
-        cursor.execute(sql)
-        # 执行sql语句
-        db.commit()
-    except:
-        # print("updateexceptioncode exception")
-        logger.info("updateexceptioncode exception")
-        # 如果发生错误则回滚
-        db.rollback()
-    # 关闭游标
-    cursor.close()
-    # 关闭数据库连接
-    db.close()
+# def updateexceptioncode(uuid,exceptioncode):
+#     import pymysql
+#     db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
+#                          user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
+#                          db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)
+#     cursor = db.cursor()
+#     sql = "update " + FOOT_SCAN_TABLE +  " set exceptioncode = " + str(exceptioncode) + " where uuid = '" + uuid +"'"
+#     try:
+#         # 执行sql语句
+#         cursor.execute(sql)
+#         # 执行sql语句
+#         db.commit()
+#     except:
+#         # print("updateexceptioncode exception")
+#         logger.info("updateexceptioncode exception")
+#         # 如果发生错误则回滚
+#         db.rollback()
+#     # 关闭游标
+#     cursor.close()
+#     # 关闭数据库连接
+#     db.close()
 

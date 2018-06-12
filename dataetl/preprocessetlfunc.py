@@ -2,12 +2,20 @@
 # _*_ coding:utf-8 _*_
 
 import json
-
+import requests
 import pymysql
 import time
 
-from dataetlconfiguration import *
-from logutil import logger
+# local
+from dataetl.dataetl_configuration import *
+from dataetl.util_log import logger
+from dataetl.variables import *
+
+# online
+# from dataetl_configuration import *
+# from util_log import logger
+# from variables import *
+
 
 # import traceback
 
@@ -128,7 +136,6 @@ def streamstr(uuid,data):
 # filter : whether the source data is json format
 def streamjson(uuid,data):
     ist = True
-    # print(type(data))
     try:
         data_tmp = json.loads(data, encoding='utf-8')
     except:
@@ -188,6 +195,7 @@ def getShopNo(scan_id):
 def existslast(shop_no):
     shopNo = None
     sql = "SELECT a.shop_no FROM shop_last_inventory a JOIN shop_sku_inventory b  on a.shop_no = b.shop_no and a.styleno = b.styleno and a.basicsize = b.sizes where a.shop_no = '" + shop_no + "' and b.available_qty>0 limit 1"
+    logger.info(sql)
     db = None
     try:
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,

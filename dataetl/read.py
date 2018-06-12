@@ -2,68 +2,85 @@
 # _*_ coding:utf-8 _*_
 
 import os,sys,time,requests
-from redisutil import Redis_db as rds
-import pp.pp as pp
-from logutil import logger
+
+# local
+from dataetl.dataetl_configuration import *
+from dataetl.util_redis import Redis_db as rds
+from dataetl.util_log import logger
+import dataetl.pp.pp as pp
+
+# online
+# from util_redis import Redis_db as rds
+# from util_log import logger
+# import pp.pp as pp
 
 
 ppservers = ()
 if len(sys.argv) > 1:
-    # print('Close Server')
     logger.info('Close Server')
     os._exit(0)
 else:
     job_server = pp.Server(ppservers=ppservers)
 
-def rundata(n):
-    from readClass import readClass
+
+def rundata(uuid):
+
+    # online
+    # from readClass import readClass
+
+    # local
+    from dataetl.readClass import readClass
+
     my_to = readClass()
-    res = my_to.StartRun(n)
+    my_to.StartRun(uuid)
 
 def AnaData(inputs,start_time):
-    # print(len(inputs),)
-    logger.info(len(inputs), )
+    logger.info("deal with  " + str(len(inputs)) + " foot data")
+    logger.info("deal with start time " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     jobs = [(input, job_server.submit(rundata, (input,), (), ())) for input in inputs]
     for input, job in jobs:
-        res = job()
-        # print("------------------------------>",res )
-        # print('time:', time.time() - start_time)
-        logger.info("------------------------------>", res)
-        logger.info('time:', time.time() - start_time)
+        job()
+        # logger.info("----------------->" + str(res))
+    logger.info("deal with end time " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    logger.info('time:' + str(time.time() - start_time))
     return  0
+
 
 if __name__ == '__main__':
     cpu_count = int(job_server.get_ncpus())
-    # print("avaiable cpus ", cpu_count, "workers")
-    logger.info("avaiable cpus ", cpu_count, "workers")
-    my_rds = rds('recommend_data_msg')
+    logger.info("avaiable cpus " + str(cpu_count))
 
+    # redis 初始化
+    my_rds = rds()
+    redis_kafka_list = REDIS_KAFKA_LIST
     start_time = time.time()
 
-    rds_list = []
+    # list定义（从redis中读取数据放入list中）
+    rds_list = list()
     while(True):
-        res_tmp = my_rds.GetList()
+        # 从redis中读取数据
+        res_tmp = my_rds.blpop_data(redis_kafka_list)
         start_time = time.time()
         if len(res_tmp)==32:
             res_tmp = res_tmp.decode()
         else:
             continue
 
+        # 合法数据入list
         rds_list.append(res_tmp)
+
+        # 实时比对 redis队列的长度 和这里定义的数组长度启动etl计算
         list_count = len(rds_list)
-        llen = my_rds.LenData()
+        llen = my_rds.len_redis_list(redis_kafka_list)
+
         if list_count == cpu_count:
-            # print('********************************')
-            logger.info('********************************')
+            logger.info('***********start data  etl*************')
             list_count = AnaData(rds_list,start_time)
 
         if list_count > 0 and llen == 0:
-            # print('********************************---->')
-            logger.info('********************************---->')
+            logger.info('***********start data  etl*************')
             list_count = AnaData(rds_list,start_time)
 
         if list_count == 0 :
-            rds_list = []
+            rds_list = list()
 
-    # print "多线程下执行耗时: ", time.time() - start_time, "s"
-    # job_server.print_stats()

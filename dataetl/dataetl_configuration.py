@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-# spark python model redis hbase last
-from variables import *
-
-#!/usr/bin/env python
-# _*_ coding:utf-8 _*_
 # ===============configuration common===================
 # configuration for data etl
 # mysql connection
@@ -38,25 +33,26 @@ FOOT_REPEAT_TABLE = 'foot_repeat_test'
 
 # sku and last
 # test
-# SKU_LAST_USER = "haozhShopRecom"
-# SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
-# SKU_LAST_PORT = 60916
-# SKU_LAST_DB = "bdp_products"
-# SKU_LAST_CHARSET='utf8mb4'
-# LAST_TABLE = 'shop_last_inventory'
-# SKU_TABLE = 'shop_sku_inventory'
-# LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
-
-# prod
-SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-SKU_LAST_USER = "haozhFattypeRecom"
-SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
-SKU_LAST_PORT = 61539
-SKU_LAST_DB = "fattype_recommend"
+SKU_LAST_URL = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
+SKU_LAST_USER = "haozhShopRecom"
+SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+SKU_LAST_PORT = 60916
+SKU_LAST_DB = "bdp_products"
 SKU_LAST_CHARSET='utf8mb4'
 LAST_TABLE = 'shop_last_inventory'
 SKU_TABLE = 'shop_sku_inventory'
 LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
+
+# prod
+# SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
+# SKU_LAST_USER = "haozhFattypeRecom"
+# SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
+# SKU_LAST_PORT = 61539
+# SKU_LAST_DB = "fattype_recommend"
+# SKU_LAST_CHARSET='utf8mb4'
+# LAST_TABLE = 'shop_last_inventory'
+# SKU_TABLE = 'shop_sku_inventory'
+# LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 
 
 # redis connection
@@ -65,10 +61,21 @@ LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 # prod
 # REDIS_HOST = '54.222.236.85'
 # REDIS_HOST = 'prod-sku-recommend.rawr9u.clustercfg.cnn1.cache.amazonaws.com.cn'
-REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
+# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 # REDIS_HOST = '52.80.83.193'
+REDIS_HOST = '52.80.137.153'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
+# kafka 数据转入redis中的对列名 uuid
+REDIS_KAFKA_LIST = 'kafka_redis_list_data'
+# kafka 数据转入redis中的哈希表名 uuid footdata
+REDIS_KAFKA_HASHSET = 'kafka_redis_hash_data'
+# 异常脚数据存入redis的队列名称
+REDIS_LIST_FOOTDATA_EXCEPT = 'redis_list_footdata_except'
+# 正常数据uuid进入的队列名称
+REDIS_LIST_FOOT_LAST_ETL = 'redis_list_footdata_etl'
+# 正常数据进入的hash队列名称
+REDIS_HASHSET_FOOT_LAST_ETL = 'redis_hashset_footdata_etl'
 
 
 # kafka configuration
@@ -77,8 +84,8 @@ KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9
 KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 # test
 # KAFKA_PROD_FOOTTOPIC = 'footcom'
-KAFKA_GROUP_ID = 'footInfoProdprod33'
-
+# KAFKA_GROUP_ID = 'footInfoProdprod33'
+KAFKA_GROUP_ID = 'footInfoProdprodTest0611'
 
 # return url
 # test
@@ -89,4 +96,9 @@ RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
 # compute completed return host
 # RETURN_PORT_URL = 'http://54.222.142.37:9998/shopRecommendController/test'
 
-logFilePath = '/home/ec2-user/zhanghao/log/dataetllog/dataetl_v1.0'
+# logFilePath = '/home/ec2-user/zhanghao/log/dataetllog/dataetl_v1.0'
+
+# LOG PATH
+LOG_FILE_PATH ='D:\\recommend\prodrec\log\data_etl_'
+
+

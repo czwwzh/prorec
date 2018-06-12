@@ -1,108 +1,116 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
+
 import time
 import requests
+import json
 
-from dataetlconfiguration import *
-from redisutil import Redis_db as rds
-from preprocessetlfunc import *
-from logutil import logger
+
+# local
+from dataetl.dataetl_configuration import *
+from dataetl.util_redis import Redis_db as rds
+from dataetl.preprocessetlfunc import *
+from dataetl.util_log import logger
+
+# online
+# from dataetl_configuration import *
+# from util_redis import Redis_db as rds
+# from preprocessetlfunc import *
+# from util_log import logger
+
 
 class readClass:
-
     def __init__(self):
         pass
 
     def StartRun(self,uuid):
-        my_rds = rds('recommend_data_msg')
-        json_str = my_rds.SetData(uuid)
-        json_str = json_str.decode()
+        logger.info('0.redis connect and get data start time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        # redis 连接
+        my_rds = rds()
 
-        # print('1.data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-        logger.info('1.data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-        # get data one by one
+        # redis 队列  哈希表定义
+        # redis 哈希表中存储的源数据 uuid  footdata
+        redis_kafka_hashset = REDIS_KAFKA_HASHSET
+        # etl 异常数据 uuid 存储队列
+        redis_list_footdata_except = REDIS_LIST_FOOTDATA_EXCEPT
+        # etl 正常数据 uuid 存储队列
+        redis_list_foot_last_etl = REDIS_LIST_FOOT_LAST_ETL
+        # etl 正常数据 uuid foot_last 存储的哈希表
+        redis_hashset_foot_last_etl = REDIS_HASHSET_FOOT_LAST_ETL
+
+
         ist = True
         try:
-            key = uuid
-            # print(key)
-            logger.info(key)
-            # print('data input time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
-            sourcedata = json_str
-            # print(type(sourcedata))
-            # print(sourcedata)
+            # 从redis 源数据哈希表中读取脚数据
+            foot_data = my_rds.SetGetHashData(redis_kafka_hashset, uuid)
+            foot_data = foot_data.decode()
+            logger.info(foot_data)
+            logger.info('1.data from redis_hashset time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         except:
             ist = False
 
         if ist == False:
-            self.sendtowx(uuid)
+            my_rds.rpush_data(redis_list_footdata_except,uuid)
             return
 
         # sourcedata save
-        res = footdatasavemysql(key, sourcedata)
+        res = footdatasavemysql(uuid, foot_data)
+
         # data dataetl
         if res > 0:
-            # print('2.data save to mysql time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             logger.info('2.data save to mysql time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             # filter data which is not str type
-            res1 = streamstr(key, sourcedata)
-            # print('3.filter data which is not str type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            res1 = streamstr(uuid, foot_data)
             logger.info('3.filter data which is not str type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if res1 == False:
-                self.sendtowx(uuid)
+                my_rds.rpush_data(redis_list_footdata_except, uuid)
                 return
 
             # filter data which is not json type
-            res2 = streamjson(key, sourcedata)
-            # print(res2)
-            # print('4.filter data which is not json type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            res2 = streamjson(uuid, foot_data)
             logger.info('4.filter data which is not json type time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if res2 == False:
-                self.sendtowx(uuid)
+                my_rds.rpush_data(redis_list_footdata_except, uuid)
                 return
 
             # transform data to json
-            data = json.loads(sourcedata)
-            # print('5.transform data to json time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            foot_data = json.loads(foot_data)
             logger.info('5.transform data to json time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
             # filter abnormal foot data
-            res3 = footfilter(key, data)
-            # print('6.filter abnormal foot data time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            res3 = footfilter(uuid, foot_data)
             logger.info('6.filter abnormal foot data time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
             if res3 == False:
-                self.sendtowx(uuid)
+                my_rds.rpush_data(redis_list_footdata_except, uuid)
                 return
 
-                # get foot data in demend
-            data = getFootData(data)
-            uuid = data[1]['UUID']
-            # print('7.get foot data in demend time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+            # get foot data in demend
+            foot_data = getFootData(foot_data)
             logger.info('7.get foot data in demend time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-            # get last data by shopno_sex and foot connect last
-            data = footconnectlast(data)
-            # print('8.get last data by shopno_sex and foot connect last time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                                                # time.localtime()))
-            logger.info('8.get last data by shopno_sex and foot connect last time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                                                time.localtime()))
 
-            # foot and last data dataetl save and send to redis
-            res = footlastetlsave(data)
-            if res > 0:
-                # send uuid
-                new_my_rds = rds()
-                new_my_rds.RpushData(uuid)
-                # print(uuid,'--->success,send to redis')
-                logger.info(uuid, '--->success,send to redis')
-            else:
-                repetitivedatasave(uuid, sourcedata)
-                self.sendtowx(uuid)
-            # print(
-            #     '9.foot and last data dataetl save to mysql and send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-            #                                                                                        time.localtime()))
-            logger.info( '9.foot and last data dataetl save to mysql and send to redis time:  ' + time.strftime(
-                        "%Y-%m-%d %H:%M:%S",
-                        time.localtime()))
+            # get last data by shopno_sex and foot connect last
+            foot_last_data = footconnectlast(foot_data)
+            print(str(foot_last_data))
+            try:
+              foot_last_data = json.dumps(foot_last_data)
+              logger.info('8.get last data by shopno_sex and foot connect last time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+                                                                                        time.localtime()))
+              # send uuid foot_last to redis hashset
+              my_rds.SetGetHashData(redis_hashset_foot_last_etl, uuid, foot_last_data)
+              # send uuid to redis list
+              my_rds.rpush_data(redis_list_foot_last_etl, uuid)
+              logger.info(uuid + '--->success,send to redis etl ')
+
+              logger.info('9.foot and last data dataetl save to redis and send to redis time:  ' + time.strftime(
+                  "%Y-%m-%d %H:%M:%S",
+                  time.localtime()))
+            except Exception as e:
+                print(str(e))
+
+
+
         else:
-            repetitivedatasave(key, sourcedata)
-            self.sendtowx(uuid)
+            my_rds.rpush_data(redis_list_footdata_except, uuid)
+            repetitivedatasave(uuid, foot_data)
 
