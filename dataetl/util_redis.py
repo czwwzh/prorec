@@ -5,13 +5,13 @@ import redis
 import time
 
 # local
-from data_convert_cache.configuration import *
-from data_convert_cache.util_log import logger
+from dataetl.etl_configuration import *
+from dataetl.util_log import logger
 
 
 # online
-# from configuration import *
-# from logutil import logger
+# from etl_configuration import *
+# from util_log import logger
 
 
 class Redis_db:
@@ -94,5 +94,7 @@ class Redis_db:
         # 数据为空
         else:
             res = self.redis_conn.hget(hash_set, uuid)
+            if hash_set != REDIS_HASHSET_SHOP_SEASON:
+                self.redis_conn.hdel(hash_set,uuid)
             return res
 

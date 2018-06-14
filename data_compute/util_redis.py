@@ -5,13 +5,13 @@ import redis
 import time
 
 # local
-from compute.compute_configuration import *
-from compute.util_log import logger
+from data_compute.compute_configuration import *
+from data_compute.util_log import logger
 
 
 # online
 # from compute_configuration import *
-# from logutil import logger
+# from util_log import logger
 
 
 class Redis_db:
@@ -94,33 +94,8 @@ class Redis_db:
         # 数据为空
         else:
             res = self.redis_conn.hget(hash_set, uuid)
-            # self.redis_conn.hdel(hash_set, uuid)
+            if hash_set != REDIS_HASHSET_SHOP_SEASON:
+                self.redis_conn.hdel(hash_set, uuid)
             return res
-    # 向redis哈希表中存取数据
-    # 参数 哈希表名  uuid  数据
-    # def SetGetHashData(self,uuid, data=None):
-    #     # 链接是否异常
-    #     try:
-    #         self.redis_conn.ping()
-    #     except redis.exceptions.ResponseError as e:
-    #         logger.info('ERROR:' + str(e))
-    #
-    #     # 数据不为空，则添加数据
-    #     if data != None:
-    #         self.redis_conn.set(uuid, data)
-    #     # 数据为空
-    #     else:
-    #         res = self.redis_conn.get(uuid)
-    #         # self.redis_conn.hdel(hash_set, uuid)
-    #         return res
 
-    def dele(self, hash_set):
-        # 链接是否异常
-        try:
-            self.redis_conn.ping()
-        except redis.exceptions.ResponseError as e:
-            logger.info('ERROR:' + str(e))
 
-        # 数据不为空，则添加数据
-
-            self.redis_conn.delete(hash_set)

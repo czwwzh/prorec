@@ -8,7 +8,7 @@ from logging.handlers import TimedRotatingFileHandler
 
 
 # local
-from compute.compute_configuration import *
+from data_compute.compute_configuration import *
 
 # online
 # from compute_configuration import *

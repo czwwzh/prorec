@@ -1,23 +1,19 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-import time
-import pandas
-import requests
-import json
 
 
 # local
-from compute.compute_etl_func import *
-from compute.util_log import logger
-from compute.util_redis import Redis_db as rds
-from compute.compute_configuration import *
+from data_compute.compute_func import *
+from data_compute.util_log import logger
+from data_compute.util_redis import Redis_db as rds
+from data_compute.compute_configuration import *
 
 
 # online
-# from compute_etl_func import *
+# from compute_func import *
 # from util_log import logger
-# from util_redis import *
+# from util_redis import Redis_db as rds
 # from compute_configuration import *
 
 
@@ -46,8 +42,8 @@ sizeStandardScaler1 = pandas.read_pickle(SIZESTANDARDSCALER1PATH)
 sizeStandardScaler2 = pandas.read_pickle(SIZESTANDARDSCALER2PATH)
 sizeStandardScaler3 = pandas.read_pickle(SIZESTANDARDSCALER3PATH)
 
-# compute
-# suit compute
+# data_compute
+# suit data_compute
 
 # suit2
 def suit2(dataleft,dataright):
@@ -88,41 +84,46 @@ def sizepredict(data):
 if __name__ == "__main__":
 
     # etl 正常数据 uuid 存储队列
-    redis_list_foot_last_etl = REDIS_LIST_FOOT_LAST_ETL
-    # etl 正常数据 uuid foot_last 存储的哈希表
-    redis_hashset_foot_last_etl = REDIS_HASHSET_FOOT_LAST_ETL
+    redis_list_foot_etl = REDIS_LIST_FOOT_ETL
+
     # 模型计算完成数据shop_no  uuid  sex 进入的redis队列名称
     redis_list_compute_result = REDIS_LIST_COMPUTE_RESULT
 
 
     # redis instance
     my_rds = rds()
-    # get data and compute
+
+    # start data_compute
     count = 0
     while True:
-        # 从redis中读取etl之后的foot last数据
-        uuid = my_rds.blpop_data(redis_list_foot_last_etl)
-        uuid = uuid.decode()
-        logger.info('1.start receive data time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-        logger.info(uuid)
+        # 从redis中读取etl之后的foot数据
+        foot_data = my_rds.blpop_data(redis_list_foot_etl)
+        logger.info('0. get footdata from redis time:' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         count += 1
         logger.info(str(count))
-        foot_last_list = my_rds.SetGetHashData(redis_hashset_foot_last_etl,uuid)
-        foot_last_list = foot_last_list.decode()
-        foot_last_list = json.loads(foot_last_list)
+        # 解析转换脚数据
+        foot_data = foot_data.decode()
+        foot_data = json.loads(foot_data)
 
-        # 返回数据定义
-        return_flag = False
-        return_shop_no = None
-        return_sex = None
-        logger.info('2.get foot last dataetl data from redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
+        # 取出 shop_no customer_sex UUID
+        shop_no = foot_data['shop_no']
+        sex = foot_data['customer_sex']
+        uuid = foot_data['UUID']
+        logger.info(uuid)
+        logger.info('1.data parase time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
+        # foot connect last
+        foot_last_list = foot_connect_last(foot_data)
+        logger.info('2.foot connect last time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+        # 模型计算并返回
+        # model data_compute
         if foot_last_list != None:
 
-            # get data for model compute size and suit
+            # get data for model data_compute size and suit
             left_right_datas_alones = get_etl_data_left_right_alone(foot_last_list)
             left_right_datas_togethers = get_etl_data_left_right_together(foot_last_list)
-            logger.info('3.get data in demand for model compute  time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
+            logger.info('3.get data in demand for model data_compute  time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
 
             # 计算结果list定义
             # save one uuid all result
@@ -132,7 +133,7 @@ if __name__ == "__main__":
             size_result_list = list()
 
             # 舒适度模型计算
-            # suit compute
+            # suit data_compute
             for leftrightdatasalone in left_right_datas_alones:
                 uuid = leftrightdatasalone[0]
                 algoversion = leftrightdatasalone[1]
@@ -164,7 +165,7 @@ if __name__ == "__main__":
                 suit6_result_list.append([key, suit6_result_dict])
                 suit12_result_list.append([key, suit12_result_dict])
 
-            logger.info('4.suit model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+            logger.info('4.suit model data_compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                  time.localtime()))
 
             # size 模型计算
@@ -179,10 +180,10 @@ if __name__ == "__main__":
                 sizeresult = sizepredict(leftrightdatastogether[6])
 
                 # for return
-                if return_flag == False:
-                    return_shop_no = shop_no
-                    return_sex = str(sex)
-                    return_flag = True
+                # if return_flag == False:
+                #     return_shop_no = shop_no
+                #     return_sex = str(sex)
+                #     return_flag = True
 
                 key = uuid + "_" + algoversion + "_" + shoelastbaseno + "_" + str(sex)
 
@@ -191,7 +192,7 @@ if __name__ == "__main__":
                 resultdict["result"] = sizeresult
                 size_result_list.append([key, resultdict])
 
-            logger.info('5.size model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+            logger.info('5.size model data_compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                  time.localtime()))
 
             # 模型计算结果处理
@@ -200,26 +201,21 @@ if __name__ == "__main__":
             suit6_result_process = result_data_process(suit6_result_list)
             suit12_result_process = result_data_process(suit12_result_list)
             size_result_process  = result_data_process(size_result_list)
-            logger.info('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+            logger.info('6.model data_compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                            time.localtime()))
 
             # 模型计算结果存储
-            # result_save(suit2_result_process, 'suit_length_v1.0')
-            # result_save(suit6_result_process, 'suit_metatarsalegirth_v1.0')
-            # result_save(suit12_result_process, 'suit_global_v1.0')
-            # result_save(size_result_process, 'size_v1.0')
-            # result_save([(suit2_result_process,'suit_length_v1.0')])
             result_save_batch([(suit2_result_process, 'suit_length_v1.0'),(suit6_result_process, 'suit_metatarsalegirth_v1.0'),(suit12_result_process, 'suit_global_v1.0'),(size_result_process, 'size_v1.0')])
 
-            logger.info('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+            logger.info('7.model data_compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                         time.localtime()))
             # 返回数据的uuid shop_no sex 入redis
-            # return compute status
-            return_data = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
+            # return data_compute status
+            return_data = {'shop_no': shop_no, 'uuid': uuid, 'sex': str(sex)}
             return_data = json.dumps(return_data)
             my_rds.rpush_data(redis_list_compute_result,return_data)
 
-            logger.info('8.model compute result send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
+            logger.info('8.model data_compute result send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                               time.localtime()))
 
 

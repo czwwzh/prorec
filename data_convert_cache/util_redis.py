@@ -6,13 +6,14 @@ import time
 
 # local
 from data_convert_cache.configuration import *
-from data_convert_cache.util_log import logger
+from data_convert_cache.util_log import *
 
 
 # online
 # from configuration import *
 # from logutil import logger
 
+logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
 
 class Redis_db:
 

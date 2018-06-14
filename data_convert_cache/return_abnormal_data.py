@@ -2,18 +2,16 @@
 # _*_ coding:utf-8 _*_
 
 # local
-from data_convert_cache.configuration import *
 from data_convert_cache.util_redis import Redis_db as rds
 from data_convert_cache.data_convert_catche_func import *
-from data_convert_cache.util_log import logger
 
 # online
-# from configuration import *
 # from util_redis import Redis_db as rds
 # from data_convert_catche_func import *
-# from util_log import logger
 
 if __name__ == '__main__':
+    # 日志获取
+    logger = get_logger(LOG_FILE_PATH_RETURN_ABNORMAL, "return-abnormal-data-log")
     # redis 连接
     my_rds = rds()
     # etl 异常数据 uuid 存储队列

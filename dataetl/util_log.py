@@ -8,13 +8,13 @@ from logging.handlers import TimedRotatingFileHandler
 
 
 # local
-from data_convert_cache.configuration import *
+from dataetl.etl_configuration import *
 
 # online
-# from configuration import *
+# from etl_configuration import *
 
 logFilePath = LOG_FILE_PATH
-logger = logging.getLogger('data_etl_log')
+logger = logging.getLogger('etl_log')
 logger.setLevel(logging.DEBUG)
 
 fh = TimedRotatingFileHandler(

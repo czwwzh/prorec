@@ -6,15 +6,17 @@ from kafka import KafkaConsumer
 
 # local
 from data_convert_cache.util_redis import Redis_db as rds
-from data_convert_cache.util_log import logger
+from data_convert_cache.util_log import *
 from data_convert_cache.configuration import *
 
 # online
-# from redisutil import Redis_db as rds
-# from logutil import logger
+# from util_redis import Redis_db as rds
+# from util_log import *
 # from configuration import *
 
-
+# 日志获取
+logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
+# kafka连接
 consumer = KafkaConsumer(KAFKA_PROD_FOOTTOPIC,
                          group_id=KAFKA_GROUP_ID,
                          bootstrap_servers=KAFKA_PROD_BROKERS)
@@ -28,7 +30,7 @@ redis_hashset = REDIS_KAFKA_HASHSET
 # 从kafka中读取数据
 for message in consumer:
     try:
-        logger.info('data from kafka to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        logger.info('data from kafka to redis start time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
         # kafka源数据解码
         key = message.key.decode()
@@ -37,8 +39,8 @@ for message in consumer:
         redis_con.SetGetHashData(redis_hashset,key,sourcedata)
         # uuid 放入 redis 的队列中
         redis_con.rpush_data(redis_list,key)
-
         logger.info(key)
+        logger.info('data from kafka to redis end time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     except:
         pass
 
