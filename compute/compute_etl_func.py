@@ -7,102 +7,26 @@ import pymysql
 # local
 from compute.util_log import logger
 from compute.compute_configuration import *
-from compute.variables import *
+
 
 # online
 # from util_log import logger
 # from compute_configuration import *
-# from variables import *
 
 
-# get status and judge it is not 0
-def statusexist(uuid):
-    ist = 0
-    sql = "SELECT status FROM " + FOOT_LAST_ETL_TABLE + " where uuid = '" + uuid + "' limit 1"
-    db = None
-    try:
-        db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
-                             user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
-                             db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)
-        cursor = db.cursor()
-        ist = cursor.execute(sql)
-        if ist is None:
-            ist = 0
-    except:
-        # print("Error: unable to fecth status")
-        logger.info("Error: unable to fecth status")
 
-    finally:
-            if db:
-                db.close()
-    return ist
-
-# get foot and last data by uuid return list[dict]
-def getetldata(uuid):
-    footlastlist = list()
-    sql = "SELECT " + FOOT_LAST_ORDER_DIMENSIONSSTR + " FROM " + FOOT_LAST_ETL_TABLE + " where uuid = '" + uuid + "'"
-    db = None
-    try:
-        db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
-                             user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
-                             db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)
-        cursor = db.cursor()
-        ist = cursor.execute(sql)
-        if ist == 0 or ist == None:
-            updateexceptioncode(uuid,-4)
-            return None
-        results = cursor.fetchall()
-        for result in results:
-            footlast = getFootLastData(result)
-            footlastlist.append(footlast)
-    except:
-        # print("Error:fecth foot and last data exception by uuid")
-        logger.info("Error:fecth foot and last data exception by uuid")
-    finally:
-        if db:
-            db.close()
-    return footlastlist
-
-# get one foot and last return a dict
-def getFootLastData(data):
-    footlastdata = dict()
-    index = 7
-    for field in FOOT_LAST_ORDER_DIMENSIONS:
-        footlastdata[field] = data[index]
-        index = index + 1
-
-    footlastdata['uuid'] = data[1],
-    if type(footlastdata['uuid']) == tuple:
-        footlastdata['uuid'] = footlastdata['uuid'][0]
-
-    footlastdata['algoversion'] = data[2],
-    if type(footlastdata['algoversion']) == tuple:
-        footlastdata['algoversion'] = footlastdata['algoversion'][0]
-
-    footlastdata['shop_no'] = data[3],
-    if type(footlastdata['shop_no']) == tuple:
-        footlastdata['shop_no'] = footlastdata['shop_no'][0]
-
-    footlastdata['styleno'] =  data[4],
-    if type(footlastdata['styleno']) == tuple:
-        footlastdata['styleno'] = footlastdata['styleno'][0]
-
-    footlastdata['basicsize'] = data[5]
-    footlastdata['sex'] = data[6]
-
-    return footlastdata
-
+# 按指定书序获取size模型计算所需要的数据和用户信息
 # get left data right data alone for suit compute
-# return [[uuid,algoversion,shop_no,styleno,basicsize,sex,left,right]]
-def getetldataleftrightalone(data):
+# return [[uuid,algoversion,shop_no,shoelastbaseno,basicsize,sex,left,right]]
+def get_etl_data_left_right_alone(data):
     leftrightdatas = list()
     for leftrightdata in data:
         uuid = leftrightdata['UUID']
         algoversion = leftrightdata['algoVersion']
         shop_no = leftrightdata['shop_no']
-        styleno = leftrightdata['styleno']
+        shoelastbaseno = leftrightdata['shoelastbaseno']
         basicsize = leftrightdata['basicsize']
-        sex = leftrightdata['gender']
+        sex = leftrightdata['customer_sex']
 
         left = list()
         right = list()
@@ -112,32 +36,34 @@ def getetldataleftrightalone(data):
 
         for field in FOOT_LAST_ORDER_RIGHT_DIMENSIONS:
             right.append(leftrightdata[field])
-        leftrightdatas.append([uuid,algoversion,shop_no,styleno,basicsize,sex,left,right])
+        leftrightdatas.append([uuid,algoversion,shop_no,shoelastbaseno,basicsize,sex,left,right])
     return leftrightdatas
 
+
+# 按指定顺序获取舒适度模型计算所需要的数据和用户信息
 # get left  right data together for size compute
-# return [[uuid, algoversion, shop_no, styleno, basicsize, sex, leftright]]
-def getetldataleftrighttogether(data):
+# return [[uuid, algoversion, shop_no, shoelastbaseno, basicsize, sex, leftright]]
+def get_etl_data_left_right_together(data):
     leftrightdatas = list()
     for leftrightdata in data:
         uuid = leftrightdata['UUID']
         algoversion = leftrightdata['algoVersion']
         shop_no = leftrightdata['shop_no']
-        styleno = leftrightdata['styleno']
+        shoelastbaseno = leftrightdata['shoelastbaseno']
         basicsize = leftrightdata['basicsize']
-        sex = leftrightdata['gender']
+        sex = leftrightdata['customer_sex']
 
         leftright = list()
 
         for field in FOOT_LAST_ORDER_DIMENSIONS:
             leftright.append(leftrightdata[field])
-        leftrightdatas.append([uuid, algoversion, shop_no, styleno, basicsize, sex, leftright])
+        leftrightdatas.append([uuid, algoversion, shop_no, shoelastbaseno, basicsize, sex, leftright])
     return leftrightdatas
 
-
+# 模型计算结果处理
 # result process
 # return dict(key:list(dict)})
-def resultdataprocess(data):
+def result_data_process(data):
     resultdict = dict()
     for result in data:
         if result[0] in resultdict:
@@ -148,42 +74,9 @@ def resultdataprocess(data):
             resultdict[result[0]] = resultlist
     return resultdict
 
-# # result save
-# def resultsave(data,modelversion):
-#     import happybase
-#     import time
-#     ip = HBASE_HOST
-#     connection = happybase.Connection(host=ip, port=HBASE_PORT, timeout=HBASE_TIMEOUT, protocol=HBASE_PROTOCOL,
-#                                       transport=HBASE_TRANSPORT)
-#     table = connection.table(HBASE_RESULT_TABLE)
-#     # model compute time
-#     updatetime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-#     updatetimename = modelversion + '_' + "updatetime"
-#     for result in data:
-#         # result
-#         datasave = json.dumps(data[result])
-#
-#         res = result.split("_")
-#         # rowkey uuid_algoVersion
-#         uuid_version = res[0] + '_' + res[1]
-#         # styleno
-#         styleno = res[2]
-#         # sex
-#         sex = res[3]
-#         # column family : column
-#         columns1 = "user_info:sex"
-#         columns2 = "user_info:" + updatetimename
-#         columns3 = modelversion + ':' + styleno
-#
-#         table.put(uuid_version, {columns1: sex,
-#                            columns2: updatetime,
-#                            columns3: datasave})
-#     connection.close()
-
+# 模型计算结果存储
 # result save
-def resultsave(data,modelversion):
-    # data = result[0]
-    # modelversion = result[1]
+def result_save(data, modelversion):
     import happybase
     import time
     ip = HBASE_HOST
@@ -194,6 +87,8 @@ def resultsave(data,modelversion):
     updatetime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     updatetimename = modelversion + '_' + "updatetime"
     b = table.batch(timestamp=int(time.time()))
+
+
     for result in data:
         # result
         datasave = json.dumps(data[result])
@@ -201,14 +96,14 @@ def resultsave(data,modelversion):
         res = result.split("_")
         # rowkey uuid_algoVersion
         uuid_version = res[0] + '_' + res[1]
-        # styleno
-        styleno = res[2]
+        # shoelastbaseno
+        shoelastbaseno = res[2]
         # sex
         sex = res[3]
         # column family : column
         columns1 = "user_info:sex"
         columns2 = "user_info:" + updatetimename
-        columns3 = modelversion + ':' + styleno
+        columns3 = modelversion + ':' + shoelastbaseno
 
         b.put(uuid_version, {columns1: sex,
                            columns2: updatetime,
@@ -216,26 +111,45 @@ def resultsave(data,modelversion):
     b.send()
     connection.close()
 
+# 所有模型计算结果存储
+# result save
+def result_save_batch(result_list):
+    import happybase
+    import time
+    # model compute time
+    updatetime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    try:
+        connection = happybase.Connection(host=HBASE_HOST, port=HBASE_PORT, timeout=HBASE_TIMEOUT, protocol=HBASE_PROTOCOL,
+                                          transport=HBASE_TRANSPORT)
+        table = connection.table(HBASE_RESULT_TABLE)
+        # 批量插入连接
+        b = table.batch(timestamp=int(time.time()))
+        # 遍历模型与模型版本名
+        for (data,modelversion) in result_list:
+            # 模型计算结果更新时间定义
+            updatetimename = modelversion + '_' + "updatetime"
+            # 遍历耽搁模型计算结果
+            for result in data:
+                # result
+                datasave = json.dumps(data[result])
 
-# def updateexceptioncode(uuid,exceptioncode):
-#     import pymysql
-#     db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
-#                          user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
-#                          db=RECOMMEND_DB_NAME, charset=RECOMMEND_DB_CHARSET)
-#     cursor = db.cursor()
-#     sql = "update " + FOOT_SCAN_TABLE +  " set exceptioncode = " + str(exceptioncode) + " where uuid = '" + uuid +"'"
-#     try:
-#         # 执行sql语句
-#         cursor.execute(sql)
-#         # 执行sql语句
-#         db.commit()
-#     except:
-#         # print("updateexceptioncode exception")
-#         logger.info("updateexceptioncode exception")
-#         # 如果发生错误则回滚
-#         db.rollback()
-#     # 关闭游标
-#     cursor.close()
-#     # 关闭数据库连接
-#     db.close()
+                res = result.split("_")
+                # rowkey uuid_algoVersion
+                uuid_version = res[0] + '_' + res[1]
+                # shoelastbaseno
+                shoelastbaseno = res[2]
+                # sex
+                sex = res[3]
+                # column family : column
+                columns1 = "user_info:sex"
+                columns2 = "user_info:" + updatetimename
+                columns3 = modelversion + ':' + shoelastbaseno
 
+                b.put(uuid_version, {columns1: sex,
+                                     columns2: updatetime,
+                                     columns3: datasave})
+        b.send()
+        connection.close()
+    except Exception as e:
+        logger.info(str(e))
+        logger.info("save compute result exception!")

@@ -14,7 +14,7 @@ from data_convert_cache.configuration import *
 # from configuration import *
 
 logFilePath = LOG_FILE_PATH
-logger = logging.getLogger('data_convert_cache_log')
+logger = logging.getLogger('data_etl_log')
 logger.setLevel(logging.DEBUG)
 
 fh = TimedRotatingFileHandler(

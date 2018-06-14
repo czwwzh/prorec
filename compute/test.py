@@ -1,0 +1,63 @@
+from compute.util_redis import  Redis_db as rds
+import time
+# my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180613211900sLT8QIXYuOSLzckR",'A,B')
+if __name__ == '__main__':
+
+    # print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    # # REDIS_HASHSET_SHOP_SEASON = 'redis_hashset_shop_season'
+    REDIS_HASHSET_FOOT_LAST_ETL = 'redis_hashset_footdata_etl'
+    #
+    my_rds = rds()
+    # my_rds.dele(REDIS_HASHSET_FOOT_LAST_ETL)
+    ss1 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135737jbfE3PxW5GaXVSif").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss2 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614135507wcZDNL4vCBtjnK1v").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss3 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614140005NqbL7z1X8AFQjhup").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss4 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614135332Z9JgW06wPBj8HTVG").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss5 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614140136N1cZb8Nv7sHhq5gi").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss6 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135835YLp8gGQwIrwiuvcD").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss7 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135617K9QWtXy2zMcXdjWw").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss8 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614140434xm34YtmcNU9Wckam").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss9 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614135450obB1RAK7G4Fb8x4T").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss10 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614140158Im6I5wbAHyLhnL5q").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss11 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135003djvmYkX4BQx350Yy").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss12 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135422nl3eWusb5YglmobU").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss1 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135737jbfE3PxW5GaXVSif").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss2 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614135507wcZDNL4vCBtjnK1v").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss3 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614140005NqbL7z1X8AFQjhup").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss4 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614135332Z9JgW06wPBj8HTVG").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss5 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614140136N1cZb8Nv7sHhq5gi").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss6 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135835YLp8gGQwIrwiuvcD").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss7 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135617K9QWtXy2zMcXdjWw").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss8 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614140434xm34YtmcNU9Wckam").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss9 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614135450obB1RAK7G4Fb8x4T").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss10 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL, "YB20180614140158Im6I5wbAHyLhnL5q").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss11 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135003djvmYkX4BQx350Yy").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+    ss12 = my_rds.SetGetHashData(REDIS_HASHSET_FOOT_LAST_ETL,"YB20180614135422nl3eWusb5YglmobU").decode()
+    print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+
+
+
+

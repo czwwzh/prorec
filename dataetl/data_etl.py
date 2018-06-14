@@ -4,7 +4,7 @@
 import os,sys,time,requests
 
 # local
-from dataetl.dataetl_configuration import *
+from dataetl.data_etl_configuration import *
 from dataetl.util_redis import Redis_db as rds
 from dataetl.util_log import logger
 import dataetl.pp.pp as pp

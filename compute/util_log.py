@@ -8,13 +8,13 @@ from logging.handlers import TimedRotatingFileHandler
 
 
 # local
-from data_convert_cache.configuration import *
+from compute.compute_configuration import *
 
 # online
-# from configuration import *
+# from compute_configuration import *
 
 logFilePath = LOG_FILE_PATH
-logger = logging.getLogger('data_convert_cache_log')
+logger = logging.getLogger('model_compute_log')
 logger.setLevel(logging.DEBUG)
 
 fh = TimedRotatingFileHandler(

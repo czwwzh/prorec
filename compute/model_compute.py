@@ -15,7 +15,7 @@ from compute.compute_configuration import *
 
 
 # online
-# from computeetlfunc import *
+# from compute_etl_func import *
 # from util_log import logger
 # from util_redis import *
 # from compute_configuration import *
@@ -95,13 +95,12 @@ if __name__ == "__main__":
     redis_list_compute_result = REDIS_LIST_COMPUTE_RESULT
 
 
-
-
     # redis instance
     my_rds = rds()
     # get data and compute
     count = 0
     while True:
+        # 从redis中读取etl之后的foot last数据
         uuid = my_rds.blpop_data(redis_list_foot_last_etl)
         uuid = uuid.decode()
         logger.info('1.start receive data time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
@@ -112,6 +111,8 @@ if __name__ == "__main__":
         foot_last_list = foot_last_list.decode()
         foot_last_list = json.loads(foot_last_list)
 
+        # 返回数据定义
+        return_flag = False
         return_shop_no = None
         return_sex = None
         logger.info('2.get foot last dataetl data from redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
@@ -119,22 +120,24 @@ if __name__ == "__main__":
         if foot_last_list != None:
 
             # get data for model compute size and suit
-            leftrightdatasalones = getetldataleftrightalone(foot_last_list)
-            leftrightdatastogethers = getetldataleftrighttogether(foot_last_list)
-            logger.info('3.get data in demand for model compute  time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                                            time.localtime()))
-            # save one uuid all result
-            suit2resultlist = list()
-            suit6resultlist = list()
-            suit12resultlist = list()
-            sizeresultlist = list()
+            left_right_datas_alones = get_etl_data_left_right_alone(foot_last_list)
+            left_right_datas_togethers = get_etl_data_left_right_together(foot_last_list)
+            logger.info('3.get data in demand for model compute  time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime()))
 
+            # 计算结果list定义
+            # save one uuid all result
+            suit2_result_list = list()
+            suit6_result_list = list()
+            suit12_result_list = list()
+            size_result_list = list()
+
+            # 舒适度模型计算
             # suit compute
-            for leftrightdatasalone in leftrightdatasalones:
+            for leftrightdatasalone in left_right_datas_alones:
                 uuid = leftrightdatasalone[0]
                 algoversion = leftrightdatasalone[1]
                 shop_no = leftrightdatasalone[2]
-                styleno = leftrightdatasalone[3]
+                shoelastbaseno = leftrightdatasalone[3]
                 basicsize = leftrightdatasalone[4]
                 sex = leftrightdatasalone[5]
 
@@ -142,66 +145,75 @@ if __name__ == "__main__":
                 suit6result = suit6(leftrightdatasalone[6], leftrightdatasalone[7])
                 suit12result = suit12(leftrightdatasalone[6], leftrightdatasalone[7])
 
-                key = uuid + "_" + algoversion + "_" + styleno + "_" + str(sex)
+                key = uuid + "_" + algoversion + "_" + shoelastbaseno + "_" + str(sex)
 
-                suit2resultdict = dict()
-                suit6resultdict = dict()
-                suit12resultdict = dict()
+                suit2_result_dict = dict()
+                suit6_result_dict = dict()
+                suit12_result_dict = dict()
 
-                suit2resultdict["size"] = basicsize
-                suit2resultdict["result"] = suit2result
+                suit2_result_dict["size"] = basicsize
+                suit2_result_dict["result"] = suit2result
 
-                suit6resultdict["size"] = basicsize
-                suit6resultdict["result"] = suit6result
+                suit6_result_dict["size"] = basicsize
+                suit6_result_dict["result"] = suit6result
 
-                suit12resultdict["size"] = basicsize
-                suit12resultdict["result"] = suit12result
+                suit12_result_dict["size"] = basicsize
+                suit12_result_dict["result"] = suit12result
 
-                suit2resultlist.append([key, suit2resultdict])
-                suit6resultlist.append([key, suit6resultdict])
-                suit12resultlist.append([key, suit12resultdict])
+                suit2_result_list.append([key, suit2_result_dict])
+                suit6_result_list.append([key, suit6_result_dict])
+                suit12_result_list.append([key, suit12_result_dict])
 
             logger.info('4.suit model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                  time.localtime()))
 
+            # size 模型计算
             # size model
-            for leftrightdatastogether in leftrightdatastogethers:
+            for leftrightdatastogether in left_right_datas_togethers:
                 uuid = leftrightdatastogether[0]
                 algoversion = leftrightdatastogether[1]
                 shop_no = leftrightdatastogether[2]
-                styleno = leftrightdatastogether[3]
+                shoelastbaseno = leftrightdatastogether[3]
                 basicsize = leftrightdatastogether[4]
                 sex = leftrightdatastogether[5]
                 sizeresult = sizepredict(leftrightdatastogether[6])
-                # for return
-                return_shop_no = shop_no
-                return_sex = str(sex)
 
-                key = uuid + "_" + algoversion + "_" + styleno + "_" + str(sex)
+                # for return
+                if return_flag == False:
+                    return_shop_no = shop_no
+                    return_sex = str(sex)
+                    return_flag = True
+
+                key = uuid + "_" + algoversion + "_" + shoelastbaseno + "_" + str(sex)
 
                 resultdict = dict()
                 resultdict["size"] = basicsize
                 resultdict["result"] = sizeresult
-                sizeresultlist.append([key, resultdict])
+                size_result_list.append([key, resultdict])
 
             logger.info('5.size model compute time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                  time.localtime()))
 
+            # 模型计算结果处理
             # result process dict(key:list(dict)})
-            suit2resultprocess = resultdataprocess(suit2resultlist)
-            suit6resultprocess = resultdataprocess(suit6resultlist)
-            suit12resultprocess = resultdataprocess(suit12resultlist)
-            sizeresultprocess  = resultdataprocess(sizeresultlist)
+            suit2_result_process = result_data_process(suit2_result_list)
+            suit6_result_process = result_data_process(suit6_result_list)
+            suit12_result_process = result_data_process(suit12_result_list)
+            size_result_process  = result_data_process(size_result_list)
             logger.info('6.model compute result process time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                            time.localtime()))
 
-            resultsave(suit2resultprocess,'suit_length_v1.0')
-            resultsave(suit6resultprocess, 'suit_metatarsalegirth_v1.0')
-            resultsave(suit12resultprocess, 'suit_global_v1.0')
-            resultsave(sizeresultprocess, 'size_v1.0')
+            # 模型计算结果存储
+            # result_save(suit2_result_process, 'suit_length_v1.0')
+            # result_save(suit6_result_process, 'suit_metatarsalegirth_v1.0')
+            # result_save(suit12_result_process, 'suit_global_v1.0')
+            # result_save(size_result_process, 'size_v1.0')
+            # result_save([(suit2_result_process,'suit_length_v1.0')])
+            result_save_batch([(suit2_result_process, 'suit_length_v1.0'),(suit6_result_process, 'suit_metatarsalegirth_v1.0'),(suit12_result_process, 'suit_global_v1.0'),(size_result_process, 'size_v1.0')])
 
             logger.info('7.model compute result save time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                         time.localtime()))
+            # 返回数据的uuid shop_no sex 入redis
             # return compute status
             return_data = {'shop_no': return_shop_no, 'uuid': uuid, 'sex': return_sex}
             return_data = json.dumps(return_data)

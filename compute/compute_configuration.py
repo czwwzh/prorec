@@ -1,34 +1,24 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-# spark python model redis hbase last
+import pandas
 
 
-# sku recommend dataetl and compute table
-RECOMMEND_DB_HOST = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
-RECOMMEND_DB_PORT = 60916
-RECOMMEND_DB_USER = "haozhShopRecom"
-RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
-# RECOMMEND_DB_NAME = 'shop_sku_recommend'
-RECOMMEND_DB_NAME = 'bdp_products'
-RECOMMEND_DB_CHARSET = 'utf8mb4'
-FOOT_LAST_ETL_TABLE = 'foot_last_etl_test'
-
-#hbase configuration
+# --------------hbase configuration---------------
 HBASE_HOST = '52.80.170.199'
 HBASE_TIMEOUT = 10000
 HBASE_PORT = 9090
 HBASE_PROTOCOL = 'binary'
 HBASE_TRANSPORT = 'buffered'
-# prod
-HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawException'
+# online
 # HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
-HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
 # test
-# HBASE_EXCEPTION_TABLE = 'ShopSkuRecommends_RawExceptionTest'
-# HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest'
+HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
 
 
+
+
+# ---------------model configuration-------------
 # # online
 # # model
 # SUIT2MODELPATH = '/suitmodel/lgbm_2'
@@ -40,6 +30,10 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
 # SUIT6PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_6'
 # SUIT12PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_12'
 #
+# suit compute attributes
+# SUIT_LEFT = '/suitmodel/suit_left'
+# SUIT_RIGHT = '/suitmodel/suit_right'
+
 # # size model
 # # model
 # SIZEMODEL0PATH = '/sizemodel-2/lgbm_shoe_0'
@@ -52,6 +46,8 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
 # SIZESTANDARDSCALER1PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_1'
 # SIZESTANDARDSCALER2PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_2'
 # SIZESTANDARDSCALER3PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_3'
+# # size compute attributes
+# SIZE_DIMENSION_NAME = '/sizemodel-2/size_dimension_name'
 
 
 # local
@@ -65,6 +61,10 @@ SUIT2PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_2
 SUIT6PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_6'
 SUIT12PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_12'
 
+# suit compute attributes
+SUIT_LEFT = 'D:\\recommend\models\woman\\v1\suit\suit_left'
+SUIT_RIGHT = 'D:\\recommend\models\woman\\v1\suit\suit_right'
+
 # size model
 # model
 SIZEMODEL0PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_0'
@@ -77,21 +77,17 @@ SIZESTANDARDSCALER0PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lg
 SIZESTANDARDSCALER1PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_1'
 SIZESTANDARDSCALER2PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_2'
 SIZESTANDARDSCALER3PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_3'
+# size compute attributes
+SIZE_DIMENSION_NAME = 'D:\\recommend\models\woman\\v1\size\size_dimension_name'
 
-# redis connection
-# local
-# REDIS_HOST = '192.168.17.110'
-# prod
-# REDIS_HOST = '54.222.236.85'
-# REDIS_HOST = '52.80.83.193'
+
+
+# --------redis configuration------------------
+# online
 # REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
-# # REDIS_HOST = 'prod-sku-recommend.rawr9u.clustercfg.cnn1.cache.amazonaws.com.cn'
-# REDIS_PORT = 6379
-# REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
+# local
 REDIS_HOST = '52.80.137.153'
 
-# prod
-# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # kafka 数据转入redis中的对列名 uuid
@@ -113,22 +109,16 @@ REDIS_LIST_ETL_SAVE = 'redis_list_etl_save'
 
 
 
-
-
-
-# return url
-# test
-# RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
-# prod
-RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
-# RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
-# compute completed return host
-# RETURN_PORT_URL = 'http://54.222.142.37:9998/shopRecommendController/test'
-
-logFilePath = '/home/ec2-user/zhanghao/log/computelog/modelcompute_v1.0'
-
-
-# LOG PATH
+# ----LOG PATH-------------------
 LOG_FILE_PATH ='D:\\recommend\prodrec\log\model_compute_'
+
+# ------------模型计算所用变量定义-------------
+# size模型所需字段顺序定义
+# variables define
+FOOT_LAST_ORDER_DIMENSIONS = pandas.read_pickle(SIZE_DIMENSION_NAME)
+# 左脚舒适度模型所需字段顺序定义
+FOOT_LAST_ORDER_LEFT_DIMENSIONS = pandas.read_pickle(SUIT_LEFT).tolist()
+# 右脚舒适度模型所需字段顺序定义
+FOOT_LAST_ORDER_RIGHT_DIMENSIONS = pandas.read_pickle(SUIT_RIGHT).tolist()
 
 
