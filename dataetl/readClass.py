@@ -3,12 +3,12 @@
 
 
 # local
-from dataetl.etl_func import *
-from dataetl.util_log import logger
+# from dataetl.etl_func import *
+# from dataetl.util_log import logger
 
 # online
-# from etl_func import *
-# from util_log import logger
+from etl_func import *
+from util_log import logger
 
 
 class readClass:

@@ -35,26 +35,26 @@ FOOT_REPEAT_TABLE = 'foot_repeat_test'
 # sku and last
 
 # test
-SKU_LAST_URL = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
-SKU_LAST_USER = "haozhShopRecom"
-SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
-SKU_LAST_PORT = 60916
-SKU_LAST_DB = "bdp_products"
-SKU_LAST_CHARSET='utf8mb4'
-LAST_TABLE = 'shop_last_inventory'
-SKU_TABLE = 'shop_sku_inventory'
-LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
-
-# online
-# SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-# SKU_LAST_USER = "haozhFattypeRecom"
-# SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
-# SKU_LAST_PORT = 61539
-# SKU_LAST_DB = "fattype_recommend"
+# SKU_LAST_URL = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
+# SKU_LAST_USER = "haozhShopRecom"
+# SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+# SKU_LAST_PORT = 60916
+# SKU_LAST_DB = "bdp_products"
 # SKU_LAST_CHARSET='utf8mb4'
 # LAST_TABLE = 'shop_last_inventory'
 # SKU_TABLE = 'shop_sku_inventory'
 # LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
+
+# online
+SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
+SKU_LAST_USER = "haozhFattypeRecom"
+SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
+SKU_LAST_PORT = 61539
+SKU_LAST_DB = "fattype_recommend"
+SKU_LAST_CHARSET='utf8mb4'
+LAST_TABLE = 'shop_last_inventory'
+SKU_TABLE = 'shop_sku_inventory'
+LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 
 
 #  ===redis connection ====
@@ -79,6 +79,6 @@ REDIS_HASHSET_SHOP_SEASON = 'redis_hashset_shop_season'
 
 
 # LOG PATH
-LOG_FILE_PATH ='D:\\recommend\prodrec\log\data_etl_'
+LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/data_etl_'
 
 

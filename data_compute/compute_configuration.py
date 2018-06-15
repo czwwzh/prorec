@@ -19,90 +19,90 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
 
 # 楦数据
 # test
-SKU_LAST_URL = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
-SKU_LAST_USER = "haozhShopRecom"
-SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
-SKU_LAST_PORT = 60916
-SKU_LAST_DB = "bdp_products"
-SKU_LAST_CHARSET='utf8mb4'
-LAST_TABLE = 'shop_last_inventory'
-SKU_TABLE = 'shop_sku_inventory'
-LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
-
-# online
-# SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-# SKU_LAST_USER = "haozhFattypeRecom"
-# SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
-# SKU_LAST_PORT = 61539
-# SKU_LAST_DB = "fattype_recommend"
+# SKU_LAST_URL = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
+# SKU_LAST_USER = "haozhShopRecom"
+# SKU_LAST_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+# SKU_LAST_PORT = 60916
+# SKU_LAST_DB = "bdp_products"
 # SKU_LAST_CHARSET='utf8mb4'
 # LAST_TABLE = 'shop_last_inventory'
 # SKU_TABLE = 'shop_sku_inventory'
 # LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 
+# online
+SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
+SKU_LAST_USER = "haozhFattypeRecom"
+SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
+SKU_LAST_PORT = 61539
+SKU_LAST_DB = "fattype_recommend"
+SKU_LAST_CHARSET='utf8mb4'
+LAST_TABLE = 'shop_last_inventory'
+SKU_TABLE = 'shop_sku_inventory'
+LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
+
 
 
 # ---------------model configuration-------------
 # # online
-# # model
-# SUIT2MODELPATH = '/suitmodel/lgbm_2'
-# SUIT6MODELPATH = '/suitmodel/lgbm_6'
-# SUIT12MODELPATH = '/suitmodel/lgbm_12'
-#
-# # preprocess data
-# SUIT2PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_2'
-# SUIT6PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_6'
-# SUIT12PREPROCESSPATH = '/suitmodel/StandardScaler_lgbm_12'
-#
-# suit data_compute attributes
-# SUIT_LEFT = '/suitmodel/suit_left'
-# SUIT_RIGHT = '/suitmodel/suit_right'
+# model
+SUIT2MODELPATH = '/models/woman/v1/suit/lgbm_2'
+SUIT6MODELPATH = '/models/woman/v1/suit/lgbm_6'
+SUIT12MODELPATH = '/models/woman/v1/suit/lgbm_12'
 
-# # size model
-# # model
-# SIZEMODEL0PATH = '/sizemodel-2/lgbm_shoe_0'
-# SIZEMODEL1PATH = '/sizemodel-2/lgbm_shoe_1'
-# SIZEMODEL2PATH = '/sizemodel-2/lgbm_shoe_2'
-# SIZEMODEL3PATH = '/sizemodel-2/lgbm_shoe_3'
-# SIZEMODEL4PATH = '/sizemodel-2/stack_lgbm_shoe'
-# # data preprocess function
-# SIZESTANDARDSCALER0PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_0'
-# SIZESTANDARDSCALER1PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_1'
-# SIZESTANDARDSCALER2PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_2'
-# SIZESTANDARDSCALER3PATH = '/sizemodel-2/StandardScaler_lgbm_shoe_3'
-# # size data_compute attributes
-# SIZE_DIMENSION_NAME = '/sizemodel-2/size_dimension_name'
+# preprocess data
+SUIT2PREPROCESSPATH = '/models/woman/v1/suit/StandardScaler_lgbm_2'
+SUIT6PREPROCESSPATH = '/models/woman/v1/suit/StandardScaler_lgbm_6'
+SUIT12PREPROCESSPATH = '/models/woman/v1/suit/StandardScaler_lgbm_12'
+
+# suit data_compute attributes
+SUIT_LEFT = '/models/woman/v1/suit/suit_left'
+SUIT_RIGHT = '/models/woman/v1/suit/suit_right'
+
+# size model
+# model
+SIZEMODEL0PATH = '/models/woman/v1/size/lgbm_shoe_0'
+SIZEMODEL1PATH = '/models/woman/v1/size/lgbm_shoe_1'
+SIZEMODEL2PATH = '/models/woman/v1/size/lgbm_shoe_2'
+SIZEMODEL3PATH = '/models/woman/v1/size/lgbm_shoe_3'
+SIZEMODEL4PATH = '/models/woman/v1/size/stack_lgbm_shoe'
+# data preprocess function
+SIZESTANDARDSCALER0PATH = '/models/woman/v1/size/StandardScaler_lgbm_shoe_0'
+SIZESTANDARDSCALER1PATH = '/models/woman/v1/size/StandardScaler_lgbm_shoe_1'
+SIZESTANDARDSCALER2PATH = '/models/woman/v1/size/StandardScaler_lgbm_shoe_2'
+SIZESTANDARDSCALER3PATH = '/models/woman/v1/size/StandardScaler_lgbm_shoe_3'
+# size data_compute attributes
+SIZE_DIMENSION_NAME = '/models/woman/v1/size/size_dimension_name'
 
 
 # local
 # model
-SUIT2MODELPATH = 'D:\\recommend\models\woman\\v1\suit\lgbm_2'
-SUIT6MODELPATH = 'D:\\recommend\models\woman\\v1\suit\lgbm_6'
-SUIT12MODELPATH = 'D:\\recommend\models\woman\\v1\suit\lgbm_12'
-
-# preprocess data
-SUIT2PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_2'
-SUIT6PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_6'
-SUIT12PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_12'
-
-# suit data_compute attributes
-SUIT_LEFT = 'D:\\recommend\models\woman\\v1\suit\suit_left'
-SUIT_RIGHT = 'D:\\recommend\models\woman\\v1\suit\suit_right'
-
-# size model
-# model
-SIZEMODEL0PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_0'
-SIZEMODEL1PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_1'
-SIZEMODEL2PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_2'
-SIZEMODEL3PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_3'
-SIZEMODEL4PATH = 'D:\\recommend\models\woman\\v1\size\stack_lgbm_shoe'
-# data preprocess function
-SIZESTANDARDSCALER0PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_0'
-SIZESTANDARDSCALER1PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_1'
-SIZESTANDARDSCALER2PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_2'
-SIZESTANDARDSCALER3PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_3'
-# size data_compute attributes
-SIZE_DIMENSION_NAME = 'D:\\recommend\models\woman\\v1\size\size_dimension_name'
+# SUIT2MODELPATH = 'D:\\recommend\models\woman\\v1\suit\lgbm_2'
+# SUIT6MODELPATH = 'D:\\recommend\models\woman\\v1\suit\lgbm_6'
+# SUIT12MODELPATH = 'D:\\recommend\models\woman\\v1\suit\lgbm_12'
+#
+# # preprocess data
+# SUIT2PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_2'
+# SUIT6PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_6'
+# SUIT12PREPROCESSPATH = 'D:\\recommend\models\woman\\v1\suit\StandardScaler_lgbm_12'
+#
+# # suit data_compute attributes
+# SUIT_LEFT = 'D:\\recommend\models\woman\\v1\suit\suit_left'
+# SUIT_RIGHT = 'D:\\recommend\models\woman\\v1\suit\suit_right'
+#
+# # size model
+# # model
+# SIZEMODEL0PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_0'
+# SIZEMODEL1PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_1'
+# SIZEMODEL2PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_2'
+# SIZEMODEL3PATH = 'D:\\recommend\models\woman\\v1\size\lgbm_shoe_3'
+# SIZEMODEL4PATH = 'D:\\recommend\models\woman\\v1\size\stack_lgbm_shoe'
+# # data preprocess function
+# SIZESTANDARDSCALER0PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_0'
+# SIZESTANDARDSCALER1PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_1'
+# SIZESTANDARDSCALER2PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_2'
+# SIZESTANDARDSCALER3PATH = 'D:\\recommend\models\woman\\v1\size\StandardScaler_lgbm_shoe_3'
+# # size data_compute attributes
+# SIZE_DIMENSION_NAME = 'D:\\recommend\models\woman\\v1\size\size_dimension_name'
 
 
 
@@ -123,7 +123,7 @@ REDIS_HASHSET_SHOP_SEASON = 'redis_hashset_shop_season'
 
 
 # ----LOG PATH-------------------
-LOG_FILE_PATH ='D:\\recommend\prodrec\log\model_compute_'
+LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/model_compute_'
 
 # ------------模型计算所用变量定义-------------
 # size模型所需字段顺序定义

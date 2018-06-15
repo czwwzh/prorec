@@ -5,13 +5,13 @@ import redis
 import time
 
 # local
-from dataetl.etl_configuration import *
-from dataetl.util_log import logger
+# from dataetl.etl_configuration import *
+# from dataetl.util_log import logger
 
 
 # online
-# from etl_configuration import *
-# from util_log import logger
+from etl_configuration import *
+from util_log import logger
 
 
 class Redis_db:

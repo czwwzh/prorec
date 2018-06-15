@@ -5,13 +5,13 @@ import redis
 import time
 
 # local
-from data_convert_cache.configuration import *
-from data_convert_cache.util_log import *
+# from data_convert_cache.configuration import *
+# from data_convert_cache.util_log import *
 
 
 # online
-# from configuration import *
-# from logutil import logger
+from configuration import *
+from util_log import *
 
 logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
 

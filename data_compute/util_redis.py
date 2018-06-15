@@ -5,13 +5,13 @@ import redis
 import time
 
 # local
-from data_compute.compute_configuration import *
-from data_compute.util_log import logger
+# from data_compute.compute_configuration import *
+# from data_compute.util_log import logger
 
 
 # online
-# from compute_configuration import *
-# from util_log import logger
+from compute_configuration import *
+from util_log import logger
 
 
 class Redis_db:

@@ -27,11 +27,11 @@ def get_logger(logFilePath,log_comment):
     logger.addHandler(fh)
 
 
-    # 日志本地console窗口打印配置  开发调试使用
-    ch = logging.StreamHandler()
-    ch.setLevel(logging.INFO)
-    ch.setFormatter(formatter)
-    logger.addHandler(ch)
+    # # 日志本地console窗口打印配置  开发调试使用
+    # ch = logging.StreamHandler()
+    # ch.setLevel(logging.INFO)
+    # ch.setFormatter(formatter)
+    # logger.addHandler(ch)
 
     return logger
 

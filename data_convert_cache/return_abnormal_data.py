@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
+import time
+
 # local
-from data_convert_cache.util_redis import Redis_db as rds
-from data_convert_cache.data_convert_catche_func import *
+# from data_convert_cache.util_redis import Redis_db as rds
+# from data_convert_cache.data_convert_catche_func import *
 
 # online
-# from util_redis import Redis_db as rds
-# from data_convert_catche_func import *
+from util_redis import Redis_db as rds
+from data_convert_catche_func import *
 
 if __name__ == '__main__':
     # 日志获取
@@ -22,3 +24,5 @@ if __name__ == '__main__':
         returndata = {'uuid': uuid, 'res': -1}
         # sendtowx(returndata)
         logger.info(str(returndata))
+        time.sleep(1)
+

@@ -1,13 +1,17 @@
 # LOG configuration
 # local
-LOG_FILE_PATH_KAFKA_REDIS ='D:\\recommend\prodrec\log\kafka_redis_'
-LOG_FILE_PATH_RETURN_ABNORMAL = 'D:\\recommend\prodrec\log\\return_abnormal_'
-LOG_FILE_PATH_RETURN_NORMAL = 'D:\\recommend\prodrec\log\\return_normal_'
-LOG_FILE_PATH_UTIL_REDIS = 'D:\\recommend\prodrec\log\\util_redis_'
-LOG_FILE_PATH_FUNC = 'D:\\recommend\prodrec\log\\func_'
+# LOG_FILE_PATH_KAFKA_REDIS ='D:\\recommend\prodrec\log\kafka_redis_'
+# LOG_FILE_PATH_RETURN_ABNORMAL = 'D:\\recommend\prodrec\log\\return_abnormal_'
+# LOG_FILE_PATH_RETURN_NORMAL = 'D:\\recommend\prodrec\log\\return_normal_'
+# LOG_FILE_PATH_UTIL_REDIS = 'D:\\recommend\prodrec\log\\util_redis_'
+# LOG_FILE_PATH_FUNC = 'D:\\recommend\prodrec\log\\func_'
 
 # online
-
+LOG_FILE_PATH_KAFKA_REDIS ='/home/ec2-user/zhanghao/log/kafka_redis_'
+LOG_FILE_PATH_RETURN_ABNORMAL = '/home/ec2-user/zhanghao/log/return_abnormal_'
+LOG_FILE_PATH_RETURN_NORMAL = '/home/ec2-user/zhanghao/log/return_normal_'
+LOG_FILE_PATH_UTIL_REDIS = '/home/ec2-user/zhanghao/log/util_redis_'
+LOG_FILE_PATH_FUNC = '/home/ec2-user/zhanghao/log/func_'
 
 
 # kafka configuration
@@ -18,7 +22,7 @@ LOG_FILE_PATH_FUNC = 'D:\\recommend\prodrec\log\\func_'
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
 KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 
-KAFKA_GROUP_ID = 'footInfoProdprodTest0612'
+KAFKA_GROUP_ID = 'footInfoProdprodTest0615'
 
 
 
