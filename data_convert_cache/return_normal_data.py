@@ -24,5 +24,5 @@ if __name__ == '__main__':
         returndata = my_rds.blpop_data(redis_list_compute_result)
         returndata = json.loads(returndata.decode())
         logger.info(str(returndata))
-        time.sleep(1)
-        # sendtowx(returndata)
+        # time.sleep(1)
+        sendtowx(returndata)

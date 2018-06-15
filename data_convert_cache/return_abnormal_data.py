@@ -22,7 +22,7 @@ if __name__ == '__main__':
         uuid = my_rds.blpop_data(redis_list_footdata_except)
         uuid = uuid.decode()
         returndata = {'uuid': uuid, 'res': -1}
-        # sendtowx(returndata)
+        sendtowx(returndata)
         logger.info(str(returndata))
-        time.sleep(1)
+        # time.sleep(1)
 
