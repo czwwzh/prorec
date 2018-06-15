@@ -16,11 +16,11 @@ LOG_FILE_PATH_FUNC = '/home/ec2-user/zhanghao/log/func_'
 
 # kafka configuration
 # test
-# KAFKA_PROD_FOOTTOPIC = 'footcom'
+KAFKA_PROD_FOOTTOPIC = 'footcom'
 
 # online
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
+# KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 
 KAFKA_GROUP_ID = 'footInfoProdprodTest0615'
 
