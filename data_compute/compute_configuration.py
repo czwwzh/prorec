@@ -13,8 +13,8 @@ HBASE_TRANSPORT = 'buffered'
 # online
 # HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
 # test
-HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
-
+# HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest3'
+HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest'
 
 
 # 楦数据
