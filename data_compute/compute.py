@@ -119,6 +119,7 @@ if __name__ == "__main__":
         # 模型计算并返回
         # model data_compute
         if foot_last_list != None:
+            logger.info(len(foot_last_list))
 
             # get data for model data_compute size and suit
             left_right_datas_alones = get_etl_data_left_right_alone(foot_last_list)
@@ -179,11 +180,6 @@ if __name__ == "__main__":
                 sex = leftrightdatastogether[5]
                 sizeresult = sizepredict(leftrightdatastogether[6])
 
-                # for return
-                # if return_flag == False:
-                #     return_shop_no = shop_no
-                #     return_sex = str(sex)
-                #     return_flag = True
 
                 key = uuid + "_" + algoversion + "_" + shoelastbaseno + "_" + str(sex)
 
@@ -216,7 +212,7 @@ if __name__ == "__main__":
             my_rds.rpush_data(redis_list_compute_result,return_data)
 
             logger.info('8.model data_compute result send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
-                                                                              time.localtime()))
+                                                                     time.localtime()))
 
 
 
