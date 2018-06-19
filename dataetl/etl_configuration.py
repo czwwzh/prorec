@@ -21,14 +21,14 @@ RECOMMEND_DB_USER = "haozhShopRecom"
 RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
 RECOMMEND_DB_CHARSET = 'utf8mb4'
 # online
-RECOMMEND_DB_NAME = 'shop_sku_recommend'
-FOOT_SCAN_TABLE = 'foot_scan'
-FOOT_REPEAT_TABLE = 'foot_repeat'
+# RECOMMEND_DB_NAME = 'shop_sku_recommend'
+# FOOT_SCAN_TABLE = 'foot_scan'
+# FOOT_REPEAT_TABLE = 'foot_repeat'
 
 # test
-# RECOMMEND_DB_NAME = 'bdp_products'
-# FOOT_SCAN_TABLE = 'foot_scan_test'
-# FOOT_REPEAT_TABLE = 'foot_repeat_test'
+RECOMMEND_DB_NAME = 'bdp_products'
+FOOT_SCAN_TABLE = 'foot_scan_test'
+FOOT_REPEAT_TABLE = 'foot_repeat_test'
 
 
 # 门店商品库 门店楦库

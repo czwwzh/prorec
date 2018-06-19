@@ -22,7 +22,7 @@ LOG_FILE_PATH_FUNC = '/home/ec2-user/zhanghao/log/func_'
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
 KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 
-KAFKA_GROUP_ID = 'footInfoProdprod0619'
+KAFKA_GROUP_ID = 'footInfoProdprodTest0615'
 
 
 
@@ -46,9 +46,9 @@ REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 # return url
 # test
 # RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
-# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
+RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
 # prod
-RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
+# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
 
 # RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
 # data_compute completed return host
