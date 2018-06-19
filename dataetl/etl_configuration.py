@@ -44,6 +44,8 @@ FOOT_REPEAT_TABLE = 'foot_repeat_test'
 # LAST_TABLE = 'shop_last_inventory'
 # SKU_TABLE = 'shop_sku_inventory'
 # LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
+# SHOP_SEASON_TABLE  = 'shop_season_statistics'
+
 
 # online
 SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
@@ -55,7 +57,7 @@ SKU_LAST_CHARSET='utf8mb4'
 LAST_TABLE = 'shop_last_inventory'
 SKU_TABLE = 'shop_sku_inventory'
 LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
-
+SHOP_SEASON_TABLE  = 'shop_season_statistics'
 
 #  ===redis connection ====
 # online
