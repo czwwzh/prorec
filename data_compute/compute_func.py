@@ -74,6 +74,7 @@ def get_last_data(shop_no,sex, sizes):
     #     year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize in " + str(sizes)
     sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex + " and year = '" + str(
         year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(sizes[1])
+    logger.info(sql)
 
     db = None
     cursor = None
