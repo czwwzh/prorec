@@ -37,7 +37,7 @@ from variables import *
 # 取脚长度（左右脚最大值）上下五个码
 def get_sizes(foot_length_left,foot_length_right):
 
-    size = foot_length_left + foot_length_right/2
+    size = (foot_length_left + foot_length_right)/2
     size_min = (int)(size - 10)
     size_max = (int)(size + 10)
     return (size_min,size_max)
@@ -116,7 +116,7 @@ def get_last_data_value(data):
 # get last data by shopno and foot join last
 def foot_connect_last(data):
     #  取脚长度（左右脚最大值）上下五个码
-    sizes = get_sizes(data['foot_length_left'],data['foot_length_right'])
+    sizes = get_sizes(data['foot_length_original_left'],data['foot_length_original_right'])
 
     shop_no = data['shop_no']
     sex = data['customer_sex']
