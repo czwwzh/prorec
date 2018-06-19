@@ -19,19 +19,28 @@ from util_redis import Redis_db as rds
 from variables import *
 
 
+# # 取脚长度（左右脚最大值）上下五个码
+# def get_sizes(foot_length_left,foot_length_right):
+#
+#     sizes = []
+#     if foot_length_left > foot_length_right:
+#         foot_length = foot_length_left
+#     else:
+#         foot_length = foot_length_right
+#     sizes = sizes + [foot_length - 10, foot_length - 5, foot_length, foot_length + 5, foot_length + 10]
+#     for size in sizes:
+#         if size < 200 or size > 300:
+#             sizes.remove(size)
+#     return sizes
+
+
 # 取脚长度（左右脚最大值）上下五个码
 def get_sizes(foot_length_left,foot_length_right):
 
-    sizes = []
-    if foot_length_left > foot_length_right:
-        foot_length = foot_length_left
-    else:
-        foot_length = foot_length_right
-    sizes = sizes + [foot_length - 10, foot_length - 5, foot_length, foot_length + 5, foot_length + 10]
-    for size in sizes:
-        if size < 200 or size > 300:
-            sizes.remove(size)
-    return sizes
+    size = foot_length_left + foot_length_right/2
+    size_min = (int)(size - 10)
+    size_max = (int)(size + 10)
+    return (size_min,size_max)
 
 # last data dataetl ============================================
 # 获取当前门店商品的主要两个季
@@ -61,8 +70,10 @@ def get_last_data(shop_no,sex, sizes):
     if year_quarter[2] == False:
         return lastlist
 
+    # sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex + " and year = '" + str(
+    #     year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize in " + str(sizes)
     sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex + " and year = '" + str(
-        year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize in " + str(sizes)
+        year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(sizes[1])
 
     db = None
     cursor = None
