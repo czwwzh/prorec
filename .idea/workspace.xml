@@ -4,7 +4,6 @@
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/data_compute/compute_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute_configuration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_convert_cache/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_convert_cache/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/run.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataetl/etl_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl_configuration.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +15,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="etl_configuration.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="etl_configuration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+            <state relative-caret-position="356">
+              <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configuration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compute_configuration.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="114" column="28" lean-forward="true" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -102,8 +119,8 @@
         <option value="$PROJECT_DIR$/data_convert_cache/run1.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/configuration.py" />
-        <option value="$PROJECT_DIR$/data_compute/compute_configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_configuration.py" />
+        <option value="$PROJECT_DIR$/data_compute/compute_configuration.py" />
       </list>
     </option>
   </component>
@@ -709,13 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -730,13 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_compute/run.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -744,10 +747,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="356">
+          <caret line="65" column="28" lean-forward="true" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="114" column="28" lean-forward="true" selection-start-line="114" selection-start-column="28" selection-end-line="114" selection-end-column="28" />
         </state>
       </provider>
     </entry>

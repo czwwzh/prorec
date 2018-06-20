@@ -28,9 +28,9 @@ KAFKA_GROUP_ID = 'footInfoProdTest0620'
 
 # redis configuration
 # test3
-# REDIS_HOST = '52.80.137.153'
+REDIS_HOST = '52.80.137.153'
 # online
-REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
+# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # kafka 数据转入redis中的队列名 uuid
