@@ -30,7 +30,7 @@
 # REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 #
 # # return url
-RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
+# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
 
 
 
@@ -70,5 +70,5 @@ REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 
 
 # return url
-# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
+RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
 
