@@ -49,7 +49,7 @@ REDIS_KAFKA_LIST = 'kafka_redis_list_data'
 REDIS_KAFKA_HASHSET = 'kafka_redis_hash_data'
 # 异常脚数据存入redis的队列名称
 REDIS_LIST_FOOTDATA_EXCEPT = 'redis_list_footdata_except'
-# 正常数据uuid进入的队列名称
+# 正常数据进入的队列名称
 REDIS_LIST_FOOT_ETL = 'redis_list_foot_etl'
 # 门店季节
 REDIS_HASHSET_SHOP_SEASON = 'redis_hashset_shop_season'
@@ -116,6 +116,4 @@ LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/data_etl_'
 #
 # # LOG PATH
 # LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/data_etl_'
-
-
 

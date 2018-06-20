@@ -4,16 +4,16 @@
 import os,sys,time,requests
 
 # local
-from dataetl.etl_configuration import *
-from dataetl.util_redis import Redis_db as rds
-from dataetl.util_log import logger
-import dataetl.pp.pp as pp
+# from dataetl.etl_configuration import *
+# from dataetl.util_redis import Redis_db as rds
+# from dataetl.util_log import logger
+# import dataetl.pp.pp as pp
 
 # online
-# from etl_configuration import *
-# from util_redis import Redis_db as rds
-# from util_log import logger
-# import pp.pp as pp
+from etl_configuration import *
+from util_redis import Redis_db as rds
+from util_log import logger
+import pp.pp as pp
 
 
 ppservers = ()
@@ -27,10 +27,10 @@ else:
 def rundata(uuid):
 
     # online
-    # from readClass import readClass
+    from readClass import readClass
 
     # local
-    from dataetl.readClass import readClass
+    # from dataetl.readClass import readClass
 
     my_to = readClass()
     my_to.StartRun(uuid)
@@ -39,11 +39,11 @@ def AnaData(inputs,start_time):
     logger.info("deal with  " + str(len(inputs)) + " foot data")
     logger.info("deal with start time " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     jobs = [(input, job_server.submit(rundata, (input,), (), ())) for input in inputs]
-    logger.info(inputs)
-    logger.info(str(jobs))
+    # logger.info(inputs)
+    # logger.info(str(jobs))
     for input, job in jobs:
-        logger.info(input)
-        logger.info(job)
+        # logger.info(input)
+        # logger.info(job)
         job()
         # logger.info("----------------->" + str(res))
     logger.info("deal with end time " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
