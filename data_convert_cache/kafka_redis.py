@@ -41,8 +41,8 @@ for message in consumer:
         redis_con.rpush_data(redis_list,key)
         logger.info(key)
         logger.info('data from kafka to redis end time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    except:
-        pass
+    except Exception as e:
+        logger.info(str(e))
 
 
 

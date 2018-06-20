@@ -61,6 +61,8 @@ if __name__ == '__main__':
     while(True):
         # 从redis中读取数据
         res_tmp = my_rds.blpop_data(redis_kafka_list)
+        logger.info(cpu_count)
+        logger.info(res_tmp)
         start_time = time.time()
         if len(res_tmp)==32:
             res_tmp = res_tmp.decode()
