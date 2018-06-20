@@ -40,7 +40,7 @@ def get_year_sean_from_redis(shop_no):
         year = time.strftime('%Y', time.localtime(time.time()))
         year = year[3]
         season = my_rds.SetGetHashData(REDIS_HASHSET_SHOP_SEASON,shop_no)
-        season = tuple(season.decode().split(','))
+        season = season.decode()
     except Exception as e:
         flag = False
         logger.info("get year season failed")

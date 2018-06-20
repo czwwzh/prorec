@@ -178,7 +178,6 @@ def exist_available_last(shop_no, sex, sizes):
         year_quarter = get_year_sean_from_mysql(shop_no)
         if year_quarter[2] == False:
             return False
-
     # logger.info(sql)
     db = None
     cursor = None
@@ -188,7 +187,6 @@ def exist_available_last(shop_no, sex, sizes):
             year_quarter[0]) + "' and season in " + str(
             tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
             sizes[1]) + " limit 1"
-
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
@@ -399,7 +397,7 @@ def get_year_sean_from_redis(shop_no):
         year = time.strftime('%Y', time.localtime(time.time()))
         year = year[3]
         season = my_rds.SetGetHashData(REDIS_HASHSET_SHOP_SEASON,shop_no)
-        season = tuple(season.decode().split(','))
+        season = season.decode()
     except Exception as e:
         flag = False
         logger.info("get year season failed")
