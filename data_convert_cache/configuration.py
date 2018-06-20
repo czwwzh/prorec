@@ -11,7 +11,7 @@
 # # kafka configuration
 # KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
 # KAFKA_GROUP_ID = 'footInfoProdTest0620'
-KAFKA_PROD_FOOTTOPIC = 'footcom'
+# KAFKA_PROD_FOOTTOPIC = 'footcom'
 #
 #
 # # redis configuration
@@ -48,8 +48,8 @@ LOG_FILE_PATH_FUNC = '/home/ec2-user/zhanghao/log/func_'
 
 # kafka configuration
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-KAFKA_GROUP_ID = 'footInfoProdTest0620'
-# KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
+KAFKA_GROUP_ID = 'footInfoProd0620'
+KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 
 
 
