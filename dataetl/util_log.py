@@ -8,10 +8,10 @@ from logging.handlers import TimedRotatingFileHandler
 
 
 # local
-from dataetl.etl_configuration import *
+# from dataetl.etl_configuration import *
 
 # online
-# from etl_configuration import *
+from etl_configuration import *
 
 logFilePath = LOG_FILE_PATH
 logger = logging.getLogger('etl_log')
@@ -33,8 +33,8 @@ logger.addHandler(fh)
 
 
 # # 日志本地console窗口打印配置  开发调试使用
-ch = logging.StreamHandler()
-ch.setLevel(logging.INFO)
-ch.setFormatter(formatter)
-logger.addHandler(ch)
+# ch = logging.StreamHandler()
+# ch.setLevel(logging.INFO)
+# ch.setFormatter(formatter)
+# logger.addHandler(ch)
 
