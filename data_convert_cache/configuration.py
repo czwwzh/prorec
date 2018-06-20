@@ -1,17 +1,17 @@
 # LOG configuration
 # local
-# LOG_FILE_PATH_KAFKA_REDIS ='D:\\recommend\prodrec\log\kafka_redis_'
-# LOG_FILE_PATH_RETURN_ABNORMAL = 'D:\\recommend\prodrec\log\\return_abnormal_'
-# LOG_FILE_PATH_RETURN_NORMAL = 'D:\\recommend\prodrec\log\\return_normal_'
-# LOG_FILE_PATH_UTIL_REDIS = 'D:\\recommend\prodrec\log\\util_redis_'
-# LOG_FILE_PATH_FUNC = 'D:\\recommend\prodrec\log\\func_'
+LOG_FILE_PATH_KAFKA_REDIS ='D:\\recommend\prodrec\log\kafka_redis_'
+LOG_FILE_PATH_RETURN_ABNORMAL = 'D:\\recommend\prodrec\log\\return_abnormal_'
+LOG_FILE_PATH_RETURN_NORMAL = 'D:\\recommend\prodrec\log\\return_normal_'
+LOG_FILE_PATH_UTIL_REDIS = 'D:\\recommend\prodrec\log\\util_redis_'
+LOG_FILE_PATH_FUNC = 'D:\\recommend\prodrec\log\\func_'
 
 # online
-LOG_FILE_PATH_KAFKA_REDIS ='/home/ec2-user/zhanghao/log/kafka_redis_'
-LOG_FILE_PATH_RETURN_ABNORMAL = '/home/ec2-user/zhanghao/log/return_abnormal_'
-LOG_FILE_PATH_RETURN_NORMAL = '/home/ec2-user/zhanghao/log/return_normal_'
-LOG_FILE_PATH_UTIL_REDIS = '/home/ec2-user/zhanghao/log/util_redis_'
-LOG_FILE_PATH_FUNC = '/home/ec2-user/zhanghao/log/func_'
+# LOG_FILE_PATH_KAFKA_REDIS ='/home/ec2-user/zhanghao/log/kafka_redis_'
+# LOG_FILE_PATH_RETURN_ABNORMAL = '/home/ec2-user/zhanghao/log/return_abnormal_'
+# LOG_FILE_PATH_RETURN_NORMAL = '/home/ec2-user/zhanghao/log/return_normal_'
+# LOG_FILE_PATH_UTIL_REDIS = '/home/ec2-user/zhanghao/log/util_redis_'
+# LOG_FILE_PATH_FUNC = '/home/ec2-user/zhanghao/log/func_'
 
 
 # kafka configuration

@@ -4,14 +4,14 @@ import json
 import time
 
 # local
-# from data_convert_cache.util_redis import Redis_db as rds
-# from data_convert_cache.data_convert_catche_func import *
-# from data_convert_cache.util_log import *
+from data_convert_cache.util_redis import Redis_db as rds
+from data_convert_cache.data_convert_catche_func import *
+from data_convert_cache.util_log import *
 
 # online
-from util_redis import Redis_db as rds
-from data_convert_catche_func import *
-from util_log import *
+# from util_redis import Redis_db as rds
+# from data_convert_catche_func import *
+# from util_log import *
 
 if __name__ == '__main__':
     # 日志获取

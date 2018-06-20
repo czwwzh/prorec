@@ -81,6 +81,6 @@ REDIS_HASHSET_SHOP_SEASON = 'redis_hashset_shop_season'
 
 
 # LOG PATH
-LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/data_etl_'
-
+# LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/data_etl_'
+LOG_FILE_PATH = 'D:\\recommend\prodrec\log\\data_etl_'
 
