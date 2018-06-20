@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_convert_cache/redis_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/redis_list.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_convert_cache/util_redis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/util_redis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_convert_cache/util_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/util_log.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,22 +16,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="util_redis.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data_convert_cache/util_redis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-              <folding>
-                <element signature="e#46#58#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="kafka_redis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/kafka_redis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="359">
               <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
@@ -38,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="return_abnormal_data.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="return_abnormal_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/return_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="26" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="359">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
               </folding>
@@ -53,8 +43,8 @@
       <file leaf-file-name="return_normal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/return_normal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="374">
+              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
               <folding>
                 <element signature="e#45#56#0" expanded="true" />
               </folding>
@@ -65,8 +55,8 @@
       <file leaf-file-name="data_convert_catche_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+            <state relative-caret-position="223">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="e#46#61#0" expanded="true" />
               </folding>
@@ -77,10 +67,22 @@
       <file leaf-file-name="redis_list.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/redis_list.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="308">
+              <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
               <folding>
                 <element signature="e#45#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="util_redis_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_convert_cache/util_redis_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1309">
+              <caret line="77" column="23" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+              <folding>
+                <element signature="e#46#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,8 +100,8 @@
       <file leaf-file-name="util_log.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/util_log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            <state relative-caret-position="595">
+              <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
               <folding>
                 <element signature="e#47#61#0" expanded="true" />
               </folding>
@@ -135,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dataetl/read.py" />
         <option value="$PROJECT_DIR$/dataetl/dataetl_configuration.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/test.py" />
         <option value="$PROJECT_DIR$/log/data_convert_catche_" />
@@ -172,20 +173,21 @@
         <option value="$PROJECT_DIR$/data_convert_cache/run1.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
         <option value="$PROJECT_DIR$/data_compute/compute_configuration.py" />
-        <option value="$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py" />
         <option value="$PROJECT_DIR$/dataetl/etl.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_func.py" />
         <option value="$PROJECT_DIR$/dataetl/readClass.py" />
         <option value="$PROJECT_DIR$/dataetl/util_redis.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/util_log.py" />
-        <option value="$PROJECT_DIR$/data_convert_cache/util_log.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/configuration.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/kafka_redis.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/return_abnormal_data.py" />
-        <option value="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" />
-        <option value="$PROJECT_DIR$/data_convert_cache/redis_list.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/util_redis.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/util_log.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/util_redis_test.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/redis_list.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" />
       </list>
     </option>
   </component>
@@ -388,7 +390,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.14734562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.28060672" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23076923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -427,13 +429,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/software426/Python/Python36/Lib/site-packages/redis/connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="284" column="24" lean-forward="true" selection-start-line="284" selection-start-column="24" selection-end-line="284" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/redisutil.py" />
     <entry file="file://D:/software426/Python/Python36/Lib/site-packages/redis/client.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -551,13 +546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/run1.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -643,58 +631,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/util_log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-          <folding>
-            <element signature="e#47#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/redis_hash.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding>
-            <element signature="e#46#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/return_abnormal_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="26" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="e#46#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/return_normal_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#45#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/kafka_redis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
-          <folding>
-            <element signature="e#46#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -703,10 +641,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/util_log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="17" lean-forward="true" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+          <folding>
+            <element signature="e#47#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/util_redis_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="77" column="23" lean-forward="true" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+          <folding>
+            <element signature="e#46#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/redis_list.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="308">
+          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding>
             <element signature="e#45#56#0" expanded="true" />
           </folding>
@@ -715,10 +680,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/util_redis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="51">
+          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
           <folding>
             <element signature="e#46#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/kafka_redis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="48" column="27" lean-forward="true" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/data_convert_catche_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <folding>
+            <element signature="e#46#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/return_normal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+          <folding>
+            <element signature="e#45#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/return_abnormal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
