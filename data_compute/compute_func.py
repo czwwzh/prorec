@@ -88,14 +88,17 @@ def get_last_data(shop_no,sex, sizes):
         year_quarter = get_year_sean_from_mysql(shop_no)
         if year_quarter[2] == False:
             return lastlist
-    sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex + " and year = '" + str(
-        year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(sizes[1])
-    logger.info(sql)
+
 
     db = None
     cursor = None
 
     try:
+        sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + sex + " and year = '" + str(
+            year_quarter[0]) + "' and season in " + str(
+            tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
+            sizes[1])
+        # logger.info(sql)
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
