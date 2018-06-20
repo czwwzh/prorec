@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/dataetl/etl.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_compute/compute_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute_configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_convert_cache/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/configuration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataetl/etl_configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl_configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/etl_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/readClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/readClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/util_log.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/util_log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/util_redis.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/util_redis.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="etl_func.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="etl_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/etl_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="469" lean-forward="true" selection-start-line="469" selection-end-line="469" />
+            <state relative-caret-position="462">
+              <caret line="461" column="27" lean-forward="true" selection-start-line="461" selection-start-column="27" selection-end-line="461" selection-end-column="27" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
               </folding>
@@ -63,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="etl_configuration.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="etl_configuration.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="198">
+              <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -80,6 +77,24 @@
               <folding>
                 <element signature="e#47#61#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="compute_configuration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="114" column="30" lean-forward="true" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configuration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-end-line="56" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -169,7 +184,6 @@
         <option value="$PROJECT_DIR$/data_compute/test.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/run1.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
-        <option value="$PROJECT_DIR$/data_compute/compute_configuration.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/kafka_redis.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/return_abnormal_data.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/util_redis.py" />
@@ -178,15 +192,16 @@
         <option value="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/util_redis_test.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/redis_list.py" />
-        <option value="$PROJECT_DIR$/data_convert_cache/configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/run.sh" />
         <option value="$PROJECT_DIR$/data_compute/compute_func.py" />
         <option value="$PROJECT_DIR$/dataetl/etl.py" />
-        <option value="$PROJECT_DIR$/dataetl/etl_configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_func.py" />
         <option value="$PROJECT_DIR$/dataetl/readClass.py" />
         <option value="$PROJECT_DIR$/dataetl/util_log.py" />
         <option value="$PROJECT_DIR$/dataetl/util_redis.py" />
+        <option value="$PROJECT_DIR$/data_compute/compute_configuration.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/configuration.py" />
+        <option value="$PROJECT_DIR$/dataetl/etl_configuration.py" />
       </list>
     </option>
   </component>
@@ -395,11 +410,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30985916" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30985916" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.14734562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23076923" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.23076923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -625,24 +640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="45" selection-start-line="45" selection-end-line="45" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/variables.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
         </state>
       </provider>
     </entry>
@@ -686,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/util_redis.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -729,11 +723,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/etl_func.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="469" lean-forward="true" selection-start-line="469" selection-end-line="469" />
+        <state relative-caret-position="462">
+          <caret line="461" column="27" lean-forward="true" selection-start-line="461" selection-start-column="27" selection-end-line="461" selection-end-column="27" />
           <folding>
             <element signature="e#46#57#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="114" column="30" lean-forward="true" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-end-line="56" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
         </state>
       </provider>
     </entry>
