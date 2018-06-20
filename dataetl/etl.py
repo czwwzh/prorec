@@ -39,11 +39,7 @@ def AnaData(inputs,start_time):
     logger.info("deal with  " + str(len(inputs)) + " foot data")
     logger.info("deal with start time " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     jobs = [(input, job_server.submit(rundata, (input,), (), ())) for input in inputs]
-    # logger.info(inputs)
-    # logger.info(str(jobs))
     for input, job in jobs:
-        # logger.info(input)
-        # logger.info(job)
         job()
         # logger.info("----------------->" + str(res))
     logger.info("deal with end time " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
@@ -65,8 +61,6 @@ if __name__ == '__main__':
     while(True):
         # 从redis中读取数据
         res_tmp = my_rds.blpop_data(redis_kafka_list)
-        logger.info(cpu_count)
-        logger.info(res_tmp)
         start_time = time.time()
         if len(res_tmp)==32:
             res_tmp = res_tmp.decode()
