@@ -4,14 +4,23 @@ import json
 import time
 
 # local
-from data_convert_cache.util_redis import Redis_db as rds
-from data_convert_cache.data_convert_catche_func import *
-from data_convert_cache.util_log import *
+# from data_convert_cache.util_redis import Redis_db as rds
+# from data_convert_cache.data_convert_catche_func import *
+# from data_convert_cache.util_log import *
 
 # online
 # from util_redis import Redis_db as rds
 # from data_convert_catche_func import *
 # from util_log import *
+REDIS_HOST = '52.80.137.153'
+REDIS_PORT = 6379
+REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
+
+# kafka 数据转入redis中的队列名 uuid
+REDIS_KAFKA_LIST = 'kafka_redis_list_data'
+# kafka 数据转入redis中的哈希表名 uuid footdata
+REDIS_KAFKA_HASHSET = 'kafka_redis_hash_data'
+
 
 if __name__ == '__main__':
     count = 0
