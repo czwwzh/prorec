@@ -32,7 +32,7 @@ for message in consumer:
     try:
         count += 1
         logger.info(count)
-        logger.info('data from kafka to redis start time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        logger.info('data from kafka to redis start time' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
         # kafka源数据解码
         key = message.key.decode()
