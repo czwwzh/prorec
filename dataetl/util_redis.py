@@ -5,14 +5,15 @@ import redis
 import time
 
 # local
-from dataetl.etl_configuration import *
-from dataetl.util_log import logger
+from data_convert_cache.configuration import *
+from data_convert_cache.util_log import *
 
 
 # online
-# from etl_configuration import *
-# from util_log import logger
+# from configuration import *
+# from logutil import logger
 
+logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
 
 class Redis_db:
 
@@ -62,10 +63,13 @@ class Redis_db:
         try:
             self.redis_conn.ping()
             # 返回队列名和数据
-            _,json = self.redis_conn.blpop(redis_list)
-            return json
+            if self.redis_conn.exists(redis_list):
+                _,json = self.redis_conn.blpop(redis_list,timeout = 1)
+                return json
+            else:
+                return False
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.error(str(e))
             return False
 
     # 获取队列长度
@@ -94,7 +98,5 @@ class Redis_db:
         # 数据为空
         else:
             res = self.redis_conn.hget(hash_set, uuid)
-            if hash_set != REDIS_HASHSET_SHOP_SEASON:
-                self.redis_conn.hdel(hash_set,uuid)
             return res
 

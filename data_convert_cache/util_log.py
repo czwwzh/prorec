@@ -15,7 +15,6 @@ def get_logger(logFilePath,log_comment):
     fh = TimedRotatingFileHandler(
         logFilePath,
         when="MIDNIGHT",
-        interval=1,
         backupCount=7)
 
     # 日志输出到log中配置

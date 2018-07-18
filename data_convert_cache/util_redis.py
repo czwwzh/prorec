@@ -63,10 +63,13 @@ class Redis_db:
         try:
             self.redis_conn.ping()
             # 返回队列名和数据
-            _,json = self.redis_conn.blpop(redis_list)
-            return json
+            if self.redis_conn.exists(redis_list):
+                _,json = self.redis_conn.blpop(redis_list,timeout = 1)
+                return json
+            else:
+                return False
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.error(str(e))
             return False
 
     # 获取队列长度

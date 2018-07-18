@@ -30,8 +30,10 @@ redis_hashset = REDIS_KAFKA_HASHSET
 # 从kafka中读取数据
 for message in consumer:
     try:
-        logger.info('data from kafka to redis start time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        # 记录开始时间
+        start_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 
+        # 读取kafka数据放入redis中
         # kafka源数据解码
         key = message.key.decode()
         sourcedata = message.value.decode()
@@ -39,10 +41,14 @@ for message in consumer:
         redis_con.SetGetHashData(redis_hashset,key,sourcedata)
         # uuid 放入 redis 的队列中
         redis_con.rpush_data(redis_list,key)
-        logger.info(key)
-        logger.info('data from kafka to redis end time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    except:
-        pass
+
+        # 记录结束时间
+        end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+
+        # 打印日志
+        logger.info('[' + key + '],' + '[data from kafka to redis],' + '[' + start_time + '],' + '[' + end_time + ']')
+    except Exception as e:
+        logger.error(str(e))
 
 
 

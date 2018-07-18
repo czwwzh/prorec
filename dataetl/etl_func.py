@@ -7,18 +7,19 @@ import time
 
 # local
 from dataetl.etl_configuration import *
-from dataetl.util_log import logger
+from dataetl.util_log import *
 from dataetl.variables import *
 from dataetl.util_redis import Redis_db as rds
 
 # online
 # from etl_configuration import *
-# from util_log import logger
+# from util_log import *
 # from variables import *
 # from util_redis import Redis_db as rds
 
 
-
+# 日志获取
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 # foot data dataetl ============================================
 # 将读取的所有数据入库
 # sourcedata save
@@ -173,17 +174,28 @@ def get_shop_no(scan_id):
 # 判断楦库中是否有相应码段范围、相应性别、当年当季的楦
 def exist_available_last(shop_no, sex, sizes):
     result = False
-    year_quarter = get_year_sean(shop_no)
+    year_quarter = get_year_sean_from_redis(shop_no)
     if year_quarter[2] == False:
-        logger.info("get year_quarter exception")
-        return False
-
-    sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + str(sex) + " and year = '" + str(
-        year_quarter[0]) + "' and season in " + str(year_quarter[1]) + " and  basicsize in " + str(sizes) + " limit 1"
-    logger.info(sql)
+        year_quarter = get_year_sean_from_mysql(shop_no)
+        if year_quarter[2] == False:
+            return False
+    # logger.info(sql)
     db = None
     cursor = None
     try:
+        sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no = '" + shop_no + "' and gender = " + str(
+            sex) + " and year = '" + str(
+            year_quarter[0]) + "' and season in " + str(
+            tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
+            sizes[1]) + " limit 1"
+        print(sql)
+        # 固定门店
+        # sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no =  and gender = " + str(
+        #     sex) + " and year = '" + str(
+        #     year_quarter[0]) + "' and season in " + str(
+        #     tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
+        #     sizes[1]) + " limit 1"
+
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
@@ -202,18 +214,13 @@ def exist_available_last(shop_no, sex, sizes):
     return result
 
 # 取脚长度（左右脚最大值）上下五个码
-def get_sizes(foot_length_left,foot_length_right):
+def get_sizes(foot_length_original_left,foot_length_original_right):
 
-    sizes = []
-    if foot_length_left > foot_length_right:
-        foot_length = foot_length_left
-    else:
-        foot_length = foot_length_right
-    sizes = sizes + [foot_length - 10, foot_length - 5, foot_length, foot_length + 5, foot_length + 10]
-    for size in sizes:
-        if size < 200 or size > 300:
-            sizes.remove(size)
-    return sizes
+    size = (foot_length_original_left + foot_length_original_right)/2
+    size_min = (int)(size - 10)
+    size_max = (int)(size + 10)
+    return (size_min,size_max)
+
 
 # filter: whether the foot  attribute exist and num and in the normal range
 def normal_data_rules(dict,UUID):
@@ -324,12 +331,9 @@ def footfilter(uuid,data):
             comment = customerfield + " is none."
             exception_data_update(comment, UUID, exceptiontype)
             return False
-    if customerInfo['customer_sex'] != 2:
+    if customerInfo['customer_sex'] != 2 and customerInfo['customer_sex'] != 1:
         exceptiontype = "3"
-        if customerInfo['customer_sex'] == 1:
-            comment = "man cannot be computed in this version."
-        else:
-            comment = "customer_sex is abnormal."
+        comment = "customer_sex is abnormal."
         exception_data_update(comment, UUID, exceptiontype)
         return False
 
@@ -350,9 +354,9 @@ def footfilter(uuid,data):
        return False
 
     # 取脚长度（左右脚最大值）上下五个码，这里用于判断库存
-    sizes = get_sizes(footdata['foot_length_left'],footdata['foot_length_right'])
+    sizes = get_sizes(footdata['foot_length_original_left'],footdata['foot_length_original_right'])
     # 判断楦库中是否有相应码段范围、相应性别、当年当季的楦
-    if exist_available_last(shop_no, customerInfo['customer_sex'], tuple(sizes)) == False:
+    if exist_available_last(shop_no, customerInfo['customer_sex'], sizes) == False:
         exceptiontype = "5"
         comment = "no avalilable  last in the shop."
         exception_data_update(comment, UUID, exceptiontype)
@@ -383,16 +387,14 @@ def get_foot_data(data):
     footdata['UUID'] = UUID
     footdata['algoVersion']=algoVersion
     footdata['customer_sex']=customer_sex
-    shop_no_sex = shop_no.strip() + "_" + str(customer_sex)
     for key, value in mesurementItemInfos.items():
         footdata[key + "_" + "left"] = value['left']
         footdata[key + "_" + "right"] = value['right']
-    # return (shop_no_sex, footdata)
     return footdata
 
 # last data dataetl ============================================
 # 获取当前门店商品的主要两个季
-def get_year_sean(shop_no):
+def get_year_sean_from_redis(shop_no):
     year = None
     season = None
     flag = True
@@ -401,12 +403,43 @@ def get_year_sean(shop_no):
         year = time.strftime('%Y', time.localtime(time.time()))
         year = year[3]
         season = my_rds.SetGetHashData(REDIS_HASHSET_SHOP_SEASON,shop_no)
-        season = tuple(season.decode().split(','))
+        season = season.decode()
     except Exception as e:
         flag = False
         logger.info("get year season failed")
         logger.info(str(e))
     return (year, season, flag)
+
+
+# 从mysql中获取当前门店商品的主要两个季
+def get_year_sean_from_mysql(shop_no):
+    cursor = None
+    db = None
+
+    result = None
+    flag = True
+    year = time.strftime('%Y', time.localtime(time.time()))
+    year = year[3]
+
+    sql = "SELECT season" +  " FROM " + SHOP_SEASON_TABLE + " where shop_no = '" + shop_no + "'  limit 1"
+    try:
+
+        db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
+                             user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
+                             db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
+        cursor = db.cursor()
+        cursor.execute(sql)
+        result = cursor.fetchone()[0]
+    except Exception as e:
+        flag = False
+        logger.info("can't fetch shop season from mysql")
+        logger.info(str(e))
+    finally:
+        if cursor != None:
+            cursor.close()
+        if db != None:
+            db.close()
+    return (year,result,flag)
 
 
 # 重复uuid入库
@@ -437,6 +470,9 @@ def repetive_data_save(uuid, footdata):
             cursor.close()
         if db != None:
             db.close()
+
+
+
 
 
 

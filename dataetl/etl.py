@@ -6,7 +6,7 @@ import os,sys,time,requests
 # local
 from dataetl.etl_configuration import *
 from dataetl.util_redis import Redis_db as rds
-from dataetl.util_log import logger
+from dataetl.util_log import *
 import dataetl.pp.pp as pp
 
 # online
@@ -14,6 +14,8 @@ import dataetl.pp.pp as pp
 # from util_log import logger
 # import pp.pp as pp
 
+# 日志获取
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 
 ppservers = ()
 if len(sys.argv) > 1:
@@ -57,30 +59,34 @@ if __name__ == '__main__':
 
     # list定义（从redis中读取数据放入list中）
     rds_list = list()
-    while(True):
-        # 从redis中读取数据
-        res_tmp = my_rds.blpop_data(redis_kafka_list)
-        start_time = time.time()
-        if len(res_tmp)==32:
-            res_tmp = res_tmp.decode()
-        else:
-            continue
 
-        # 合法数据入list
-        rds_list.append(res_tmp)
+    try:
+        while(True):
+            # 从redis中读取数据
+            res_tmp = my_rds.blpop_data(redis_kafka_list)
+            start_time = time.time()
+            if res_tmp != None and res_tmp!= False:
+                res_tmp = res_tmp.decode()
+            else:
+                continue
 
-        # 实时比对 redis队列的长度 和这里定义的数组长度启动etl计算
-        list_count = len(rds_list)
-        llen = my_rds.len_redis_list(redis_kafka_list)
+            # 合法数据入list
+            rds_list.append(res_tmp)
 
-        if list_count == cpu_count:
-            logger.info('***********start data  etl*************')
-            list_count = AnaData(rds_list,start_time)
+            # 实时比对 redis队列的长度 和这里定义的数组长度启动etl计算
+            list_count = len(rds_list)
+            llen = my_rds.len_redis_list(redis_kafka_list)
 
-        if list_count > 0 and llen == 0:
-            logger.info('***********start data  etl*************')
-            list_count = AnaData(rds_list,start_time)
+            if list_count == cpu_count:
+                logger.info('***********start data  etl*************')
+                list_count = AnaData(rds_list,start_time)
 
-        if list_count == 0 :
-            rds_list = list()
+            if list_count > 0 and llen == 0:
+                logger.info('***********start data  etl*************')
+                list_count = AnaData(rds_list,start_time)
+
+            if list_count == 0 :
+                rds_list = list()
+    except Exception as e:
+        logger.info(str(e))
 

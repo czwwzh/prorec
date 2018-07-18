@@ -4,13 +4,14 @@
 
 # local
 from dataetl.etl_func import *
-from dataetl.util_log import logger
+from dataetl.util_log import *
 
 # online
 # from etl_func import *
-# from util_log import logger
+# from util_log import *
 
-
+# 日志获取
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 class readClass:
     def __init__(self):
         pass
@@ -35,6 +36,7 @@ class readClass:
             # 从redis 源数据哈希表中读取脚数据
             foot_data = my_rds.SetGetHashData(redis_kafka_hashset, uuid)
             foot_data = foot_data.decode()
+            logger.info(uuid)
             logger.info(foot_data)
             logger.info('1.data from redis_hashset time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         except:
