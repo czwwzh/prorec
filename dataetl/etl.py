@@ -60,11 +60,11 @@ if __name__ == '__main__':
     rds_list = list()
 
     try:
-        while(True):
+        while (True):
             # 从redis中读取数据
             res_tmp = my_rds.blpop_data(redis_kafka_list)
             start_time = time.time()
-            if res_tmp != None and res_tmp!= False:
+            if res_tmp != None and res_tmp != False:
                 res_tmp = res_tmp.decode()
             else:
                 continue
@@ -78,13 +78,13 @@ if __name__ == '__main__':
 
             if list_count == cpu_count:
                 logger.info('***********start data  etl*************')
-                list_count = AnaData(rds_list,start_time)
+                list_count = AnaData(rds_list, start_time)
 
             if list_count > 0 and llen == 0:
                 logger.info('***********start data  etl*************')
-                list_count = AnaData(rds_list,start_time)
+                list_count = AnaData(rds_list, start_time)
 
-            if list_count == 0 :
+            if list_count == 0:
                 rds_list = list()
     except Exception as e:
         logger.info(str(e))
