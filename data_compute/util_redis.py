@@ -14,7 +14,7 @@ from compute_configuration import *
 from util_log import *
 
 
-logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
+logger = get_logger(LOG_FILE_PATH,"model-compute-log")
 
 class Redis_db:
 
