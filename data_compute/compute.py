@@ -12,11 +12,12 @@
 
 # online
 from compute_func import *
-from util_log import logger
+from util_log import *
 from util_redis import Redis_db as rds
 from compute_configuration import *
 
-
+# 日志获取
+logger = get_logger(LOG_FILE_PATH,"model-compute-log")
 # =============================================================================
 # load model and function
 # suit
