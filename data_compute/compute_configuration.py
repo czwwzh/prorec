@@ -109,8 +109,8 @@ SIZE_DIMENSION_NAME = '/models/woman/v1/size/size_dimension_name'
 
 # --------redis configuration------------------
 # online
-REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
-
+# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
+REDIS_HOST = '52.80.212.211'
 # local
 # REDIS_HOST = '52.80.137.153'
 REDIS_PORT = 6379
