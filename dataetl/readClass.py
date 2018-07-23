@@ -3,13 +3,14 @@
 
 
 # local
-# from dataetl.etl_func import *
-# from dataetl.util_log import logger
+from dataetl.etl_func import *
+from dataetl.util_log import *
 
 # online
-from etl_func import *
-from util_log import logger
+# from etl_func import *
+# from util_log import logger
 
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 
 class readClass:
     def __init__(self):

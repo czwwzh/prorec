@@ -3,18 +3,13 @@
 
 import os,sys,time,requests
 
-# local
-# from dataetl.etl_configuration import *
-# from dataetl.util_redis import Redis_db as rds
-# from dataetl.util_log import logger
-# import dataetl.pp.pp as pp
+# test
+from dataetl.etl_configuration_test import *
+from dataetl.util_redis import Redis_db as rds
+from dataetl.util_log import *
+import dataetl.pp.pp as pp
 
-# online
-from etl_configuration import *
-from util_redis import Redis_db as rds
-from util_log import logger
-import pp.pp as pp
-
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 
 ppservers = ()
 if len(sys.argv) > 1:
@@ -27,10 +22,10 @@ else:
 def rundata(uuid):
 
     # online
-    from readClass import readClass
+    # from readClass import readClass
 
     # local
-    # from dataetl.readClass import readClass
+    from dataetl.readClass import readClass
 
     my_to = readClass()
     my_to.StartRun(uuid)

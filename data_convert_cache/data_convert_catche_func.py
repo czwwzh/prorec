@@ -4,12 +4,9 @@
 import requests
 
 # local
-# from data_convert_cache.configuration import *
-# from data_convert_cache.util_log import *
+from data_convert_cache.configuration_test import *
+from data_convert_cache.util_log import *
 
-# online
-from configuration import *
-from util_log import *
 
 logger = get_logger(LOG_FILE_PATH_FUNC, "func-log")
 

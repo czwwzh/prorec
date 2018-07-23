@@ -6,20 +6,16 @@ import pymysql
 import time
 
 # local
-# from dataetl.etl_configuration import *
-# from dataetl.util_log import logger
-# from dataetl.variables import *
-# from dataetl.util_redis import Redis_db as rds
-
-# online
-from etl_configuration import *
-from util_log import logger
-from variables import *
-from util_redis import Redis_db as rds
+from dataetl.etl_configuration_test import *
+from dataetl.variables import *
+from dataetl.util_redis import Redis_db as rds
+from dataetl.util_log import *
 
 
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 
-# foot data dataetl ============================================
+
+# foot data dataetl
 # 将读取的所有数据入库
 # sourcedata save
 def foot_data_save_mysql(uuid, footdata):

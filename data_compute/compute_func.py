@@ -5,22 +5,15 @@ import json
 import pymysql
 import time
 
-# local
-# from data_compute.util_log import logger
-# from data_compute.compute_configuration import *
-# from data_compute.util_redis import Redis_db as rds
-# from data_compute.variables import *
-
-
-# online
-from util_log import *
-from compute_configuration import *
-from util_redis import Redis_db as rds
-from variables import *
+# test
+from data_compute.util_log import *
+from data_compute.compute_configuration_test import *
+from data_compute.util_redis import Redis_db as rds
+from data_compute.variables import *
 
 
 # 日志获取
-logger = get_logger(LOG_FILE_PATH,"model-compute-log")
+logger = get_logger(LOG_FILE_PATH,"model-compute-log-2")
 
 
 # 取脚长度（左右脚最大值）上下五个码

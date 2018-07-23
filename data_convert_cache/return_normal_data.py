@@ -4,14 +4,11 @@ import json
 import time
 
 # local
-# from data_convert_cache.util_redis import Redis_db as rds
-# from data_convert_cache.data_convert_catche_func import *
-# from data_convert_cache.util_log import *
+from data_convert_cache.util_redis import Redis_db as rds
+from data_convert_cache.configuration_test import *
+from data_convert_cache.util_log import *
+from data_convert_cache.data_convert_catche_func import *
 
-# online
-from util_redis import Redis_db as rds
-from data_convert_catche_func import *
-from util_log import *
 
 if __name__ == '__main__':
     # 日志获取
@@ -34,11 +31,11 @@ if __name__ == '__main__':
 
                 # 记录中间时间
                 middle_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                # sendtowx(returndata)
+                sendtowx(returndata)
 
                 # 记录结束时间
                 end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                print(count)
+                logger.info(count)
                 count += 1
                 # 日志输出
                 logger.info('[' + str(

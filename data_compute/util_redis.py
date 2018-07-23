@@ -5,16 +5,13 @@ import redis
 import time
 
 # local
-# from data_compute.compute_configuration import *
-# from data_compute.util_log import logger
+from data_compute.compute_configuration_test import *
+from data_compute.util_log import *
 
 
-# online
-from compute_configuration import *
-from util_log import *
 
 
-logger = get_logger(LOG_FILE_PATH,"model-compute-log")
+logger = get_logger(LOG_FILE_PATH,"model-compute-log-3")
 
 class Redis_db:
 
@@ -26,7 +23,7 @@ class Redis_db:
     def __init__(self):
         self.link_redis()
 
-    # redis 链接  失败再连接两次 一次隔1S
+    # redis 链接  失败再连接3次 一次隔1S
     def link_redis(self,num = 0):
         conf = self.redis_info
 
@@ -42,7 +39,7 @@ class Redis_db:
             logger.info('ERROR:' + str(e))
             time.sleep(1)
             num += 1
-            if num < 2:
+            if num < 3:
                 self.link_redis(num)
             return False
 
@@ -55,7 +52,8 @@ class Redis_db:
             self.redis_conn.ping()
             self.redis_conn.rpush(redis_list, data)
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.info("rpush data to redis failed!")
+            logger.error('ERROR:' + str(e))
 
     # 从redis 队列中读取数据 一次读取完队列中的数据
     # 删除并获得该列表中的第一元素，或阻塞，直到有一个可用 blpop

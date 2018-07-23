@@ -3,21 +3,17 @@
 
 
 
-# local
-# from data_compute.compute_func import *
-# from data_compute.util_log import logger
-# from data_compute.util_redis import Redis_db as rds
-# from data_compute.compute_configuration import *
+# test
+from data_compute.compute_func import *
+from data_compute.util_log import *
+from data_compute.util_redis import Redis_db as rds
+from data_compute.compute_configuration_test import *
 
 
-# online
-from compute_func import *
-from util_log import *
-from util_redis import Redis_db as rds
-from compute_configuration import *
+
 
 # 日志获取
-logger = get_logger(LOG_FILE_PATH,"model-compute-log")
+logger = get_logger(LOG_FILE_PATH,"model-compute-log-1")
 # =============================================================================
 # load model and function
 # suit

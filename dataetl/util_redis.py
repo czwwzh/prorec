@@ -4,16 +4,13 @@
 import redis
 import time
 
-# local
-# from dataetl.etl_configuration import *
-# from dataetl.util_log import logger
+# test
+from dataetl.etl_configuration_test import *
+from dataetl.util_log import *
 
 
-# online
-from etl_configuration import *
-from util_log import logger
-
-
+# 获取日志实例
+logger = get_logger(LOG_FILE_PATH,"data-etl-log")
 class Redis_db:
 
     # redis 配置 连接 及队列定义
@@ -37,13 +34,13 @@ class Redis_db:
             logger.info('connect redis--->Success')
             return True
         except redis.exceptions.ConnectionError as e:
+            logger.info("connect redis ---> failed!")
             logger.info('ERROR:' + str(e))
             time.sleep(1)
             num += 1
-            if num < 2:
+            if num < 3:
                 self.link_redis(num)
             return False
-
 
     # 向redis 队列中放入数据
     # 从队列的右边入队一个元素 rpush
@@ -53,7 +50,9 @@ class Redis_db:
             self.redis_conn.ping()
             self.redis_conn.rpush(redis_list, data)
         except Exception as e:
+            logger.info("rpush data to redis failed!")
             logger.info('ERROR:' + str(e))
+
 
     # 从redis 队列中读取数据 一次读取完队列中的数据
     # 删除并获得该列表中的第一元素，或阻塞，直到有一个可用 blpop
@@ -62,10 +61,13 @@ class Redis_db:
         try:
             self.redis_conn.ping()
             # 返回队列名和数据
-            _,json = self.redis_conn.blpop(redis_list)
-            return json
+            if self.redis_conn.exists(redis_list):
+                _,json = self.redis_conn.blpop(redis_list,timeout = 1)
+                return json
+            else:
+                return False
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.error(str(e))
             return False
 
     # 获取队列长度
@@ -97,4 +99,3 @@ class Redis_db:
             if hash_set != REDIS_HASHSET_SHOP_SEASON:
                 self.redis_conn.hdel(hash_set,uuid)
             return res
-

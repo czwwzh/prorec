@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
-import json
 import time
 
 # local
-from data_convert_cache.util_redis_test import Redis_db as rds
+from help_test.util_redis_test import Redis_db as rds
 # from data_convert_cache.data_convert_catche_func import *
 # from data_convert_cache.util_log import *
 

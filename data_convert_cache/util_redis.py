@@ -5,15 +5,12 @@ import redis
 import time
 
 # local
-# from data_convert_cache.configuration import *
-# from data_convert_cache.util_log import *
+from data_convert_cache.configuration_test import *
+from data_convert_cache.util_log import *
 
 
-# online
-from configuration import *
-from util_log import *
-
-logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"redis-log")
+# 获取日志实例
+logger = get_logger(LOG_FILE_PATH_UTIL_REDIS,"kafka-redis-log")
 
 class Redis_db:
 
@@ -25,7 +22,7 @@ class Redis_db:
     def __init__(self):
         self.link_redis()
 
-    # redis 链接  失败再连接两次 一次隔1S
+    # redis 链接  失败再连接三次 一次隔1S
     def link_redis(self,num = 0):
         conf = self.redis_info
 
@@ -38,13 +35,13 @@ class Redis_db:
             logger.info('connect redis--->Success')
             return True
         except redis.exceptions.ConnectionError as e:
+            logger.info("connect redis ---> failed!")
             logger.info('ERROR:' + str(e))
             time.sleep(1)
             num += 1
-            if num < 2:
+            if num < 3:
                 self.link_redis(num)
             return False
-
 
     # 向redis 队列中放入数据
     # 从队列的右边入队一个元素 rpush
@@ -54,7 +51,8 @@ class Redis_db:
             self.redis_conn.ping()
             self.redis_conn.rpush(redis_list, data)
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.info("rpush data to redis failed!")
+            logger.error('ERROR:' + str(e))
 
     # 从redis 队列中读取数据 一次读取完队列中的数据
     # 删除并获得该列表中的第一元素，或阻塞，直到有一个可用 blpop
@@ -63,10 +61,13 @@ class Redis_db:
         try:
             self.redis_conn.ping()
             # 返回队列名和数据
-            _,json = self.redis_conn.blpop(redis_list)
-            return json
+            if self.redis_conn.exists(redis_list):
+                _,json = self.redis_conn.blpop(redis_list,timeout = 1)
+                return json
+            else:
+                return False
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.error(str(e))
             return False
 
     # 获取队列长度
@@ -96,4 +97,3 @@ class Redis_db:
         else:
             res = self.redis_conn.hget(hash_set, uuid)
             return res
-

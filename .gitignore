@@ -4,5 +4,7 @@ log
 log/*
 test
 test/*
+help_test
+help_test/*
 
 
