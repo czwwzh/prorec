@@ -5,15 +5,16 @@ import redis
 import time
 
 # local
-from data_convert_cache.configuration import *
-from data_convert_cache.util_log import *
+from data_convert_cache.configuration_test import *
+from data_convert_cache.Log_Util import Logger
 
 
 # online
-# from configuration import *
-# from logutil import logger
+# from configuration_prod import *
+# from Log_Util import Logger
 
-logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
+# 获取日志实例
+logger = Logger("data_convert_catch-log-1",LOG_FILE_PATH_KAFKA_REDIS,0).getLogger()
 
 class Redis_db:
 
@@ -25,7 +26,7 @@ class Redis_db:
     def __init__(self):
         self.link_redis()
 
-    # redis 链接  失败再连接两次 一次隔1S
+    # redis 链接  失败再连接三次 一次隔1S
     def link_redis(self,num = 0):
         conf = self.redis_info
 
@@ -35,28 +36,31 @@ class Redis_db:
 
         try:
             self.redis_conn.ping()
-            logger.info('connect redis--->Success')
+            logger.info('connect redis ---> Success!')
             return True
         except redis.exceptions.ConnectionError as e:
-            logger.info('ERROR:' + str(e))
+            logger.info("connect redis ---> Failed!")
+            logger.error(str(e))
             time.sleep(1)
             num += 1
-            if num < 2:
+            if num < 3:
                 self.link_redis(num)
             return False
 
-
     # 向redis 队列中放入数据
     # 从队列的右边入队一个元素 rpush
-    # 参数:数据 对列名
+    # 参数：数据 对列名
     def rpush_data(self, redis_list, data):
         try:
             self.redis_conn.ping()
             self.redis_conn.rpush(redis_list, data)
+        except redis.exceptions.ResponseError:
+            logger.info("ping redis failed!")
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.info("Rpush data to redis failed!")
+            logger.error(str(e))
 
-    # 从redis 队列中读取数据 一次读取完队列中的数据
+    # 从redis 队列中读取数据，一次读取完队列中的数据
     # 删除并获得该列表中的第一元素，或阻塞，直到有一个可用 blpop
     # 参数：队列名
     def blpop_data(self,redis_list):
@@ -68,7 +72,10 @@ class Redis_db:
                 return json
             else:
                 return False
+        except redis.exceptions.ResponseError:
+            logger.info("ping redis failed!")
         except Exception as e:
+            logger.info("Blpop data from redis failed!")
             logger.error(str(e))
             return False
 
@@ -76,27 +83,36 @@ class Redis_db:
     # 参数： 队列名
     def len_redis_list(self,redis_list):
         len_list = 0
+        # 链接是否异常
         try:
             self.redis_conn.ping()
             len_list = self.redis_conn.llen(redis_list)
+        except redis.exceptions.ResponseError:
+            logger.info("ping redis failed!")
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            logger.info("get len(redis_list) failed!")
+            logger.error(str(e))
         return len_list
 
     # 向redis哈希表中存取数据
     # 参数 哈希表名  uuid  数据
     def SetGetHashData(self, hash_set, uuid, data=None):
+        res = False
         # 链接是否异常
         try:
             self.redis_conn.ping()
-        except redis.exceptions.ResponseError as e:
-            logger.info('ERROR:' + str(e))
-
-        # 数据不为空，则添加数据
-        if data != None:
-            self.redis_conn.hset(hash_set, uuid, data)
-        # 数据为空
-        else:
-            res = self.redis_conn.hget(hash_set, uuid)
+            # 数据不为空，则添加数据
+            if data != None:
+                self.redis_conn.hset(hash_set, uuid, data)
+            # 数据为空
+            else:
+                res = self.redis_conn.hget(hash_set, uuid)
             return res
+        except redis.exceptions.ResponseError:
+            logger.info("ping redis failed!")
+        except Exception as e:
+            logger.info("hset or hget hash_set failed!")
+            logger.error(str(e))
+
+
 

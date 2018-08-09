@@ -5,17 +5,18 @@ import time
 from kafka import KafkaConsumer
 
 # local
-from data_convert_cache.util_redis import Redis_db as rds
-from data_convert_cache.util_log import *
-from data_convert_cache.configuration import *
+from data_convert_cache.Redis_Util import Redis_db as rds
+from data_convert_cache.Log_Util import Logger
+from data_convert_cache.configuration_test import *
 
 # online
-# from util_redis import Redis_db as rds
-# from util_log import *
-# from configuration import *
+# from Redis_Util import Redis_db as rds
+# from Log_Util import Logger
+# from configuration_prod import *
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
+
+# 获取日志实例
+logger = Logger("kafka-redis-log",LOG_FILE_PATH_KAFKA_REDIS,0).getLogger()
 # kafka连接
 consumer = KafkaConsumer(KAFKA_PROD_FOOTTOPIC,
                          group_id=KAFKA_GROUP_ID,

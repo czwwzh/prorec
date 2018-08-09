@@ -2,7 +2,7 @@
 # _*_ coding:utf-8 _*_
 import json
 import time
-from kafka import KafkaConsumer, KafkaProducer
+from kafka import KafkaProducer
 
 from model_test.func import *
 from model_test.util_log import *
@@ -18,26 +18,40 @@ producer = KafkaProducer(
 
 foot_data_list = get_foot_data(tuple(uuid))
 
+# 固定门店号
+# count = 0
+# for (scanId,shop_no) in scan_id_shop_no:
+#     # print(scanId)
+#     # print(shop_no)
+#     for i in range(len(foot_data_list)):
+#         foot_data = json.loads(foot_data_list[i][0])
+#
+#         uuid = foot_data['UUID'] + '_' + shop_no
+#         foot_data['scanId'] = scanId
+#         foot_data['UUID'] = uuid
+#
+#         foot_data = json.dumps(foot_data)
+#         print(count)
+#         print(uuid)
+#         print(foot_data)
+#         count += 1
+#
+#         producer.send('footcom', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+#         # time.sleep(0.05)
+#         time.sleep(1)
+
+
 count = 0
-
-for (scanId,shop_no) in scan_id_shop_no:
-    # print(scanId)
-    # print(shop_no)
-    for i in range(len(foot_data_list)):
-        foot_data = json.loads(foot_data_list[i][0])
-
-        uuid = foot_data['UUID'] + '_' + shop_no
-        foot_data['scanId'] = scanId
-        foot_data['UUID'] = uuid
-
-        foot_data = json.dumps(foot_data)
-        print(count)
-        print(uuid)
-        print(foot_data)
-        count += 1
-
-        producer.send('footcom', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
-        # time.sleep(0.05)
-        time.sleep(1)
+for i in range(len(foot_data_list)):
+    foot_data = json.loads(foot_data_list[i][0])
+    uuid = foot_data['UUID']
+    foot_data = json.dumps(foot_data)
+    print(count)
+    print(uuid)
+    print(foot_data)
+    count += 1
+    producer.send('footcom', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+    # time.sleep(0.05)
+    time.sleep(5)
 
 

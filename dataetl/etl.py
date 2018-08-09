@@ -1,21 +1,22 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
-import os,sys,time,requests
+import os,sys,time
 
 # local
-from dataetl.etl_configuration import *
-from dataetl.util_redis import Redis_db as rds
-from dataetl.util_log import *
+from dataetl.etl_configuration_test import *
+from dataetl.Redis_Util import Redis_db as rds
+from dataetl.Log_Util import Logger
 import dataetl.pp.pp as pp
 
 # online
-# from util_redis import Redis_db as rds
-# from util_log import logger
+# from etl_configuration_prod import *
+# from Redis_Util import Redis_db as rds
+# from Log_Util import Logger
 # import pp.pp as pp
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH,"data-etl-log")
+# 获取日志实例
+logger = Logger("data-etl-log-4",LOG_FILE_PATH,0).getLogger()
 
 ppservers = ()
 if len(sys.argv) > 1:

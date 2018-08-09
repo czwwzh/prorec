@@ -4,16 +4,16 @@
 import time
 
 # local
-from data_convert_cache.util_redis import Redis_db as rds
+from data_convert_cache.Redis_Util import Redis_db as rds
 from data_convert_cache.data_convert_catche_func import *
 
 # online
-# from util_redis import Redis_db as rds
+# from Redis_Util import Redis_db as rds
 # from data_convert_catche_func import *
 
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH_RETURN_ABNORMAL, "return-abnormal-data-log")
+# 获取日志实例
+logger = Logger("return-abnormal-data-log",LOG_FILE_PATH_RETURN_ABNORMAL,0).getLogger()
 
 # Redis连接并初始化
 my_rds = rds()
@@ -21,7 +21,6 @@ my_rds = rds()
 # etl 异常数据 uuid 存储队列定义
 redis_list_footdata_except = REDIS_LIST_FOOTDATA_EXCEPT
 
-count = 0
 while(True):
     try:
         # 记录开始时间
@@ -35,12 +34,10 @@ while(True):
 
             # 记录中间时间
             middle_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-            # sendtowx(returndata)
+            sendtowx(returndata)
 
             # 记录结束时间
             end_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-            print(count)
-            count += 1
             # 日志输出
             logger.info('[' + uuid + '],' + '[data read from redis and send to port],' + '[' + str(returndata) + '],'+ '[' + middle_time + '],' + '[' + start_time + '],' + '[' + end_time + ']')
 

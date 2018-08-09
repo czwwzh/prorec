@@ -5,15 +5,16 @@ import redis
 import time
 
 # local
-from data_convert_cache.configuration import *
-from data_convert_cache.util_log import *
+# from data_convert_cache.configuration import *
+# from data_convert_cache.util_log import *
+# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
+REDIS_HOST = '52.80.137.153'
+REDIS_PORT = 6379
+REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 
 
-# online
-# from configuration import *
-# from logutil import logger
 
-logger = get_logger(LOG_FILE_PATH_KAFKA_REDIS,"kafka-redis-log")
+
 
 class Redis_db:
 
@@ -29,16 +30,15 @@ class Redis_db:
     def link_redis(self,num = 0):
         conf = self.redis_info
 
-        logger.info('start connect redis')
 
         self.redis_conn = redis.Redis(**conf)
 
         try:
             self.redis_conn.ping()
-            logger.info('connect redis--->Success')
+
             return True
         except redis.exceptions.ConnectionError as e:
-            logger.info('ERROR:' + str(e))
+
             time.sleep(1)
             num += 1
             if num < 2:
@@ -54,7 +54,7 @@ class Redis_db:
             self.redis_conn.ping()
             self.redis_conn.rpush(redis_list, data)
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            pass
 
     # 从redis 队列中读取数据 一次读取完队列中的数据
     # 删除并获得该列表中的第一元素，或阻塞，直到有一个可用 blpop
@@ -63,13 +63,10 @@ class Redis_db:
         try:
             self.redis_conn.ping()
             # 返回队列名和数据
-            if self.redis_conn.exists(redis_list):
-                _,json = self.redis_conn.blpop(redis_list,timeout = 1)
-                return json
-            else:
-                return False
+            _,json = self.redis_conn.blpop(redis_list)
+            return json
         except Exception as e:
-            logger.error(str(e))
+
             return False
 
     # 获取队列长度
@@ -80,7 +77,7 @@ class Redis_db:
             self.redis_conn.ping()
             len_list = self.redis_conn.llen(redis_list)
         except Exception as e:
-            logger.info('ERROR:' + str(e))
+            pass
         return len_list
 
     # 向redis哈希表中存取数据
@@ -90,7 +87,7 @@ class Redis_db:
         try:
             self.redis_conn.ping()
         except redis.exceptions.ResponseError as e:
-            logger.info('ERROR:' + str(e))
+            pass
 
         # 数据不为空，则添加数据
         if data != None:

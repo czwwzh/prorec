@@ -6,20 +6,20 @@ import pymysql
 import time
 
 # local
-from data_compute.util_log import *
-from data_compute.compute_configuration import *
-from data_compute.util_redis import Redis_db as rds
+from data_compute.Log_Util import Logger
+from data_compute.compute_configuration_test import *
+from data_compute.Redis_Util import Redis_db as rds
 from data_compute.variables import *
 
 
 # online
-# from util_log import *
-# from compute_configuration import *
-# from util_redis import Redis_db as rds
+# from Log_Util import Logger
+# from compute_configuration_test import *
+# from Redis_Util import Redis_db as rds
 # from variables import *
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH,"model-compute-log")
+# 获取日志实例
+logger = Logger("model-compute-log-2",LOG_FILE_PATH,0).getLogger()
 
 # 取脚长度（左右脚最大值）上下五个码
 def get_sizes(foot_length_original_left,foot_length_original_right):
@@ -99,12 +99,6 @@ def get_last_data(shop_no,sex, sizes):
             year_quarter[0]) + "' and season in " + str(
             tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
             sizes[1])
-        # sql = "SELECT " + LASTATTRIBUTESSTR + " FROM " + LAST_TABLE + " where shop_no =  and gender = " + sex + " and year = '" + str(
-        #     year_quarter[0]) + "' and season in " + str(
-        #     tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
-        #     sizes[1])
-
-        # logger.info(sql)
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
@@ -243,12 +237,11 @@ def result_save_batch(result_list):
                 # print(result)
                 res = result.split("_")
                 # rowkey uuid_algoVersion
-                uuid_version = res[0] + '_' + res[1] + '_' + res[2]
-                print(uuid_version)
+                uuid_version = res[0] + '_' + res[1]
                 # shoelastbaseno
-                shoelastbaseno = res[3]
+                shoelastbaseno = res[2]
                 # sex
-                sex = res[4]
+                sex = res[3]
                 # column family : column
                 columns1 = "user_info:sex"
                 columns2 = "user_info:" + updatetimename
@@ -260,5 +253,6 @@ def result_save_batch(result_list):
         b.send()
         connection.close()
     except Exception as e:
-        logger.info(str(e))
-        logger.info("save data_compute result exception!")
+        logger.info(uuid_version)
+        logger.error(str(e))
+        logger.error("save data_compute result exception!")

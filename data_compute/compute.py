@@ -7,9 +7,9 @@ import tensorflow
 
 # local
 from data_compute.compute_func import *
-from data_compute.util_log import *
-from data_compute.util_redis import Redis_db as rds
-from data_compute.compute_configuration import *
+from data_compute.Log_Util import *
+from data_compute.Redis_Util import Redis_db as rds
+from data_compute.compute_configuration_test import *
 
 tensorflow.enable_eager_execution()
 
@@ -17,7 +17,7 @@ tensorflow.enable_eager_execution()
 # from compute_func import *
 # from util_log import *
 # from util_redis import Redis_db as rds
-# from compute_configuration import *
+# from compute_configuration_prod import *
 
 # woman
 # =============================================================================
@@ -233,8 +233,8 @@ def size_predict_man(data):
     return result
 
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH,"model-compute-log")
+# 获取日志实例
+logger = Logger("model-compute-log-3",LOG_FILE_PATH,0).getLogger()
 if __name__ == "__main__":
 
     # etl 正常数据 uuid 存储队列
@@ -378,6 +378,7 @@ if __name__ == "__main__":
 
                     logger.info('8.model data_compute result send to redis time:  ' + time.strftime("%Y-%m-%d %H:%M:%S",
                                                                                       time.localtime()))
+
     except Exception as e:
         logger.info(str(e))
 

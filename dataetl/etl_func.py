@@ -6,23 +6,22 @@ import pymysql
 import time
 
 # local
-from dataetl.etl_configuration import *
-from dataetl.util_log import *
+from dataetl.etl_configuration_test import *
+from dataetl.Log_Util import Logger
 from dataetl.variables import *
-from dataetl.util_redis import Redis_db as rds
+from dataetl.Redis_Util import Redis_db as rds
 
 # online
-# from etl_configuration import *
-# from util_log import *
+# from etl_configuration_prod import *
+# from Log_Util import Logger
 # from variables import *
-# from util_redis import Redis_db as rds
+# from Redis_Util import Redis_db as rds
 
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH,"data-etl-log")
+# 获取日志实例
+logger = Logger("data-etl-log-2",LOG_FILE_PATH,0).getLogger()
 # foot data dataetl ============================================
 # 将读取的所有数据入库
-# sourcedata save
 def foot_data_save_mysql(uuid, footdata):
     import time
     import pymysql
@@ -59,7 +58,6 @@ def foot_data_save_mysql(uuid, footdata):
     return ist
 
 # 异常脚数据更新入库
-# exception data save mysql
 def exception_data_update(comment, uuid, exceptiontype):
     import pymysql
 
@@ -90,7 +88,6 @@ def exception_data_update(comment, uuid, exceptiontype):
             db.close()
 
 # 判断传入的脚数据是否为字符串
-# filter : whether the source data is str
 def stream_str(uuid, data):
     if isinstance(data, str) == False:
         exceptiontype = "1"
@@ -188,13 +185,6 @@ def exist_available_last(shop_no, sex, sizes):
             year_quarter[0]) + "' and season in " + str(
             tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
             sizes[1]) + " limit 1"
-        print(sql)
-        # 固定门店
-        # sql = "SELECT shop_no FROM " + LAST_TABLE + " where shop_no =  and gender = " + str(
-        #     sex) + " and year = '" + str(
-        #     year_quarter[0]) + "' and season in " + str(
-        #     tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
-        #     sizes[1]) + " limit 1"
 
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,

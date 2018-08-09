@@ -4,14 +4,14 @@
 
 # local
 from dataetl.etl_func import *
-from dataetl.util_log import *
+from dataetl.Log_Util import Logger
 
 # online
 # from etl_func import *
-# from util_log import *
+# from Log_Util import Logger
 
-# 日志获取
-logger = get_logger(LOG_FILE_PATH,"data-etl-log")
+# 获取日志实例
+logger = Logger("data-etl-log-3",LOG_FILE_PATH,0).getLogger()
 class readClass:
     def __init__(self):
         pass
