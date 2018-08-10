@@ -4,12 +4,12 @@
 import requests
 
 # local
-from data_convert_cache.configuration_test import *
-from data_convert_cache.Log_Util import Logger
+# from data_convert_cache.configuration_test import *
+# from data_convert_cache.Log_Util import Logger
 
 # online
-# from configuration_prod import *
-# from Log_Util import Logger
+from configuration_prod import *
+from Log_Util import Logger
 
 # 获取日志实例
 logger = Logger("func-log",LOG_FILE_PATH_FUNC,0).getLogger()

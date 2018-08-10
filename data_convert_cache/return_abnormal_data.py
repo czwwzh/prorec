@@ -4,12 +4,12 @@
 import time
 
 # local
-from data_convert_cache.Redis_Util import Redis_db as rds
-from data_convert_cache.data_convert_catche_func import *
+# from data_convert_cache.Redis_Util import Redis_db as rds
+# from data_convert_cache.data_convert_catche_func import *
 
 # online
-# from Redis_Util import Redis_db as rds
-# from data_convert_catche_func import *
+from Redis_Util import Redis_db as rds
+from data_convert_catche_func import *
 
 
 # 获取日志实例

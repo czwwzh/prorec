@@ -5,13 +5,13 @@ import redis
 import time
 
 # local
-from data_convert_cache.configuration_test import *
-from data_convert_cache.Log_Util import Logger
+# from data_convert_cache.configuration_test import *
+# from data_convert_cache.Log_Util import Logger
 
 
 # online
-# from configuration_prod import *
-# from Log_Util import Logger
+from configuration_prod import *
+from Log_Util import Logger
 
 # 获取日志实例
 logger = Logger("data_convert_catch-log-1",LOG_FILE_PATH_KAFKA_REDIS,0).getLogger()

@@ -5,17 +5,16 @@ import redis
 import time
 
 # local
-from data_compute.compute_configuration_test import *
-from data_compute.Log_Util import Logger
+# from data_compute.compute_configuration_test import *
+# from data_compute.Log_Util import Logger
 
 
 # online
-# from compute_configuration_prod import *
-# from Log_Util import Logger
+from compute_configuration_prod import *
+from Log_Util import Logger
 
 # 获取日志实例
 logger = Logger("model-compute-log-1",LOG_FILE_PATH,0).getLogger()
-
 
 
 class Redis_db:

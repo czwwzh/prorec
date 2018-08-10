@@ -6,9 +6,7 @@ KAFKA_GROUP_ID = 'footInfoProd0810'
 
 # 2. redis配置
 # redis线上地址
-# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
-# redis测试地址
-REDIS_HOST = '54.222.235.154'
+REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # kafka 数据转入redis中的队列名 uuid
@@ -21,11 +19,8 @@ REDIS_LIST_FOOTDATA_EXCEPT = 'redis_list_footdata_except'
 REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 
 # 3.返回接口配置
-# 测试接口地址
-RETURN_PORT_URL = 'http://test.epoque.cn/Testbigdata'
 # 线上接口地址
-# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
-
+RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
 
 # 4. 日志配置
 # 日志线上路径

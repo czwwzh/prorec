@@ -6,17 +6,17 @@ import pymysql
 import time
 
 # local
-from data_compute.Log_Util import Logger
-from data_compute.compute_configuration_test import *
-from data_compute.Redis_Util import Redis_db as rds
-from data_compute.variables import *
+# from data_compute.Log_Util import Logger
+# from data_compute.compute_configuration_test import *
+# from data_compute.Redis_Util import Redis_db as rds
+# from data_compute.variables import *
 
 
 # online
-# from Log_Util import Logger
-# from compute_configuration_test import *
-# from Redis_Util import Redis_db as rds
-# from variables import *
+from Log_Util import Logger
+from compute_configuration_prod import *
+from Redis_Util import Redis_db as rds
+from variables import *
 
 # 获取日志实例
 logger = Logger("model-compute-log-2",LOG_FILE_PATH,0).getLogger()

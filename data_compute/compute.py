@@ -6,18 +6,18 @@ import tensorflow
 
 
 # local
-from data_compute.compute_func import *
-from data_compute.Log_Util import *
-from data_compute.Redis_Util import Redis_db as rds
-from data_compute.compute_configuration_test import *
+# from data_compute.compute_func import *
+# from data_compute.Log_Util import *
+# from data_compute.Redis_Util import Redis_db as rds
+# from data_compute.compute_configuration_test import *
 
 tensorflow.enable_eager_execution()
 
 # online
-# from compute_func import *
-# from util_log import *
-# from util_redis import Redis_db as rds
-# from compute_configuration_prod import *
+from compute_func import *
+from Log_Util import *
+from Redis_Util import Redis_db as rds
+from compute_configuration_prod import *
 
 # woman
 # =============================================================================

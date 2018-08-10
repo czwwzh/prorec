@@ -6,16 +6,16 @@ import pymysql
 import time
 
 # local
-from dataetl.etl_configuration_test import *
-from dataetl.Log_Util import Logger
-from dataetl.variables import *
-from dataetl.Redis_Util import Redis_db as rds
+# from dataetl.etl_configuration_test import *
+# from dataetl.Log_Util import Logger
+# from dataetl.variables import *
+# from dataetl.Redis_Util import Redis_db as rds
 
 # online
-# from etl_configuration_prod import *
-# from Log_Util import Logger
-# from variables import *
-# from Redis_Util import Redis_db as rds
+from etl_configuration_prod import *
+from Log_Util import Logger
+from variables import *
+from Redis_Util import Redis_db as rds
 
 
 # 获取日志实例

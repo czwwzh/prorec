@@ -3,12 +3,12 @@
 
 
 # local
-from dataetl.etl_func import *
-from dataetl.Log_Util import Logger
+# from dataetl.etl_func import *
+# from dataetl.Log_Util import Logger
 
 # online
-# from etl_func import *
-# from Log_Util import Logger
+from etl_func import *
+from Log_Util import Logger
 
 # 获取日志实例
 logger = Logger("data-etl-log-3",LOG_FILE_PATH,0).getLogger()

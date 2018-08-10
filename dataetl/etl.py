@@ -4,16 +4,16 @@
 import os,sys,time
 
 # local
-from dataetl.etl_configuration_test import *
-from dataetl.Redis_Util import Redis_db as rds
-from dataetl.Log_Util import Logger
-import dataetl.pp.pp as pp
+# from dataetl.etl_configuration_test import *
+# from dataetl.Redis_Util import Redis_db as rds
+# from dataetl.Log_Util import Logger
+# import dataetl.pp.pp as pp
 
 # online
-# from etl_configuration_prod import *
-# from Redis_Util import Redis_db as rds
-# from Log_Util import Logger
-# import pp.pp as pp
+from etl_configuration_prod import *
+from Redis_Util import Redis_db as rds
+from Log_Util import Logger
+import pp.pp as pp
 
 # 获取日志实例
 logger = Logger("data-etl-log-4",LOG_FILE_PATH,0).getLogger()
@@ -28,11 +28,13 @@ else:
 
 def rundata(uuid):
 
-    # online
-    # from readClass import readClass
+
 
     # local
-    from dataetl.readClass import readClass
+    # from dataetl.readClass import readClass
+
+    # online
+    from readClass import readClass
 
     my_to = readClass()
     my_to.StartRun(uuid)

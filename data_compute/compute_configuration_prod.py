@@ -10,9 +10,7 @@ HBASE_PORT = 9090
 HBASE_PROTOCOL = 'binary'
 HBASE_TRANSPORT = 'buffered'
 # Hbase线上使用的表
-# HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
-# Hbase测试使用的表
-HBASE_RESULT_TABLE = 'ShopSkuRecommends_ResultTest'
+HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
 #______________________________________________________________________
 
 #2. 门店楦库配置
@@ -82,10 +80,7 @@ SIZE_DIMENSION_NAME_MAN = '/models/man/v1/size/size_dimension_name'
 
 # 4. redis配置
 # redis线上地址
-# REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
-# redis本地地址
-REDIS_HOST = '54.222.235.154'
-
+REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # etl之后的脚数据集合进入的队列名称
@@ -115,6 +110,15 @@ FOOT_LAST_ORDER_DIMENSIONS = pandas.read_pickle(SIZE_DIMENSION_NAME_WOMAN)
 FOOT_LAST_ORDER_LEFT_DIMENSIONS = pandas.read_pickle(SUIT_LEFT_WOMAN).tolist()
 # 右脚舒适度模型所需字段顺序定义
 FOOT_LAST_ORDER_RIGHT_DIMENSIONS = pandas.read_pickle(SUIT_RIGHT_WOMAN).tolist()
+
+
+
+
+
+
+
+
+
 
 
 
