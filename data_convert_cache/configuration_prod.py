@@ -22,6 +22,7 @@ REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 # 线上接口地址
 RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
 
+
 # 4. 日志配置
 # 日志线上路径
 # online
