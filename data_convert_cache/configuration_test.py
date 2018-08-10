@@ -1,11 +1,11 @@
 # 1. kafka 配置
 # kafka测试topic
 # KAFKA_PROD_FOOTTOPIC = 'footcom'
+
 # kafka线上topic
 KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
-
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-KAFKA_GROUP_ID = 'footInfoProdprodTest0809'
+KAFKA_GROUP_ID = 'footInfoTest0809'
 
 # 2. redis配置
 # redis线上地址

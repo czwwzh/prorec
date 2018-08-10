@@ -220,6 +220,7 @@ def result_save_batch(result_list):
     import time
     # model data_compute time
     updatetime = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    uuid_version = None
     try:
         connection = happybase.Connection(host=HBASE_HOST, port=HBASE_PORT, timeout=HBASE_TIMEOUT, protocol=HBASE_PROTOCOL,
                                           transport=HBASE_TRANSPORT)

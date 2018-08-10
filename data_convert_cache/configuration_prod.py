@@ -2,7 +2,7 @@
 # kafka线上topic
 KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
 KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-KAFKA_GROUP_ID = 'footInfoProdprod0808'
+KAFKA_GROUP_ID = 'footInfoProd0810'
 
 # 2. redis配置
 # redis线上地址
