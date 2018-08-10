@@ -16,7 +16,7 @@ from Log_Util import Logger
 import pp.pp as pp
 
 # 获取日志实例
-logger = Logger("data-etl-log-4",LOG_FILE_PATH,0).getLogger()
+logger = Logger("data-etl-log-4",LOG_FILE_PATH,1).getLogger()
 
 ppservers = ()
 if len(sys.argv) > 1:

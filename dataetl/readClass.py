@@ -11,7 +11,7 @@ from etl_func import *
 from Log_Util import Logger
 
 # 获取日志实例
-logger = Logger("data-etl-log-3",LOG_FILE_PATH,0).getLogger()
+logger = Logger("data-etl-log-3",LOG_FILE_PATH,1).getLogger()
 class readClass:
     def __init__(self):
         pass

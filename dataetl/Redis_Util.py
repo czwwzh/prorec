@@ -14,7 +14,7 @@ from etl_configuration_prod import *
 from Log_Util import Logger
 
 # 获取日志实例
-logger = Logger("data-etl-log-1",LOG_FILE_PATH,0).getLogger()
+logger = Logger("data-etl-log-1",LOG_FILE_PATH,1).getLogger()
 
 
 

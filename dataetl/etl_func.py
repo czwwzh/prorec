@@ -19,7 +19,7 @@ from Redis_Util import Redis_db as rds
 
 
 # 获取日志实例
-logger = Logger("data-etl-log-2",LOG_FILE_PATH,0).getLogger()
+logger = Logger("data-etl-log-2",LOG_FILE_PATH,1).getLogger()
 # foot data dataetl ============================================
 # 将读取的所有数据入库
 def foot_data_save_mysql(uuid, footdata):
