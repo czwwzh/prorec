@@ -19,7 +19,7 @@ from Redis_Util import Redis_db as rds
 from variables import *
 
 # 获取日志实例
-logger = Logger("model-compute-log-2",LOG_FILE_PATH,0).getLogger()
+logger = Logger("model-compute-log-2",LOG_FILE_PATH,1).getLogger()
 
 # 取脚长度（左右脚最大值）上下五个码
 def get_sizes(foot_length_original_left,foot_length_original_right):

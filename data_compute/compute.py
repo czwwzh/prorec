@@ -234,7 +234,7 @@ def size_predict_man(data):
 
 
 # 获取日志实例
-logger = Logger("model-compute-log-3",LOG_FILE_PATH,0).getLogger()
+logger = Logger("model-compute-log-3",LOG_FILE_PATH,1).getLogger()
 if __name__ == "__main__":
 
     # etl 正常数据 uuid 存储队列

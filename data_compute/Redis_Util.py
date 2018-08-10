@@ -14,7 +14,7 @@ from compute_configuration_prod import *
 from Log_Util import Logger
 
 # 获取日志实例
-logger = Logger("model-compute-log-1",LOG_FILE_PATH,0).getLogger()
+logger = Logger("model-compute-log-1",LOG_FILE_PATH,1).getLogger()
 
 
 class Redis_db:
