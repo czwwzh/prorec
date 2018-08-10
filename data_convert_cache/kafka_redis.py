@@ -16,7 +16,7 @@ from configuration_prod import *
 
 
 # 获取日志实例
-logger = Logger("kafka-redis-log",LOG_FILE_PATH_KAFKA_REDIS,0).getLogger()
+logger = Logger("kafka-redis-log",LOG_FILE_PATH_KAFKA_REDIS,1).getLogger()
 # kafka连接
 consumer = KafkaConsumer(KAFKA_PROD_FOOTTOPIC,
                          group_id=KAFKA_GROUP_ID,

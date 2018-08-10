@@ -12,7 +12,7 @@ from configuration_prod import *
 from Log_Util import Logger
 
 # 获取日志实例
-logger = Logger("func-log",LOG_FILE_PATH_FUNC,0).getLogger()
+logger = Logger("func-log",LOG_FILE_PATH_FUNC,1).getLogger()
 
 #  return  result
 def sendtowx(returndata):

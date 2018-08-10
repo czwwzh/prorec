@@ -14,7 +14,7 @@ from configuration_prod import *
 from Log_Util import Logger
 
 # 获取日志实例
-logger = Logger("data_convert_catch-log-1",LOG_FILE_PATH_KAFKA_REDIS,0).getLogger()
+logger = Logger("data_convert_catch-log-1",LOG_FILE_PATH_KAFKA_REDIS,1).getLogger()
 
 class Redis_db:
 

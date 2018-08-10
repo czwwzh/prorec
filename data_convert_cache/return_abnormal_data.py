@@ -13,7 +13,7 @@ from data_convert_catche_func import *
 
 
 # 获取日志实例
-logger = Logger("return-abnormal-data-log",LOG_FILE_PATH_RETURN_ABNORMAL,0).getLogger()
+logger = Logger("return-abnormal-data-log",LOG_FILE_PATH_RETURN_ABNORMAL,1).getLogger()
 
 # Redis连接并初始化
 my_rds = rds()
