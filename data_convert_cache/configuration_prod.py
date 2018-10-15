@@ -6,13 +6,13 @@
 # 新地址
 KAFKA_PROD_FOOTTOPIC = 'epoque_bigdata_footInfoprod'
 KAFKA_PROD_BROKERS = ['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092']
-KAFKA_GROUP_ID = 'footInfoProd1009'
+KAFKA_GROUP_ID = 'footInfoProd1015'
 
 # 2. redis配置
 # redis线上地址
 # 新地址
 # REDIS_HOST = '10.240.18.49'
-REDIS_HOST = '54.222.235.154'
+REDIS_HOST = '10.240.117.16'
 # REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
@@ -28,8 +28,8 @@ REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 
 # 3.返回接口配置
 # 线上接口地址
-RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
-
+# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
+RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
 
 # 4. 日志配置
 # 日志线上路径

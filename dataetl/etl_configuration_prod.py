@@ -36,7 +36,7 @@ LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 SHOP_SEASON_TABLE  = 'shop_season_statistics'
 
 # 4. redis配置
-REDIS_HOST = 'web-service-prod.rawr9u.ng.0001.cnn1.cache.amazonaws.com.cn'
+REDIS_HOST = '10.240.117.16'
 REDIS_PORT = 6379
 REDIS_CONNECT_INFO = {'host':REDIS_HOST,'port':6379,'db':0}
 # kafka 数据转入redis中的对列名 uuid
@@ -53,7 +53,7 @@ REDIS_HASHSET_SHOP_SEASON = 'redis_hashset_shop_season'
 
 # 5.日志文件地址
 # 日志线上路径
-LOG_FILE_PATH ='/home/ec2-user/zhanghao/log/data_etl_'
+LOG_FILE_PATH ='/root/log/recommend/data_etl_'
 
 
 
