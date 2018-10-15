@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_compute/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/run.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_convert_cache/configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/configuration_prod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_convert_cache/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataetl/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/run.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +32,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compute_configuration_prod.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compute_configuration_prod.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="238">
+              <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_compute/run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="2" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_convert_cache/run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -87,7 +112,6 @@
         <option value="$PROJECT_DIR$/compute/test3.py" />
         <option value="$PROJECT_DIR$/dataetl/data_etl_configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/variables.py" />
-        <option value="$PROJECT_DIR$/dataetl/run.sh" />
         <option value="$PROJECT_DIR$/compute/util_redis.py" />
         <option value="$PROJECT_DIR$/compute/compute_func.py" />
         <option value="$PROJECT_DIR$/compute/compute.py" />
@@ -126,12 +150,13 @@
         <option value="$PROJECT_DIR$/data_convert_cache/return_abnormal_data.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/kafka_redis.py" />
         <option value="$PROJECT_DIR$/data_compute/run.sh" />
         <option value="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/configuration_prod.py" />
         <option value="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" />
+        <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
+        <option value="$PROJECT_DIR$/dataetl/run.sh" />
       </list>
     </option>
   </component>
@@ -164,6 +189,16 @@
               <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
               <item name="prodrec" type="462c0819:PsiDirectoryNode" />
               <item name="data_compute" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodrec" type="462c0819:PsiDirectoryNode" />
+              <item name="data_convert_cache" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodrec" type="462c0819:PsiDirectoryNode" />
+              <item name="dataetl" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,7 +368,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.14734562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.14301191" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.35861322" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -485,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_compute/Redis_Util.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -527,13 +555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="11" lean-forward="true" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="80" selection-start-line="3" selection-start-column="80" selection-end-line="3" selection-end-column="80" />
         </state>
       </provider>
     </entry>
@@ -631,13 +652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_compute/run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/etl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -671,8 +685,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="238">
+          <caret line="32" column="21" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_compute/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="2" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataetl/run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
