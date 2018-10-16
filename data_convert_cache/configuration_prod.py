@@ -1,12 +1,12 @@
 # 1. kafka 配置
 # kafka线上topic
-KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
-KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
-KAFKA_GROUP_ID = 'footInfoProd1015Test'
+# KAFKA_PROD_FOOTTOPIC = 'footInfoProd'
+# KAFKA_PROD_BROKERS = ['54.222.152.174:9092','54.222.195.114:9092','52.80.73.74:9092']
+# KAFKA_GROUP_ID = 'footInfoProd1015Test'
 # 新地址
-# KAFKA_PROD_FOOTTOPIC = 'epoque_bigdata_footInfoprod'
-# KAFKA_PROD_BROKERS = ['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092']
-# KAFKA_GROUP_ID = 'footInfoProd1015'
+KAFKA_PROD_FOOTTOPIC = 'epoque_bigdata_footInfoprod'
+KAFKA_PROD_BROKERS = ['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092']
+KAFKA_GROUP_ID = 'footInfoProd1015'
 
 # 2. redis配置
 # redis线上地址

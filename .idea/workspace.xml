@@ -37,8 +37,8 @@
       <file leaf-file-name="kafka_redis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/kafka_redis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+            <state relative-caret-position="238">
+              <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
               <folding>
                 <element signature="e#46#57#0" expanded="true" />
               </folding>
@@ -49,8 +49,8 @@
       <file leaf-file-name="configuration_prod.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+            <state relative-caret-position="153">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -674,8 +674,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/kafka_redis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" column="10" lean-forward="true" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+        <state relative-caret-position="238">
+          <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
           <folding>
             <element signature="e#46#57#0" expanded="true" />
           </folding>
@@ -684,8 +684,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="39" lean-forward="true" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
