@@ -4,9 +4,17 @@ import json
 import time
 from kafka import KafkaProducer
 
-from func import *
-from uuid__shop_no import *
-
+# 预处理所用库配置
+RECOMMEND_DB_HOST = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
+RECOMMEND_DB_PORT = 60916
+RECOMMEND_DB_USER = "haozhShopRecom"
+RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+RECOMMEND_DB_CHARSET = 'utf8mb4'
+# 线上表
+# online
+RECOMMEND_DB_NAME = 'shop_sku_recommend'
+FOOT_SCAN_TABLE = 'foot_scan'
+FOOT_REPEAT_TABLE = 'foot_repeat'
 
 def get_foot_data(uuid_tuple):
     import pymysql
@@ -29,8 +37,7 @@ def get_foot_data(uuid_tuple):
         result = cursor.fetchall()
 
     except Exception as e:
-        logger.info(str(e))
-        logger.info("save foot_scan exception")
+        print("ssss")
     finally:
         if cursor != None:
             # 关闭游标
@@ -41,10 +48,16 @@ def get_foot_data(uuid_tuple):
     return result
 
 
+
+
+uuid = ["YB20180804180033USUkHKijVYmLseDI","YB20180803133459SEvJRWxB7lDH2bax","YB20170706150402txxEfxu0BYe0C92r","YB20170810161026FOOzTxYlfpzVjst1",
+"TX20180606201407ALLFa431U44JzHj2",
+"TX20180606204016qhLLXKV7bMCTbtSl",
+"TX20180606212542pM1W5LeSUT34bBeC",
+"TX20180607100428sm43LPNZIa6ev5dO"]
+
 producer = KafkaProducer(
         bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
-
-
 
 foot_data_list = get_foot_data(tuple(uuid))
 count = 0
