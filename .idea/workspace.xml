@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/data_convert_cache/configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_convert_cache/configuration_prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_test/func.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_test/func.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_test/send_foot_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_test/send_foot_data.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,11 +47,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="configuration_prod.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="configuration_prod.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_foot_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model_test/send_foot_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+              <folding>
+                <element signature="e#45#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kafka_send_data_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model_test/kafka_send_data_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#45#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uuid__shop_no.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model_test/uuid__shop_no.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="func.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/model_test/func.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configuration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model_test/configuration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -84,7 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/compute/compute_etl_func.py" />
         <option value="$PROJECT_DIR$/compute/model_compute.py" />
         <option value="$PROJECT_DIR$/dataetl/data_etl_func.py" />
         <option value="$PROJECT_DIR$/compute/test3.py" />
@@ -106,12 +157,10 @@
         <option value="$PROJECT_DIR$/test/uuid__shop_no.py" />
         <option value="$PROJECT_DIR$/test/func.py" />
         <option value="$PROJECT_DIR$/test/send_foot_data.py" />
-        <option value="$PROJECT_DIR$/model_test/func.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/util_redis.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/run1.sh" />
-        <option value="$PROJECT_DIR$/model_test/send_foot_data.py" />
         <option value="$PROJECT_DIR$/model_test/uuid__shop_no.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_configuration_test.py" />
         <option value="$PROJECT_DIR$/data_compute/compute_configuration_test.py" />
@@ -135,6 +184,9 @@
         <option value="$PROJECT_DIR$/dataetl/run.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
         <option value="$PROJECT_DIR$/data_convert_cache/configuration_prod.py" />
+        <option value="$PROJECT_DIR$/model_test/send_foot_data.py" />
+        <option value="$PROJECT_DIR$/model_test/kafka_send_data_test.py" />
+        <option value="$PROJECT_DIR$/model_test/func.py" />
       </list>
     </option>
   </component>
@@ -178,6 +230,11 @@
               <item name="prodrec" type="462c0819:PsiDirectoryNode" />
               <item name="dataetl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodrec" type="462c0819:PsiDirectoryNode" />
+              <item name="model_test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -214,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.send_foot_data">
+  <component name="RunManager" selected="Python.kafka_send_data_test">
     <configuration name="compute" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="prodrec" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,7 +290,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="etl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="kafka_send_data_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="prodrec" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -241,11 +298,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dataetl" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model_test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataetl/etl.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model_test/kafka_send_data_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -308,17 +365,17 @@
     <list>
       <item itemvalue="Python.return_abnormal_data" />
       <item itemvalue="Python.return_normal_data" />
-      <item itemvalue="Python.etl" />
       <item itemvalue="Python.compute" />
       <item itemvalue="Python.send_foot_data" />
+      <item itemvalue="Python.kafka_send_data_test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.kafka_send_data_test" />
+        <item itemvalue="Python.send_foot_data" />
         <item itemvalue="Python.compute" />
         <item itemvalue="Python.return_normal_data" />
         <item itemvalue="Python.return_abnormal_data" />
-        <item itemvalue="Python.etl" />
-        <item itemvalue="Python.send_foot_data" />
       </list>
     </recent_temporary>
   </component>
@@ -342,11 +399,11 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21917808" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35102925" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17551462" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.14734562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29469123" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.29469123" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -376,7 +433,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/compute/test3.py" />
     <entry file="file://$PROJECT_DIR$/compute/test2.py" />
     <entry file="file://$PROJECT_DIR$/compute/test.py" />
     <entry file="file://$PROJECT_DIR$/dataetl/test.py" />
@@ -435,34 +491,6 @@
     <entry file="file://$PROJECT_DIR$/data_convert_cache/util_redis.py" />
     <entry file="file://$PROJECT_DIR$/dataetl/util_redis.py" />
     <entry file="file://$PROJECT_DIR$/data_compute/util_redis.py" />
-    <entry file="file://$PROJECT_DIR$/model_test/configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="59" lean-forward="true" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_test/uuid__shop_no.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_test/send_foot_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model_test/func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11">
@@ -684,8 +712,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_test/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_test/uuid__shop_no.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_test/send_foot_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="46" column="21" lean-forward="true" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding>
+            <element signature="e#45#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_test/kafka_send_data_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#45#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_test/func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
         </state>
       </provider>
     </entry>

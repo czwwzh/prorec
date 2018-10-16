@@ -11,9 +11,15 @@ from model_test.uuid__shop_no import *
 # 日志获取
 logger = get_logger(LOG_FILE_PATH,"send-foot-data-log")
 
-
 producer = KafkaProducer(
         bootstrap_servers=['54.222.152.174:9092', '54.222.195.114:9092', '52.80.73.74:9092'])
+
+# producer = KafkaProducer(
+#         bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
+
+# KAFKA_PROD_FOOTTOPIC = 'epoque_bigdata_footInfoprod'
+# KAFKA_PROD_BROKERS = ['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092']
+# KAFKA_GROUP_ID = 'footInfoProd1015'
 
 
 foot_data_list = get_foot_data(tuple(uuid))
@@ -50,8 +56,10 @@ for i in range(len(foot_data_list)):
     print(uuid)
     print(foot_data)
     count += 1
-    producer.send('footcom', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+    # producer.send('footcom', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
     # time.sleep(0.05)
-    time.sleep(5)
+    # producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+    time.sleep(0.05)
+    # time.sleep(2)
 
 
