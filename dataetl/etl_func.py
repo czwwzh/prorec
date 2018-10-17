@@ -185,6 +185,7 @@ def exist_available_last(shop_no, sex, sizes):
             year_quarter[0]) + "' and season in " + str(
             tuple(year_quarter[1].split(','))) + " and  basicsize >= " + str(sizes[0]) + " and  basicsize <= " + str(
             sizes[1]) + " limit 1"
+        logger.info(sql)
 
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,

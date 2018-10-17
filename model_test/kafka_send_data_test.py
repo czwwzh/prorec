@@ -59,8 +59,8 @@ uuid = ["TX20170527161228f8ZjtoSfmy3aF3ny",
 "TX201802101514002Qg99UeNUxk6ZilX",
 "TX20180210151724JTBGtLplhLFItQJH"]
 
-# producer = KafkaProducer(
-#         bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
+producer = KafkaProducer(
+        bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
 
 foot_data_list = get_foot_data(tuple(uuid))
 count = 0
@@ -72,7 +72,7 @@ for i in range(len(foot_data_list)):
     print(uuid)
     print(foot_data)
     count += 1
-    # producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+    producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
     time.sleep(1)
 
 
