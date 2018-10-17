@@ -11,7 +11,7 @@ RECOMMEND_DB_CHARSET = 'utf8mb4'
 RECOMMEND_DB_USER = "root"
 RECOMMEND_DB_PASSWORD = "12345678"
 RECOMMEND_DB_NAME = 'epoque_rds'
-FOOT_SCAN_TABLE = 'foot_scan'
+FOOT_SCAN_TABLE = 'foot_scan_copy'
 FOOT_REPEAT_TABLE = 'foot_repeat'
 
 def get_foot_data(uuid_tuple):
