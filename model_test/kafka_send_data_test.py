@@ -35,7 +35,7 @@ def get_foot_data(uuid_tuple):
         result = cursor.fetchall()
 
     except Exception as e:
-        print("ssss")
+        print(str(e))
     finally:
         if cursor != None:
             # 关闭游标
