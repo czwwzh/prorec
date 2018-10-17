@@ -5,4 +5,3 @@ nohup python -u /root/projects/recommend/prodrec/data_convert_cache/kafka_redis.
 nohup python -u /root/projects/recommend/prodrec/data_convert_cache/return_abnormal_data.py >/dev/null 2>&1 &
 nohup python -u /root/projects/recommend/prodrec/data_convert_cache/return_normal_data.py >/dev/null 2>&1 &
 
-
