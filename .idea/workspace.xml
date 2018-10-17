@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="compute_configuration_prod.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compute_configuration_prod.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+            <state relative-caret-position="340">
+              <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -76,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="etl_configuration_prod.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="etl_configuration_prod.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="496">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
@@ -163,8 +164,8 @@
         <option value="$PROJECT_DIR$/model_test/send_foot_data.py" />
         <option value="$PROJECT_DIR$/model_test/func.py" />
         <option value="$PROJECT_DIR$/model_test/kafka_send_data_test.py" />
-        <option value="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" />
         <option value="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" />
+        <option value="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" />
       </list>
     </option>
   </component>
@@ -719,17 +720,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_prod.py">
+    <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="33" />
+        <state relative-caret-position="340">
+          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
+    <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="10" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+        <state relative-caret-position="496">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
