@@ -4,15 +4,13 @@ import json
 import time
 from kafka import KafkaProducer
 
-# 预处理所用库配置
-RECOMMEND_DB_HOST = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
-RECOMMEND_DB_PORT = 60916
-RECOMMEND_DB_USER = "haozhShopRecom"
-RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+# 2.预处理所用库配置
+RECOMMEND_DB_HOST = '10.240.18.136'
+RECOMMEND_DB_PORT = 3306
 RECOMMEND_DB_CHARSET = 'utf8mb4'
-# 线上表
-# online
-RECOMMEND_DB_NAME = 'shop_sku_recommend'
+RECOMMEND_DB_USER = "root"
+RECOMMEND_DB_PASSWORD = "epoque123"
+RECOMMEND_DB_NAME = 'epoque_rds'
 FOOT_SCAN_TABLE = 'foot_scan'
 FOOT_REPEAT_TABLE = 'foot_repeat'
 
@@ -50,14 +48,19 @@ def get_foot_data(uuid_tuple):
 
 
 
-uuid = ["YB20180804180033USUkHKijVYmLseDI","YB20180803133459SEvJRWxB7lDH2bax","YB20170706150402txxEfxu0BYe0C92r","YB20170810161026FOOzTxYlfpzVjst1",
-"TX20180606201407ALLFa431U44JzHj2",
-"TX20180606204016qhLLXKV7bMCTbtSl",
-"TX20180606212542pM1W5LeSUT34bBeC",
-"TX20180607100428sm43LPNZIa6ev5dO"]
+uuid = ["TX20170527161228f8ZjtoSfmy3aF3ny",
+"TX20170612090630CB1rZWIIDus8xMO2",
+"TX20180206164247atsZub6gqeuUU3XT",
+"TX20180207142158MxIGpbFBS60eua0d",
+"TX20180210065400IPVIOgywrGBHUkSt",
+"TX20180210065537D4UvNiVPUMZSItxV",
+"TX20180210112541oSNMskXGJPGOwapW",
+"TX20180210140326I9Clx29LjWRRQALx",
+"TX201802101514002Qg99UeNUxk6ZilX",
+"TX20180210151724JTBGtLplhLFItQJH"]
 
-# producer = KafkaProducer(
-#         bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
+producer = KafkaProducer(
+        bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
 
 foot_data_list = get_foot_data(tuple(uuid))
 count = 0
@@ -69,7 +72,7 @@ for i in range(len(foot_data_list)):
     print(uuid)
     print(foot_data)
     count += 1
-    # producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+    producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
     time.sleep(1)
 
 
