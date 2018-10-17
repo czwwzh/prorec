@@ -18,7 +18,7 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
 # 门店楦库线上使用表
 SKU_LAST_URL = "10.240.18.136"
 SKU_LAST_USER = "root"
-SKU_LAST_PASSWORD = "epoque123"
+SKU_LAST_PASSWORD = "12345678"
 SKU_LAST_PORT = 3306
 SKU_LAST_DB = "epoque_rds"
 SKU_LAST_CHARSET='utf8mb4'
