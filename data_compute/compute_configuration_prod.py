@@ -16,11 +16,11 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
 
 #2. 门店楦库配置
 # 门店楦库线上使用表
-SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-SKU_LAST_USER = "haozhFattypeRecom"
-SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
-SKU_LAST_PORT = 61539
-SKU_LAST_DB = "fattype_recommend"
+SKU_LAST_URL = "10.240.18.136"
+SKU_LAST_USER = "root"
+SKU_LAST_PASSWORD = "epoque123"
+SKU_LAST_PORT = 3306
+SKU_LAST_DB = "epoque_rds"
 SKU_LAST_CHARSET='utf8mb4'
 LAST_TABLE = 'shop_last_inventory'
 SKU_TABLE = 'shop_sku_inventory'

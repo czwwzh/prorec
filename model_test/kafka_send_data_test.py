@@ -26,7 +26,7 @@ def get_foot_data(uuid_tuple):
     sql = "select data from " + FOOT_SCAN_TABLE + " where uuid in" + str(uuid_tuple)
 
 
-    result = None
+    result = list()
     try:
         db = pymysql.connect(host=RECOMMEND_DB_HOST, port=RECOMMEND_DB_PORT,
                              user=RECOMMEND_DB_USER, password=RECOMMEND_DB_PASSWORD,
@@ -56,8 +56,8 @@ uuid = ["YB20180804180033USUkHKijVYmLseDI","YB20180803133459SEvJRWxB7lDH2bax","Y
 "TX20180606212542pM1W5LeSUT34bBeC",
 "TX20180607100428sm43LPNZIa6ev5dO"]
 
-producer = KafkaProducer(
-        bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
+# producer = KafkaProducer(
+#         bootstrap_servers=['10.240.12.26:9092','10.240.251.129:9092','10.240.251.130:9092'])
 
 foot_data_list = get_foot_data(tuple(uuid))
 count = 0
@@ -69,7 +69,7 @@ for i in range(len(foot_data_list)):
     print(uuid)
     print(foot_data)
     count += 1
-    producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
-    time.sleep(2)
+    # producer.send('epoque_bigdata_footInfoprod', key=uuid.encode('utf-8'), value=foot_data.encode('utf-8'))
+    time.sleep(1)
 
 

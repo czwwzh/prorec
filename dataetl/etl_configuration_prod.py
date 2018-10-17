@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 # 1.门店列表库
-SCANNERLIST_HOST = "epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-SCANNERLIST_PORT = 60916
-SCANNERLIST_USER = "haozhangRead"
-SCANNERLIST_PASSWORD = "haozhangRead_45ediU7yb9v3"
-SCANNERLIST_DB = "epoque_boss"
+SCANNERLIST_HOST = "10.240.18.136"
+SCANNERLIST_PORT = 3306
+SCANNERLIST_USER = "root"
+SCANNERLIST_PASSWORD = "epoque123"
+SCANNERLIST_DB = "epoque_rds"
 SCANNERLIST_charset = "utf8mb4"
 
 
 # 2.预处理所用库配置
-RECOMMEND_DB_HOST = 'epoque-public.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn'
-RECOMMEND_DB_PORT = 60916
+RECOMMEND_DB_HOST = '10.240.18.136'
+RECOMMEND_DB_PORT = 3306
 RECOMMEND_DB_CHARSET = 'utf8mb4'
-
-RECOMMEND_DB_NAME = 'shop_sku_recommend'
-RECOMMEND_DB_USER = "haozhShopRecom"
-RECOMMEND_DB_PASSWORD = "zhanghaoShopSkuRecommand_38Yup9Bc5Ew7"
+RECOMMEND_DB_USER = "root"
+RECOMMEND_DB_PASSWORD = "epoque123"
+RECOMMEND_DB_NAME = 'epoque_rds'
 FOOT_SCAN_TABLE = 'foot_scan'
 FOOT_REPEAT_TABLE = 'foot_repeat'
 
@@ -24,15 +23,15 @@ FOOT_REPEAT_TABLE = 'foot_repeat'
 
 # 3.门店商品库 门店楦库
 # 线上所用库
-SKU_LAST_URL = "private02.cwjobirlyklh.rds.cn-north-1.amazonaws.com.cn"
-SKU_LAST_USER = "haozhFattypeRecom"
-SKU_LAST_PASSWORD = "haozhangShopSkuLast_2U89Tzs4ERMu"
-SKU_LAST_PORT = 61539
-SKU_LAST_DB = "fattype_recommend"
+SKU_LAST_URL = "10.240.18.136"
+SKU_LAST_USER = "root"
+SKU_LAST_PASSWORD = "epoque123"
+LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
+SKU_LAST_PORT = 3306
+SKU_LAST_DB = "epoque_rds"
 SKU_LAST_CHARSET='utf8mb4'
 LAST_TABLE = 'shop_last_inventory'
 SKU_TABLE = 'shop_sku_inventory'
-LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 SHOP_SEASON_TABLE  = 'shop_season_statistics'
 
 # 4. redis配置
