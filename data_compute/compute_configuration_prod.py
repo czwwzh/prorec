@@ -16,9 +16,9 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
 
 #2. 门店楦库配置
 # 门店楦库线上使用表
-SKU_LAST_URL = "10.240.18.136"
+SKU_LAST_URL = "10.240.18.137"
 SKU_LAST_USER = "root"
-SKU_LAST_PASSWORD = "epoque@belle1qaz"
+SKU_LAST_PASSWORD = "epoque123"
 LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 SKU_LAST_PORT = 3306
 SKU_LAST_DB = "epoque_rds"
