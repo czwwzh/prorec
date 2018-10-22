@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 # 1.门店列表库
-SCANNERLIST_HOST = "10.240.18.136"
+SCANNERLIST_HOST = "10.240.18.137"
 SCANNERLIST_PORT = 3306
 SCANNERLIST_USER = "root"
 SCANNERLIST_PASSWORD = "epoque@belle1qaz"
@@ -23,7 +23,7 @@ FOOT_REPEAT_TABLE = 'foot_repeat'
 
 # 3.门店商品库 门店楦库
 # 线上所用库
-SKU_LAST_URL = "10.240.18.136"
+SKU_LAST_URL = "10.240.18.137"
 SKU_LAST_USER = "root"
 SKU_LAST_PASSWORD = "epoque@belle1qaz"
 LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
