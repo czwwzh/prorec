@@ -37,7 +37,7 @@ class readClass:
             foot_data = my_rds.SetGetHashData(redis_kafka_hashset, uuid)
             foot_data = foot_data.decode()
             logger.info(uuid)
-            logger.info(foot_data)
+            # logger.info(foot_data)
             logger.info('1.data from redis_hashset time:  ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         except:
             ist = False

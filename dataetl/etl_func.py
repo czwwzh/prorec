@@ -171,11 +171,10 @@ def get_shop_no(scan_id):
 # 判断楦库中是否有相应码段范围、相应性别、当年当季的楦
 def exist_available_last(shop_no, sex, sizes):
     result = False
-    year_quarter = get_year_sean_from_redis(shop_no)
+
+    year_quarter = get_year_sean_from_mysql(shop_no)
     if year_quarter[2] == False:
-        year_quarter = get_year_sean_from_mysql(shop_no)
-        if year_quarter[2] == False:
-            return False
+        return False
     # logger.info(sql)
     db = None
     cursor = None
