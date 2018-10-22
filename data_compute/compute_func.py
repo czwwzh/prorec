@@ -58,6 +58,7 @@ def get_year_sean_from_mysql(shop_no):
     year = year[3]
 
     sql = "SELECT season" +  " FROM " + SHOP_SEASON_TABLE + " where shop_no = '" + shop_no + "'  limit 1"
+    logger.info(sql)
     try:
 
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
