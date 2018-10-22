@@ -28,8 +28,8 @@ REDIS_LIST_COMPUTE_RESULT = 'redis_list_compute_result'
 
 # 3.返回接口配置
 # 线上接口地址
-# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
-RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
+RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsg'
+# RETURN_PORT_URL = 'http://epoque.epoque.cn/bdp/Bdsendmsgman'
 
 # 4. 日志配置
 # 日志线上路径
