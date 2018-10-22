@@ -19,13 +19,16 @@ HBASE_RESULT_TABLE = 'ShopSkuRecommends_Result'
 SKU_LAST_URL = "10.240.18.137"
 SKU_LAST_USER = "root"
 SKU_LAST_PASSWORD = "epoque@belle1qaz"
+LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 SKU_LAST_PORT = 3306
 SKU_LAST_DB = "epoque_rds"
 SKU_LAST_CHARSET='utf8mb4'
 LAST_TABLE = 'shop_last_inventory'
 SKU_TABLE = 'shop_sku_inventory'
-LAST_PROPERTIES = {'user':SKU_LAST_USER,'password':SKU_LAST_PASSWORD}
 SHOP_SEASON_TABLE  = 'shop_season_statistics'
+
+
+
 # ___________________________________________________________________
 
 #3.模型配置
