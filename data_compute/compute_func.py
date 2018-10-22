@@ -47,38 +47,6 @@ def get_year_sean_from_redis(shop_no):
         logger.info(str(e))
     return (year, season, flag)
 
-# # 从mysql中获取当前门店商品的主要两个季
-# def get_year_sean_from_mysql(shop_no):
-#     cursor = None
-#     db = None
-#
-#     result = None
-#     flag = True
-#     year = time.strftime('%Y', time.localtime(time.time()))
-#     year = year[3]
-#
-#     sql = "SELECT season" +  " FROM " + SHOP_SEASON_TABLE + " where shop_no = '" + shop_no + "'  limit 1"
-#     logger.info(sql)
-#     try:
-#
-#         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
-#                              user=SKU_LAST_USER, password=SKU_LAST_PASSWORD,
-#                              db=SKU_LAST_DB, charset=SKU_LAST_CHARSET)
-#         cursor = db.cursor()
-#         cursor.execute(sql)
-#         result = cursor.fetchone()[0]
-#     except Exception as e:
-#         flag = False
-#         logger.info("can't fetch shop season from mysql")
-#         logger.info(str(e))
-#     finally:
-#         if cursor != None:
-#             cursor.close()
-#         if db != None:
-#             db.close()
-#     return (year,result,flag)
-
-
 # 从mysql中获取当前门店商品的主要两个季
 def get_year_sean_from_mysql(shop_no):
     cursor = None
@@ -90,6 +58,7 @@ def get_year_sean_from_mysql(shop_no):
     year = year[3]
 
     sql = "SELECT season" +  " FROM " + SHOP_SEASON_TABLE + " where shop_no = '" + shop_no + "'  limit 1"
+    logger.info(sql)
     try:
 
         db = pymysql.connect(host=SKU_LAST_URL, port=SKU_LAST_PORT,
@@ -111,17 +80,17 @@ def get_year_sean_from_mysql(shop_no):
 
 
 
+
 # 获取相应门店相应楦数据
 # get last data
 def get_last_data(shop_no,sex, sizes):
     lastlist = []
     sex = str(sex)
-    year_quarter = get_year_sean_from_redis(shop_no)
+    # year_quarter = get_year_sean_from_redis(shop_no)
+    # if year_quarter[2] == False:
+    year_quarter = get_year_sean_from_mysql(shop_no)
     if year_quarter[2] == False:
-        year_quarter = get_year_sean_from_mysql(shop_no)
-        if year_quarter[2] == False:
-            return lastlist
-
+        return lastlist
 
     db = None
     cursor = None
