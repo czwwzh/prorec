@@ -274,7 +274,7 @@ if __name__ == "__main__":
 
                 # 模型计算并返回
                 # model data_compute
-                if foot_last_list != None:
+                if foot_last_list != []:
 
                     # get data for model data_compute size and suit
                     left_right_datas_alones = get_etl_data_left_right_alone(foot_last_list)

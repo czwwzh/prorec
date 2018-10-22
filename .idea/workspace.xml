@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a563393f-02fd-4386-8f63-86ccff58043a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_compute/compute.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_compute/compute_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_compute/compute_func.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,17 +17,17 @@
       <file leaf-file-name="configuration_prod.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="306">
               <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compute.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compute.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_compute/compute.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="283" column="32" lean-forward="true" selection-start-line="283" selection-start-column="32" selection-end-line="283" selection-end-column="32" />
+            <state relative-caret-position="458">
+              <caret line="379" column="104" lean-forward="true" selection-start-line="379" selection-start-column="104" selection-end-line="379" selection-end-column="104" />
               <folding>
                 <element signature="e#46#58#0" expanded="true" />
               </folding>
@@ -38,8 +38,11 @@
       <file leaf-file-name="compute_func.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_compute/compute_func.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1122">
-              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+            <state relative-caret-position="1343">
+              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+              <folding>
+                <element signature="e#46#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="etl_configuration_prod.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="etl_configuration_prod.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            <state relative-caret-position="-354">
+              <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -104,8 +107,17 @@
       <file leaf-file-name="compute_configuration_prod.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-544">
-              <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="374">
+              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hbaseTest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/help_test/hbaseTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -140,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dataetl/data_etl_func.py" />
         <option value="$PROJECT_DIR$/compute/test3.py" />
         <option value="$PROJECT_DIR$/dataetl/data_etl_configuration.py" />
         <option value="$PROJECT_DIR$/dataetl/variables.py" />
@@ -168,7 +179,6 @@
         <option value="$PROJECT_DIR$/dataetl/etl_configuration_test.py" />
         <option value="$PROJECT_DIR$/data_compute/compute_configuration_test.py" />
         <option value="$PROJECT_DIR$/data_convert_cache/configuration_test.py" />
-        <option value="$PROJECT_DIR$/data_compute/compute.py" />
         <option value="$PROJECT_DIR$/data_compute/Redis_Util.py" />
         <option value="$PROJECT_DIR$/dataetl/etl.py" />
         <option value="$PROJECT_DIR$/dataetl/readClass.py" />
@@ -188,9 +198,11 @@
         <option value="$PROJECT_DIR$/data_convert_cache/run.sh" />
         <option value="$PROJECT_DIR$/dataetl/etl_func.py" />
         <option value="$PROJECT_DIR$/data_compute/test.py" />
-        <option value="$PROJECT_DIR$/data_compute/compute_func.py" />
         <option value="$PROJECT_DIR$/data_compute/compute_configuration_prod.py" />
         <option value="$PROJECT_DIR$/dataetl/etl_configuration_prod.py" />
+        <option value="$PROJECT_DIR$/data_compute/compute_func.py" />
+        <option value="$PROJECT_DIR$/help_test/hbaseTest.py" />
+        <option value="$PROJECT_DIR$/data_compute/compute.py" />
       </list>
     </option>
   </component>
@@ -238,6 +250,11 @@
             <path>
               <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
               <item name="prodrec" type="462c0819:PsiDirectoryNode" />
+              <item name="help_test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="prodrec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prodrec" type="462c0819:PsiDirectoryNode" />
               <item name="model_test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -275,7 +292,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.hbaseTest">
     <configuration name="compute" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="prodrec" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -294,6 +311,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="hbaseTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="prodrec" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/help_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/help_test/hbaseTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="kafka_send_data_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="prodrec" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -307,24 +342,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model_test/kafka_send_data_test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="return_normal_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="prodrec" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_convert_cache" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_convert_cache/return_normal_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -367,19 +384,19 @@
       <option name="MODULE_MODE" value="false" />
     </configuration>
     <list>
-      <item itemvalue="Python.return_normal_data" />
       <item itemvalue="Python.compute" />
       <item itemvalue="Python.send_foot_data" />
       <item itemvalue="Python.kafka_send_data_test" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.hbaseTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.hbaseTest" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.kafka_send_data_test" />
         <item itemvalue="Python.send_foot_data" />
         <item itemvalue="Python.compute" />
-        <item itemvalue="Python.return_normal_data" />
       </list>
     </recent_temporary>
   </component>
@@ -403,11 +420,11 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21917808" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27193934" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19176598" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.14734562" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.29469123" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.29469123" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -437,7 +454,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/compute/test.py" />
     <entry file="file://$PROJECT_DIR$/dataetl/test.py" />
     <entry file="file://D:/software426/Python/Python36/Lib/site-packages/happybase/batch.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -688,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataetl/etl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-13">
@@ -725,34 +734,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_compute/compute_func.py">
+    <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_compute/compute.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="283" column="32" lean-forward="true" selection-start-line="283" selection-start-column="32" selection-end-line="283" selection-end-column="32" />
-          <folding>
-            <element signature="e#46#58#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-354">
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_compute/compute_configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="374">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataetl/etl_configuration_prod.py">
+    <entry file="file://$PROJECT_DIR$/data_convert_cache/configuration_prod.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        <state relative-caret-position="306">
+          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/help_test/hbaseTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_compute/compute_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+          <folding>
+            <element signature="e#46#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_compute/compute.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="379" column="104" lean-forward="true" selection-start-line="379" selection-start-column="104" selection-end-line="379" selection-end-column="104" />
+          <folding>
+            <element signature="e#46#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
